@@ -6,9 +6,9 @@ import CustomButton from '../../../components/CustomButton'
 const Welcome = () => {
   return (
     <View>
-      {/* <Text>cha cjbcjbt</Text> */}
-      {/* <CustomText label="fbvf ck nckn ckn ckjb"/> */}
-      <CustomButton title="chvbcdjhcv"/>
+      <Text style={{color:"red",fontFamily:"bold"}}>
+        jdncjdncj
+      </Text>
     </View>
   )
 }
