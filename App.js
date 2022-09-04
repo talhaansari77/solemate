@@ -9,8 +9,8 @@ LogBox.ignoreAllLogs();
 
 export default function App() {
   return (
-    // <Provider store={store}>
+    //  <Provider store={store}>
       <RootNavigator />
-    // </Provider>
+  //  </Provider>
   );
 }
