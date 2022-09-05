@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import base from "../../screens/home/base";
@@ -6,7 +6,10 @@ import profile from "../../screens/home/profile";
 import search from "../../screens/home/search";
 import favorite from "../../screens/home/favorite";
 import chat from "../../screens/home/chat";
-import { verticalScale } from "react-native-size-matters";
+import icons from "../../../assets/icons";
+import { moderateScale, verticalScale } from "react-native-size-matters";
+import Feather from "react-native-vector-icons/Feather";
+import { colors } from "../../utils/Colors";
 
 const MainStack = () => {
   const Tab = createBottomTabNavigator();
@@ -31,38 +34,38 @@ const MainStack = () => {
 
         tabBarIcon: ({ focused, size, color }) => {
           let iconName;
-          if (route.name === 'Profile') {
-            iconName = 'autoprefixer';
+          if (route.name === "Profile") {
+            iconName = "user";
             size = focused ? 25 : 20;
-            // color = focused ? color.primary : '#555';
-          } else if (route.name === 'Screen_B') {
-            iconName = 'btc';
+          } else if (route.name === "Chat") {
+            iconName = "phone";
             size = focused ? 25 : 20;
-            // color = focused ? '#f0f' : '#555';
+          } else if (route.name === "Home") {
+            iconName = "home";
+            size = focused ? 25 : 20;
+          } else if (route.name === "Favorite") {
+            iconName = "heart";
+            size = focused ? 25 : 20;
+          } else if (route.name === "Search") {
+            iconName = "search";
+            size = focused ? 25 : 20;
           }
+
           return (
-            <></>
-            // <FontAwesome5
-            //   name={iconName}
-            //   size={size}
-            //   color={color}
-            // />
-          )
-        }
+            <Feather name={iconName} size={moderateScale(size)} color={color} />
+          );
+        },
       })}
       tabBarOptions={{
-        
-        activeTintColor: '#f0f',
-        inactiveTintColor: '#555',
-        activeBackgroundColor: '#fff',
-        inactiveBackgroundColor: '#999',
-        showLabel: true,
-        labelStyle: { fontSize: 14 },
+        activeTintColor: colors.primary,
+        inactiveTintColor: "#000",
+        activeBackgroundColor: "#fff",
+        // showLabel: false,   
         showIcon: true,
       }}
-      activeColor='#f0edf6'
-      inactiveColor='#3e2465'
-      barStyle={{ backgroundColor: '#694fad' }}
+      activeColor="#f0edf6"
+      inactiveColor="#3e2465"
+      barStyle={{ backgroundColor: "#694fad" }}
       initialRouteName="Profile"
     >
       <Tab.Screen name="Search" component={search} />

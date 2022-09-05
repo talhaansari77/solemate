@@ -41,6 +41,7 @@ const icons = {
     profileIcon02:require('./Profile_02.png'),
     qrIcon:require('./QR_icon.png'),
     rightArrowBlack:require('./rightArrowBlack.png')
+
 }
 
 export default icons;
