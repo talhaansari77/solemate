@@ -9,5 +9,6 @@ export const colors = {
   red:"red",
   lightGray:"#BDC9E0",
   facebookBlue:"#3E6AB2",
-  googleGreen:"#39A751"
+  googleGreen:"#39A751",
+  blue: "blue",
 };

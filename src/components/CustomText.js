@@ -37,9 +37,12 @@ function CustomText(props) {
             marginVertical:verticalScale(props.marginVertical || 0),
             textAlign:props.textAlign,
             textDecorationLine:props.textDecorationLine,   
-            textDecorationColor:props.textDecorationColor
+            textDecorationColor:props.textDecorationColor,
             // text-decoration-color: "red";
        
+
+            textDecorationLine:props.textDecorationLine, 
+                  
           },
           props.textStyle,
         ]}

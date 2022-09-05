@@ -19,6 +19,7 @@ const commonStyles = ScaledSheet.create({
     padding: 15,
     alignItems: "center",
     justifyContent: "center",
+    
   },
   rowContainer: {
     justifyContent: "center",
@@ -49,6 +50,10 @@ const commonStyles = ScaledSheet.create({
   commonMain:{
     flex:1,
     backgroundColor:"white"
+  },
+  center:{
+    justifyContent: "center",
+    alignItems: "center",
   }
 });
 
