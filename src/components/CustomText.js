@@ -18,13 +18,14 @@ function CustomText(props) {
       <Text
         style={[
           {
-            fontSize: props.fontSize || verticalScale(10),
+            fontSize: verticalScale(props.fontSize||10),
             color: props.color || colors.black,
             marginTop: verticalScale(props.marginTop || 0),
             marginBottom: verticalScale(props.marginBottom || 0),
             margin: moderateScale(props.margin || 0),
             marginLeft: scale(props.marginLeft || 0),
             marginRight: scale(props.marginRight || 0),
+            marginBottom: scale(props.marginBottom || 0),
             alignSelf: props.alignSelf || 'flex-start',
             fontWeight: props.fontWeight,
             fontStyle: props.fontStyle,
