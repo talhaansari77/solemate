@@ -4,12 +4,16 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Welcome from "../../screens/auth/welcome";
 import login from "../../screens/auth/login";
 import signup from "../../screens/auth/signup";
+import OnBoarding from "../../screens/auth/onBoarding/OnBoarding";
+import ViewPager from "../../screens/auth/ViewPager";
 
 const AuthStack = () => {
   const Stack = createStackNavigator();
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="OnBoarding" component={OnBoarding} />
       <Stack.Screen name="Welcome" component={Welcome} />
+      <Stack.Screen name="ViewPager" component={ViewPager} />
       <Stack.Screen name="Login" component={login} />
       <Stack.Screen name="Signup" component={signup} />
     </Stack.Navigator>

@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import React from 'react';
 import { verticalScale, scale, moderateScale } from 'react-native-size-matters';
 // import colors from '../../Utils/colors';
-import { colors } from '../utils/Colors';
+import { appColors } from '../utils/Colors';
 function CustomText(props) {
   return (
     <TouchableOpacity
@@ -19,7 +19,7 @@ function CustomText(props) {
         style={[
           {
             fontSize: props.fontSize || verticalScale(10),
-            color: props.color || colors.black,
+            color: props.color || appColors.black,
             marginTop: verticalScale(props.marginTop || 0),
             marginBottom: verticalScale(props.marginBottom || 0),
             margin: moderateScale(props.margin || 0),
@@ -34,7 +34,10 @@ function CustomText(props) {
             ellipsizeMode: props.ellipsizeMode,
             marginVertical:verticalScale(props.marginVertical || 0),
             textAlign:props.textAlign,
-            textDecorationLine:props.textDecorationLine,          
+            textDecorationLine:props.textDecorationLine,   
+            textDecorationColor:props.textDecorationColor
+            // text-decoration-color: "red";
+       
           },
           props.textStyle,
         ]}

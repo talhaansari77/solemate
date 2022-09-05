@@ -13,14 +13,24 @@ import {
   verticalScale,
 } from 'react-native-size-matters';
 // import colors from '../../utils/colors';
-import { colors } from '../utils/Colors';
+import { appColors } from '../utils/Colors';
 // import images from '../assets/icons';
 // import CustomText from 'components/CustomText';
 import CustomText from './CustomText';
 
-const CustomTextInput = ({eyeClick,password,setEyeClick,error,...props}) => {
+const CustomTextInput = ({eyeClick,password,setEyeClick,error,withLabel,...props}) => {
   return (
     <View>
+       {withLabel ? (
+        <CustomText
+          label={withLabel}
+          color={appColors.gray}
+          fontFamily="regular"
+          fontSize={verticalScale(12)}
+          // marginTop={marginTop}
+          marginBottom={verticalScale(10)}
+        />
+      ) : null}
 
     <TouchableOpacity
       onPress={props.onPress}
@@ -28,11 +38,13 @@ const CustomTextInput = ({eyeClick,password,setEyeClick,error,...props}) => {
       style={[
         {
           width: props.width || '100%',
-          height: props.height || verticalScale(40),
-          borderRadius: props.borderRadius || moderateScale(20),
-          backgroundColor: props.backgroundColor || colors.lightGray,
+          height: props.height || verticalScale(50),
+          borderRadius: props.borderRadius || moderateScale(15),
+          backgroundColor: props.backgroundColor || appColors.white,
           marginTop: props.marginTop || verticalScale(0),
           flexDirection: 'row',
+        borderColor:props.borderColor || appColors.primary,
+        borderWidth:1.3,
           alignItems: 'center',
           paddingLeft: props.paddingLeft,
         },
@@ -42,7 +54,7 @@ const CustomTextInput = ({eyeClick,password,setEyeClick,error,...props}) => {
           style={{
             width: moderateScale(20),
             height: verticalScale(15),
-            tintColor: colors.gray,
+            tintColor: appColors.gray,
           }}
           resizeMode="contain"
           source={props.icon}
@@ -51,10 +63,12 @@ const CustomTextInput = ({eyeClick,password,setEyeClick,error,...props}) => {
       <TextInput
         style={[
           {
-            width: props.inputWidth || password ? '80%' : '89%',
+            width: props.inputWidth || password ? '80%' : '95%',
             height: props.inputHeight || '100%',
-            marginLeft: props.inputLeftMargin,
-            paddingRight:props.paddingRight ||  10
+            marginLeft: props.inputLeftMargin || 10,
+            paddingRight:props.paddingRight ||  10,
+            fontFamily:"bold",
+            fontSize:verticalScale(13)
           },
         ]}
         onChangeText={props.onChangeText}
@@ -87,7 +101,7 @@ const CustomTextInput = ({eyeClick,password,setEyeClick,error,...props}) => {
         childern="*"
         
         fontSize={verticalScale(10)}
-        color={colors.red}
+        color={appColors.red}
         fontWeight="600"
         marginTop={verticalScale(5)}
       />
@@ -105,6 +119,6 @@ const styles = ScaledSheet.create({
   icon: {
     width: '20@s',
     height: '15@vs',
-    tintColor: colors.gray,
+    tintColor: appColors.gray,
   },
 });
