@@ -35,7 +35,8 @@ function CustomText(props) {
             ellipsizeMode: props.ellipsizeMode,
             marginVertical:verticalScale(props.marginVertical || 0),
             textAlign:props.textAlign,
-            textDecorationLine:props.textDecorationLine,          
+            textDecorationLine:props.textDecorationLine, 
+                  
           },
           props.textStyle,
         ]}
