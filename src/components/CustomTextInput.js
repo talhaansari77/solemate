@@ -13,10 +13,15 @@ import {
   verticalScale,
 } from 'react-native-size-matters';
 // import colors from '../../utils/colors';
-import { appColors } from '../utils/Colors';
+import { colors } from '../utils/Colors';
 // import images from '../assets/icons';
 // import CustomText from 'components/CustomText';
 import CustomText from './CustomText';
+import { Ionicons, } from '@expo/vector-icons'; 
+
+
+
+
 
 const CustomTextInput = ({eyeClick,password,setEyeClick,error,withLabel,...props}) => {
   return (
@@ -24,9 +29,9 @@ const CustomTextInput = ({eyeClick,password,setEyeClick,error,withLabel,...props
        {withLabel ? (
         <CustomText
           label={withLabel}
-          color={appColors.gray}
+          color={colors.gray}
           fontFamily="regular"
-          fontSize={verticalScale(12)}
+          fontSize={verticalScale(10)}
           // marginTop={marginTop}
           marginBottom={verticalScale(10)}
         />
@@ -40,10 +45,10 @@ const CustomTextInput = ({eyeClick,password,setEyeClick,error,withLabel,...props
           width: props.width || '100%',
           height: props.height || verticalScale(50),
           borderRadius: props.borderRadius || moderateScale(15),
-          backgroundColor: props.backgroundColor || appColors.white,
+          backgroundColor: props.backgroundColor || colors.white,
           marginTop: props.marginTop || verticalScale(0),
           flexDirection: 'row',
-        borderColor:props.borderColor || appColors.primary,
+        borderColor:props.borderColor || colors.primary,
         borderWidth:1.3,
           alignItems: 'center',
           paddingLeft: props.paddingLeft,
@@ -54,7 +59,7 @@ const CustomTextInput = ({eyeClick,password,setEyeClick,error,withLabel,...props
           style={{
             width: moderateScale(20),
             height: verticalScale(15),
-            tintColor: appColors.gray,
+            tintColor: colors.gray,
           }}
           resizeMode="contain"
           source={props.icon}
@@ -63,7 +68,7 @@ const CustomTextInput = ({eyeClick,password,setEyeClick,error,withLabel,...props
       <TextInput
         style={[
           {
-            width: props.inputWidth || password ? '80%' : '95%',
+            width: props.inputWidth || password ? '88%' : '95%',
             height: props.inputHeight || '100%',
             marginLeft: props.inputLeftMargin || 10,
             paddingRight:props.paddingRight ||  10,
@@ -83,10 +88,26 @@ const CustomTextInput = ({eyeClick,password,setEyeClick,error,withLabel,...props
       
       />
       {password ? (
-        <TouchableOpacity onPress={()=>{
+        <TouchableOpacity 
+        activeOpacity={0.6}
+        onPress={()=>{
           setEyeClick(!eyeClick)
 
         }}>
+          {
+            eyeClick?(
+              <Ionicons name="eye-off" size={moderateScale(22)} 
+              style={{opacity:0.5}}
+              color={colors.primary} />
+
+            ):
+           
+            <Ionicons name="eye" size={moderateScale(22)} 
+            style={{opacity:0.5}}
+            color={colors.primary} />
+          }
+       
+         
             {/* <Image style={styles.icon} source={eyeClick ? images.eye:images.hiddenEye } /> */}
 
 
@@ -101,7 +122,7 @@ const CustomTextInput = ({eyeClick,password,setEyeClick,error,withLabel,...props
         childern="*"
         
         fontSize={verticalScale(10)}
-        color={appColors.red}
+        color={colors.red}
         fontWeight="600"
         marginTop={verticalScale(5)}
       />
@@ -119,6 +140,6 @@ const styles = ScaledSheet.create({
   icon: {
     width: '20@s',
     height: '15@vs',
-    tintColor: appColors.gray,
+    tintColor: colors.gray,
   },
 });

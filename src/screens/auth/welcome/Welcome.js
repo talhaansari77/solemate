@@ -6,7 +6,7 @@ import welcomeImages from "../../../../assets/welocme_images";
 import commonStyles from "../../../utils/CommonStyles";
 import { Spacer } from "../../../components/Spacer";
 import { verticalScale, moderateScale } from "react-native-size-matters";
-import { appColors } from "../../../utils/Colors";
+import { colors } from "../../../utils/Colors";
 
 const Welcome = ({navigation}) => {
   return (
@@ -33,11 +33,11 @@ const Welcome = ({navigation}) => {
           <CustomText
             label="Refer. Understand.'$' Connect."
             fontFamily="regular"
-            color={appColors.white}
+            color={colors.white}
             marginTop={verticalScale(15)}
             fontSize={verticalScale(12)}
           />
-          <View style={{ height: "49%" }}></View>
+          <View style={{ height: "45%" }}></View>
           <CustomButton
             title="Login"
             fontFamily="bold"
@@ -50,13 +50,13 @@ const Welcome = ({navigation}) => {
           <CustomText
             label="Sign up"
             fontFamily="bold"
-            color={appColors.white}
+            color={colors.white}
             onPress={()=>{
               navigation.navigate("ViewPager")
 
             }}
             marginTop={verticalScale(12)}
-            fontSize={verticalScale(15)}
+            fontSize={verticalScale(12)}
           />
         </View>
       </ImageBackground>

@@ -1,6 +1,7 @@
 
 const icons = {
     smileIconGreen:require('./smile_icon_green.png'),
+    smileIcon:require('./Smile_icon_1.png'),
     starIcon:require('./Star_icon.png'),
     trashIcon:require('./Trash_icon.png'),
     logIcon:require('./Log_icon.png'),
@@ -33,7 +34,13 @@ const icons = {
     circleIcon:require('./circle-icon.png'),
     plusRoundedIcon:require('./plus_rounded-icon.png'),
     playButtonIcon:require('./play_button_icon.png'),
-    qrIcon:require('./QR_icon.png.png'),
+    heartIcon:require('./heart_icon.png'),
+    homeIcon:require('./home_icon.png'),
+    messageIcon:require('./message.png'),
+    searchIcon:require('./search_icon.png'),
+    profileIcon02:require('./Profile_02.png'),
+    qrIcon:require('./QR_icon.png'),
+    rightArrowBlack:require('./rightArrowBlack.png')
 }
 
 export default icons;

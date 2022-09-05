@@ -1,12 +1,15 @@
 import { ScaledSheet } from "react-native-size-matters";
-import { Colors } from "react-native/Libraries/NewAppScreen";
-import { appColors } from "../../../utils/Colors";
+import { colors } from "../../../utils/Colors";
+import { verticalScale } from "react-native-size-matters";
 
 export const styles=ScaledSheet.create({
     pagerView: {
-        height: "90%",
-        backgroundColor:appColors.white
+        height: "82%",
+        backgroundColor:colors.white
       },
+      bottomConatiner:{
+        flexDirection:"row",alignItems:"center",paddingTop:verticalScale(10)
+      }
     
 
 })

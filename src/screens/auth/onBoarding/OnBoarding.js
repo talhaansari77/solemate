@@ -4,7 +4,7 @@ import OnBoardContainer from "./OnBoardContainer";
 import AppIntroSlider from "react-native-app-intro-slider";
 import welcomeImages from "../../../../assets/welocme_images";
 import { moderateScale, ScaledSheet } from "react-native-size-matters";
-import { appColors } from "../../../utils/Colors";
+import { colors } from "../../../utils/Colors";
 import { verticalScale } from "react-native-size-matters";
 import CustomText from "../../../components/CustomText";
 import { Spacer } from "../../../components/Spacer";
@@ -105,22 +105,22 @@ const OnBoarding = ({ navigation }) => {
               <CustomText
                 label={item.title}
                 fontFamily="bold"
-                fontSize={verticalScale(22)}
+                fontSize={verticalScale(16)}
               />
               <Spacer height={verticalScale(10)} />
               <View style={{ flexDirection: "row" }}>
                 <CustomText
                   label={item.text1}
                   fontFamily="regular"
-                  color={appColors.gray}
-                  fontSize={verticalScale(14)}
+                  color={colors.gray}
+                  fontSize={verticalScale(12)}
                 />
                 <CustomText
                   label={item.privacy}
                   fontFamily="regular"
                   textDecorationLine={true}
-                  color={appColors.gray}
-                  fontSize={verticalScale(14)}
+                  color={colors.gray}
+                  fontSize={verticalScale(12)}
                   textDecorationColor="black"
                 />
               </View>
@@ -128,27 +128,27 @@ const OnBoarding = ({ navigation }) => {
                 <CustomText
                   label="and "
                   fontFamily="regular"
-                  color={appColors.gray}
-                  fontSize={verticalScale(14)}
+                  color={colors.gray}
+                  fontSize={verticalScale(12)}
                 />
                 <CustomText
                   label={item.regarding}
                   fontFamily="regular"
-                  color={appColors.gray}
-                  fontSize={verticalScale(14)}
+                  color={colors.gray}
+                  fontSize={verticalScale(12)}
                   textDecorationColor="black"
                   textDecorationLine={true}
                 />
                 <CustomText
                   label={item.text2}
                   fontFamily="regular"
-                  color={appColors.gray}
-                  fontSize={verticalScale(14)}
+                  color={colors.gray}
+                  fontSize={verticalScale(12)}
                 />
               </View>
               <View
                 style={{
-                  marginTop: verticalScale(40),
+                  marginTop: verticalScale(20),
                   width: "100%",
                   alignItems: "center",
                 }}
@@ -171,7 +171,7 @@ const OnBoarding = ({ navigation }) => {
                 <CustomText
                   label="Skip"
                   fontFamily="bold"
-                  color={appColors.primary}
+                  color={colors.primary}
                   marginTop={verticalScale(10)}
                   fontSize={verticalScale(14)}
                 />
@@ -204,28 +204,28 @@ const styles = ScaledSheet.create({
   dotInactive: {
     width: "8@s",
     height: "8@s",
-    backgroundColor: appColors.gray,
+    backgroundColor: colors.gray,
     borderRadius: "25@s",
     marginHorizontal: "5@s",
   },
   dotactive1: {
     width: "8@s",
     height: "8@s",
-    backgroundColor: appColors.primary,
+    backgroundColor: colors.primary,
     borderRadius: "99@s",
     marginHorizontal: "5@s",
   },
   dotactive2: {
     width: "35@s",
     height: "8@s",
-    backgroundColor: appColors.primary,
+    backgroundColor: colors.primary,
     borderRadius: "99@s",
     marginHorizontal: "5@s",
   },
   dotactive3: {
     width: "45@s",
     height: "8@s",
-    backgroundColor: appColors.primary,
+    backgroundColor: colors.primary,
     borderRadius: "99@s",
     marginHorizontal: "5@s",
   },
