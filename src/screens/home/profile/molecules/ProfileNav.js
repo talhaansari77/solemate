@@ -13,7 +13,7 @@ const ProfileNav = () => {
         <Ionicons name="ios-arrow-back" size={30} />
       </TouchableOpacity>
       <TouchableOpacity>
-        <CustomText fontSize={14} color={colors.primary} fontWeight={"bold"}>
+        <CustomText fontSize={14} color={colors.primary} fontFamily={'bold'}>
           Done
         </CustomText>
       </TouchableOpacity>

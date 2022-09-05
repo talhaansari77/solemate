@@ -10,6 +10,8 @@ import icons from "../../../assets/icons";
 import { moderateScale, verticalScale } from "react-native-size-matters";
 import Feather from "react-native-vector-icons/Feather";
 import { colors } from "../../utils/Colors";
+import EditProfile from "../../screens/home/editProfile/EditProfile";
+import interests from "../../screens/home/interests";
 
 const MainStack = () => {
   const Tab = createBottomTabNavigator();
@@ -31,7 +33,10 @@ const MainStack = () => {
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarShowLabel: false,
-
+        tabBarStyle: {
+          backgroundColor: "#fff",
+          height: verticalScale(70),
+        },
         tabBarIcon: ({ focused, size, color }) => {
           let iconName;
           if (route.name === "Profile") {
@@ -60,12 +65,9 @@ const MainStack = () => {
         activeTintColor: colors.primary,
         inactiveTintColor: "#000",
         activeBackgroundColor: "#fff",
-        // showLabel: false,   
+        // showLabel: false,
         showIcon: true,
       }}
-      activeColor="#f0edf6"
-      inactiveColor="#3e2465"
-      barStyle={{ backgroundColor: "#694fad" }}
       initialRouteName="Profile"
     >
       <Tab.Screen name="Search" component={search} />
@@ -73,6 +75,14 @@ const MainStack = () => {
       <Tab.Screen name="Home" component={base} />
       <Tab.Screen name="Chat" component={chat} />
       <Tab.Screen name="Profile" component={profile} />
+      {/* <Tab.Screen
+        options={{
+          tabBarItemStyle: { display: "none" },
+        }}
+        name="EditProfile"
+        component={EditProfile}
+      /> */}
+      {/* <Tab.Screen name="Profile" component={interests} /> */}
     </Tab.Navigator>
   );
 };

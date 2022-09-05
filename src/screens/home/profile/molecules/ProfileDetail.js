@@ -11,39 +11,51 @@ const ProfileDetail = () => {
   return (
     <>
       <Row>
-        <CustomText fontSize={scale(14)} color={colors.gray}>
+        <CustomText
+          fontSize={scale(14)}
+          color={colors.gray}
+          fontFamily={"regular"}
+        >
           Name
         </CustomText>
         <CustomText
-          fontSize={scale(15)}
+          fontSize={scale(16)}
           color={colors.black}
-          fontWeight={"800"}
+          fontFamily={"bold"}
         >
           Scarlet Witch
         </CustomText>
       </Row>
       <Spacer height={30} />
       <Row>
-        <CustomText fontSize={scale(14)} color={colors.gray}>
+        <CustomText
+          fontSize={scale(14)}
+          color={colors.gray}
+          fontFamily={"regular"}
+        >
           Gender
         </CustomText>
         <CustomText
-          fontSize={scale(15)}
+          fontSize={scale(16)}
           color={colors.black}
-          fontWeight={"800"}
+          fontFamily={"bold"}
         >
           Female
         </CustomText>
       </Row>
       <Spacer height={30} />
       <Row>
-        <CustomText fontSize={scale(14)} color={colors.gray}>
+        <CustomText
+          fontSize={scale(14)}
+          color={colors.gray}
+          fontFamily={"regular"}
+        >
           Date of birth
         </CustomText>
         <CustomText
-          fontSize={scale(15)}
+          fontSize={scale(16)}
           color={colors.black}
-          fontWeight={"800"}
+          fontFamily={"bold"}
         >
           16.06.1995
         </CustomText>

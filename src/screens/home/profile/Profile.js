@@ -15,7 +15,7 @@ const Profile = () => {
     <Container>
       <ProfileNav />
       <Spacer height={10} />
-      <CustomText fontSize={24} color={colors.black} fontWeight={"bold"}>
+      <CustomText fontSize={24} color={colors.black} fontFamily={'bold'}>
         Edit Profile
       </CustomText>
       <Spacer height={40} />
@@ -29,7 +29,7 @@ const Profile = () => {
 
 export default Profile;
 
-const Container = styled(SafeAreaView, {
+export const Container = styled(SafeAreaView, {
   padding: moderateScale(25),
   flex: 1,
 });
