@@ -33,7 +33,7 @@ const icons = {
     circleIcon:require('./circle-icon.png'),
     plusRoundedIcon:require('./plus_rounded-icon.png'),
     playButtonIcon:require('./play_button_icon.png'),
-    qrIcon:require('./QR_icon.png.png'),
+    qrIcon:require('./QR_icon.png'),
 }
 
 export default icons;
