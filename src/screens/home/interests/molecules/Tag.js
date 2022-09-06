@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, Dimensions } from "react-native";
 import React, { useState } from "react";
 import styled from "react-native-styled-components";
-import { moderateScale, scale, verticalScale } from "react-native-size-matters";
+import { moderateScale, scale, verticalScale,s } from "react-native-size-matters";
 import { colors } from "../../../../utils/Colors";
 import CustomText from "../../../../components/CustomText";
 
@@ -10,7 +10,7 @@ const Tag = ({name}) => {
     borderWidth: 1,
     borderColor: colors.primary,
     borderRadius: moderateScale(14),
-    width: Dimensions.get("window").width / 3 - 35,
+    width: '27%',
     justifyContent: "center",
     alignItems: "center",
     marginVertical: verticalScale(5),

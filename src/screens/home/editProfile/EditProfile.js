@@ -28,9 +28,9 @@ import Foot from "./molecules/Foot";
 import { useNavigation } from "@react-navigation/native";
 
 const EditProfile = () => {
-  
   return (
     <Container>
+      <Spacer height={15} />
       <ProfileNav />
       <ScrollView showsVerticalScrollIndicator={false}>
         <Spacer height={10} />

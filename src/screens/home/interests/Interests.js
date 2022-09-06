@@ -6,13 +6,13 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useState } from "react";
-import { Container } from "../profile/Profile";
 import CustomText from "../../../components/CustomText";
 import { colors } from "../../../utils/Colors";
 import { Spacer } from "../../../components/Spacer";
 import styled from "react-native-styled-components";
 import { moderateScale, scale, verticalScale } from "react-native-size-matters";
 import Tag from "./molecules/Tag";
+import { Container } from "../profile/Profile";
 
 const Interests = () => {
   const [interests, setInterests] = useState([
@@ -34,9 +34,7 @@ const Interests = () => {
     { id: 17, name: "travel", status: false },
     { id: 18, name: "art", status: false },
   ]);
- 
 
-  
   const InterestsBox = styled(View, {
     display: "flex",
     flexDirection: "row",
@@ -44,22 +42,22 @@ const Interests = () => {
   });
 
   return (
-    <Container>
-      <Spacer height={30} />
-      <CustomText fontSize={24} fontWeight={"800"}>
-        My Interests
-      </CustomText>
-      <Spacer height={10} />
+      <Container>
+        <Spacer height={30} />
+        <CustomText fontFamily={"bold"} fontSize={24}>
+          My Interests
+        </CustomText>
+        <Spacer height={10} />
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <InterestsBox>
-          {interests.map((item, index) => (
-            // <CustomImage src={avatar}/>
-            <Tag name={item.name}/>
-          ))}
-        </InterestsBox>
-      </ScrollView>
-    </Container>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <InterestsBox>
+            {interests.map((item, index) => (
+              // <CustomImage src={avatar}/>
+              <Tag name={item.name} />
+            ))}
+          </InterestsBox>
+        </ScrollView>
+      </Container>
   );
 };
 

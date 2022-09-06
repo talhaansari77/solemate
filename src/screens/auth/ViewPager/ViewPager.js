@@ -6,6 +6,7 @@ import { styles } from "./styles";
 import Signup from "../signup/Signup";
 import AdditionInfo from "../AdditionInfo";
 import CustomButton from "../../../components/CustomButton";
+import Interests from '../../home/interests'
 import { verticalScale, moderateScale } from "react-native-size-matters";
 import { colors } from "../../../utils/Colors";
 import CustomText from "../../../components/CustomText";
@@ -33,10 +34,13 @@ const ViewPager = () => {
         <View key="2">
           <AdditionInfo />
         </View>
+        <View key="3">
+          <Interests />
+        </View>
       </PagerView>
       <View style={{ alignItems: "center", padding: 10 }}>
         <CustomButton
-          title="Login"
+          title="Continue"
           fontFamily="bold"
           width="90%"
           opacity={0.4}

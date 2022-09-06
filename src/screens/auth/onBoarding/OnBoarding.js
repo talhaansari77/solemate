@@ -80,7 +80,7 @@ const OnBoarding = ({ navigation }) => {
                 <Image
                   source={item.image}
                   style={styles.img}
-                  resizeMode="stretch"
+                  resizeMode="contain"
                 />
               </View>
               <View style={{ flexDirection: "row", marginVertical: 30 }}>
