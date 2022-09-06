@@ -17,10 +17,25 @@ import { colors } from '../utils/Colors';
 // import images from '../assets/icons';
 // import CustomText from 'components/CustomText';
 import CustomText from './CustomText';
+import { Ionicons, } from '@expo/vector-icons'; 
 
-const CustomTextInput = ({eyeClick,password,setEyeClick,error,...props}) => {
+
+
+
+
+const CustomTextInput = ({eyeClick,password,setEyeClick,error,withLabel,...props}) => {
   return (
     <View>
+       {withLabel ? (
+        <CustomText
+          label={withLabel}
+          color={colors.gray}
+          fontFamily="regular"
+          fontSize={verticalScale(10)}
+          // marginTop={marginTop}
+          marginBottom={verticalScale(10)}
+        />
+      ) : null}
 
     <TouchableOpacity
       onPress={props.onPress}
@@ -28,11 +43,13 @@ const CustomTextInput = ({eyeClick,password,setEyeClick,error,...props}) => {
       style={[
         {
           width: props.width || '100%',
-          height: props.height || verticalScale(40),
-          borderRadius: props.borderRadius || moderateScale(20),
-          backgroundColor: props.backgroundColor || colors.lightGray,
+          height: props.height || verticalScale(50),
+          borderRadius: props.borderRadius || moderateScale(15),
+          backgroundColor: props.backgroundColor || colors.white,
           marginTop: props.marginTop || verticalScale(0),
           flexDirection: 'row',
+        borderColor:props.borderColor || colors.primary,
+        borderWidth:1.3,
           alignItems: 'center',
           paddingLeft: props.paddingLeft,
         },
@@ -51,10 +68,12 @@ const CustomTextInput = ({eyeClick,password,setEyeClick,error,...props}) => {
       <TextInput
         style={[
           {
-            width: props.inputWidth || password ? '80%' : '89%',
+            width: props.inputWidth || password ? '88%' : '95%',
             height: props.inputHeight || '100%',
-            marginLeft: props.inputLeftMargin,
-            paddingRight:props.paddingRight ||  10
+            marginLeft: props.inputLeftMargin || 10,
+            paddingRight:props.paddingRight ||  10,
+            fontFamily:"bold",
+            fontSize:verticalScale(13)
           },
         ]}
         onChangeText={props.onChangeText}
@@ -69,10 +88,26 @@ const CustomTextInput = ({eyeClick,password,setEyeClick,error,...props}) => {
       
       />
       {password ? (
-        <TouchableOpacity onPress={()=>{
+        <TouchableOpacity 
+        activeOpacity={0.6}
+        onPress={()=>{
           setEyeClick(!eyeClick)
 
         }}>
+          {
+            eyeClick?(
+              <Ionicons name="eye-off" size={moderateScale(22)} 
+              style={{opacity:0.5}}
+              color={colors.primary} />
+
+            ):
+           
+            <Ionicons name="eye" size={moderateScale(22)} 
+            style={{opacity:0.5}}
+            color={colors.primary} />
+          }
+       
+         
             {/* <Image style={styles.icon} source={eyeClick ? images.eye:images.hiddenEye } /> */}
 
 

@@ -14,6 +14,9 @@ const RootNavigator = () => {
         initialRouteName="SettingStack"
       >
         <Stack.Screen name="AuthStack" component={AuthStack} />
+
+        {/* <Stack.Screen name="MainStack" component={MainStack} /> */}
+
         <Stack.Screen name="MainStack" component={MainStack} />
         <Stack.Screen name="SettingStack" component={SettingStack} />
       </Stack.Navigator>

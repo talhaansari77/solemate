@@ -16,7 +16,7 @@ const Settings = () => {
         </CustomText>
         </View>
     </TouchableOpacity>
-
+    
     <TouchableOpacity  activeOpacity={0.6}>
       <View>
         <CustomText fontSize={28} fontWeight={'700'} marginLeft={18} marginBottom={35} marginTop={20}  >
