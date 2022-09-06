@@ -1,5 +1,4 @@
 import icons from '../../../../../assets/icons'
-
 const SettingsArray = [
     {
         id: 1,
