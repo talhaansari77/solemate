@@ -7,7 +7,7 @@ import MainSettingsArray from "./molecules/MainSettingsArray";
 import { verticalScale, scale, moderateScale } from 'react-native-size-matters';
 
 
-function MainSettings() {
+function MainSettings({navigation}) {
   return (
     <Container>
     <TouchableOpacity>
@@ -28,7 +28,8 @@ function MainSettings() {
 
       {MainSettingsArray.map((settings, index) => {
         return (
-    <TouchableOpacity>
+            // onPress={() => navigation.navigate("MainSettings")}
+    <TouchableOpacity onPress={() => navigation.navigate('Settings')} >
           <View style={{ flexDirection: "row", paddingBottom: 38, marginLeft: 20, }}>
             <Image style={{marginRight: scale(10), marginTop: verticalScale(5)} } source={settings.icon} />
             <CustomText fontSize={15} >{settings.name}</CustomText>

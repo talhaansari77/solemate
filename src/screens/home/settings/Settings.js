@@ -9,7 +9,7 @@ import { verticalScale, scale, moderateScale } from 'react-native-size-matters';
 const Settings = () => {
   return (
     <Container>
-    <TouchableOpacity>
+    <TouchableOpacity activeOpacity={0.6}>
       <View>
         <CustomText fontSize={16} fontWeight={'700'} alignSelf={'flex-end'} marginRight={12} marginTop={10} color={'green'}  >
         Done
@@ -17,7 +17,7 @@ const Settings = () => {
         </View>
     </TouchableOpacity>
 
-    <TouchableOpacity>
+    <TouchableOpacity  activeOpacity={0.6}>
       <View>
         <CustomText fontSize={28} fontWeight={'700'} marginLeft={18} marginBottom={35} marginTop={20}  >
         Settings
@@ -27,7 +27,7 @@ const Settings = () => {
 
         {SettingsArray.map((settings, index) => {
           return (
-      <TouchableOpacity>
+      <TouchableOpacity  activeOpacity={0.6}>
             <View style={{ flexDirection: "row", paddingBottom: 38, marginLeft: 20, }}>
               <Image style={{marginRight: scale(10), marginTop: verticalScale(5)}} source={settings.icon} />
               <CustomText fontSize={15} >{settings.name}</CustomText>

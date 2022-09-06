@@ -15,7 +15,7 @@ import ToggleSwitch from "toggle-switch-react-native";
 import icons from '../../../../assets/icons'
 import {Divider} from 'react-native-elements'
 
-function GeneralSettings() {
+function GeneralSettings({navigation}) {
   const [isOn, setisOn] = useState({
     global: false,
     withProfile: false,
@@ -53,7 +53,7 @@ function GeneralSettings() {
           </CustomText>
         </View>
         </TouchableOpacity>
-        
+
         <TouchableOpacity>
         <DirectionRow >
           <CustomText fontSize={14} fontWeight={"700"} marginTop={-5}>
@@ -149,7 +149,7 @@ function GeneralSettings() {
 
       <Divider />
       <Container>
-        <TouchableOpacity>
+        <TouchableOpacity  onPress={() => navigation.navigate("MainSettings")}>
         <WithSwitch>
             <CustomText fontSize={14} fontWeight={"700"} marginTop={5}>
             Profile management
