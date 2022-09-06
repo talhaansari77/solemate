@@ -4,8 +4,7 @@ import { TouchableOpacity, Text, StyleSheet, View, ActivityIndicator } from 'rea
 import { ScaledSheet, verticalScale, scale, moderateScale } from 'react-native-size-matters';
 
 // import { ActivityIndicator } from "react-native-paper";
-import { colors } from '../utils/Colors';
-
+import { colors } from '../utils/Colors'; 
 function CustomButton({
   loading,
   title,
@@ -23,7 +22,8 @@ function CustomButton({
   backgroundColor,
   fontFamily,
   marginBottom,
-  marginHorizontal
+  marginHorizontal,
+  opacity
 }) {
   return (
     <TouchableOpacity
@@ -37,6 +37,7 @@ function CustomButton({
           borderColor: borderColor ,
           borderRadius: borderRadius || 8,
           // borderWidth: borderWidth || 1.2,
+          opacity:opacity,
           alignItems: alignItems || 'center',
           justifyContent: justifyContent || 'center',
           marginTop,
@@ -49,13 +50,13 @@ function CustomButton({
       {loading ? (
         <ActivityIndicator color={colors.white} size={moderateScale(26)} />
       ) : (
-        <View style={{ flexDirection: 'row' }}>
+        <View style={{ flexDirection: 'row', }}>
           <Text
             style={[
               {
                 color: color || colors.white,
-                fontSize: verticalScale(14),
-                fontFamily: fontFamily || '600',
+                fontSize: verticalScale(15),
+                fontFamily: fontFamily 
               },
             ]}
           >

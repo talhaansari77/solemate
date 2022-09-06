@@ -18,6 +18,9 @@ export default function App() {
   const [loaded] = useFonts({
     regular: require("./assets/Fonts/ProximaNova_Regular.otf"),
     bold: require("./assets/Fonts/ProximaNova_Bold.otf"),
+    extra: require("./assets/Fonts/ProximaNova_Extrabold.otf"),
+
+
 
  
   });

@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import AuthStack from "./AuthStack";
 import MainStack from "./MainStack";
+import SettingStack from "./SettingStack";
 
 const RootNavigator = () => {
   const Stack = createStackNavigator();
@@ -10,10 +11,14 @@ const RootNavigator = () => {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="AuthStack"
+        initialRouteName="SettingStack"
       >
         <Stack.Screen name="AuthStack" component={AuthStack} />
+
+        {/* <Stack.Screen name="MainStack" component={MainStack} /> */}
+
         <Stack.Screen name="MainStack" component={MainStack} />
+        <Stack.Screen name="SettingStack" component={SettingStack} />
       </Stack.Navigator>
     </NavigationContainer>
   );

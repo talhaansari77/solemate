@@ -47,6 +47,10 @@ const commonStyles = ScaledSheet.create({
     width: "100%",
     height: "100%",
   },
+  commonMain:{
+    flex:1,
+    backgroundColor:"white"
+  },
   center:{
     justifyContent: "center",
     alignItems: "center",

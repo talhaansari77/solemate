@@ -40,7 +40,8 @@ const icons = {
     searchIcon:require('./search_icon.png'),
     profileIcon02:require('./Profile_02.png'),
     qrIcon:require('./QR_icon.png'),
-    rightArrowBlack:require('./rightArrowBlack.png')
+    rightArrowBlack:require('./rightArrowBlack.png'),
+    langWhite:require('./langWhite.png')
 
 }
 
