@@ -13,6 +13,7 @@ import ProfilePicture from "./molecules/ProfilePicture";
 const Profile = () => {
   return (
     <Container>
+      <Spacer height={15}/>
       <ProfileNav />
       <Spacer height={10} />
       <CustomText fontSize={24} color={colors.black} fontFamily={'bold'}>
@@ -29,7 +30,8 @@ const Profile = () => {
 
 export default Profile;
 
-export const Container = styled(SafeAreaView, {
+export const Container = styled(View, {
+  width: '100%',
   padding: moderateScale(25),
   flex: 1,
 });

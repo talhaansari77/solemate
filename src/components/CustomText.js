@@ -18,8 +18,9 @@ function CustomText(props) {
       <Text
         style={[
           {
-            fontSize: verticalScale(props.fontSize||10),
+            fontSize: verticalScale(props.fontSize || 10),
             color: props.color || colors.black,
+            fontSize: verticalScale(props.fontSize||10),
             marginTop: verticalScale(props.marginTop || 0),
             marginBottom: verticalScale(props.marginBottom || 0),
             margin: moderateScale(props.margin || 0),
@@ -35,6 +36,11 @@ function CustomText(props) {
             ellipsizeMode: props.ellipsizeMode,
             marginVertical:verticalScale(props.marginVertical || 0),
             textAlign:props.textAlign,
+            textDecorationLine:props.textDecorationLine,   
+            textDecorationColor:props.textDecorationColor,
+            // text-decoration-color: "red";
+       
+
             textDecorationLine:props.textDecorationLine, 
                   
           },

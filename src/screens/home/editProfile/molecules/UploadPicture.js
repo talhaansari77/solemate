@@ -11,8 +11,8 @@ const UploadPicture = ({ height, width, marginLeft, editable = false }) => {
   
     
       const ProfileImg = styled(TouchableOpacity, (props) => ({
-        height: verticalScale(props.height || 160),
-        width: scale(props.width || 130),
+        height: verticalScale(props.height || 150),
+        width: scale(props.width || 120),
         borderRadius: 20,
         overflow: "hidden",
         backgroundColor: colors.primary,

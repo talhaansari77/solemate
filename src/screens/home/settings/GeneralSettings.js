@@ -10,12 +10,13 @@ import React, { useState } from "react";
 import styled from "react-native-styled-components";
 import { moderateScale } from "react-native-size-matters";
 import CustomText from "../../../components/CustomText";
-import MainSettingsArray from "./molecules/MainSettingsArray";
+// import MainSettingsArray from "./molecules/MainSettingsArray";
 import ToggleSwitch from "toggle-switch-react-native";
 import icons from '../../../../assets/icons'
+import { colors } from "../../../utils/Colors";
 import {Divider} from 'react-native-elements'
 
-function GeneralSettings() {
+function GeneralSettings({navigation}) {
   const [isOn, setisOn] = useState({
     global: false,
     withProfile: false,
@@ -34,7 +35,8 @@ function GeneralSettings() {
             fontWeight={"700"}
             alignSelf={"flex-end"}
             marginTop={-10}
-            color={"#167070"}
+            color={colors.primary}
+            fontFamily={'bold'}
           >
             Done
           </CustomText>
@@ -48,24 +50,26 @@ function GeneralSettings() {
             fontWeight={"700"}
             marginBottom={35}
             marginTop={17}
+            fontFamily={'bold'}
           >
             Settings
           </CustomText>
         </View>
         </TouchableOpacity>
-        
+
         <TouchableOpacity>
         <DirectionRow >
-          <CustomText fontSize={14} fontWeight={"700"} marginTop={-5}>
+          <CustomText fontFamily={'bold'} fontSize={14} fontWeight={"700"} marginTop={-5}>
             Location
           </CustomText>
 
-            <View style={{width: '95%'}}>
+            <View style={{width: '91%'}}>
           <CustomText
             fontSize={12}
-            color={"#8D8D8D"}
-            marginLeft={30}
+            color={colors.gray}
+            marginLeft={50}
             marginTop={-8}
+            fontFamily={'regular'}
           >
             Cecilia Chapman 711-2880 Nulla St. Mankato Mississippi 96522
           </CustomText>
@@ -78,14 +82,14 @@ function GeneralSettings() {
       <Container>
       <TouchableOpacity>
         <WithSwitch>
-        <CustomText fontSize={14} fontWeight={"700"} marginTop={3}>
+        <CustomText fontFamily={'bold'} fontSize={14} fontWeight={"700"} marginTop={3}>
             Global
         </CustomText>
 
         <ToggleSwitch
         isOn={isOn.global}
-        onColor="#167070"
-        offColor="#E2E2E2"
+        onColor={colors.primary}
+        offColor={colors.switchGray}
         labelStyle={{ color: "black", fontWeight: "900" }}
         size="large"
         onToggle={() => {
@@ -94,7 +98,7 @@ function GeneralSettings() {
       />
       </WithSwitch>
       
-      <CustomText fontSize={11} marginTop={10} alignSelf={'left'} color={'#8D8D8D'}>
+      <CustomText fontFamily={'regular'} fontSize={11} marginTop={10} alignSelf={'left'} color={colors.gray}>
       The global mode turns on as soon as the profiles in this location run out.
       </CustomText>
       </TouchableOpacity>
@@ -102,14 +106,14 @@ function GeneralSettings() {
 
         <TouchableOpacity>
       <WithSwitch style={{marginTop: 50}}>
-        <CustomText fontSize={14} fontWeight={"700"} marginTop={6}>
+        <CustomText fontFamily={'bold'} fontSize={14} fontWeight={"700"} marginTop={6}>
         Show me with profile
         </CustomText>
 
         <ToggleSwitch
         isOn={isOn.withProfile}
-        onColor="#167070"
-        offColor="#E2E2E2"
+        onColor={colors.primary}
+        offColor={colors.switchGray}
         labelStyle={{ color: "black", fontWeight: "900" }}
         size="large"
         onToggle={() => {
@@ -126,14 +130,14 @@ function GeneralSettings() {
       <Container>
         <TouchableOpacity>
         <WithSwitch>
-        <CustomText fontSize={14} fontWeight={"700"} marginTop={6}>
+        <CustomText fontFamily={'bold'} fontSize={14} fontWeight={"700"} marginTop={6}>
         Show me only with sticker
         </CustomText>
 
         <ToggleSwitch
         isOn={isOn.withSticker}
-        onColor="#167070"
-        offColor="#E2E2E2"
+        onColor={colors.primary}
+        offColor={colors.switchGray}
         labelStyle={{ color: "black", fontWeight: "900" }}
         size="large"
         onToggle={() => {
@@ -141,7 +145,7 @@ function GeneralSettings() {
         }}
       />
       </WithSwitch>
-      <CustomText fontSize={11} marginTop={17} alignSelf={'left'} color={'#8D8D8D'}>
+      <CustomText fontFamily={'regular'} fontSize={11} marginTop={17} alignSelf={'left'} color={colors.gray}>
       You can turn off the profile function and only turn on the sticker system. All participants will see and find you only by the sticker.      
       </CustomText>
       </TouchableOpacity>
@@ -149,13 +153,13 @@ function GeneralSettings() {
 
       <Divider />
       <Container>
-        <TouchableOpacity>
+        <TouchableOpacity  onPress={() => navigation.navigate("MainSettings")}>
         <WithSwitch>
-            <CustomText fontSize={14} fontWeight={"700"} marginTop={5}>
+            <CustomText fontFamily={'bold'} fontSize={14} fontWeight={"700"} marginTop={5}>
             Profile management
             </CustomText>
 
-            <CustomText fontSize={12} color={'#8D8D8D'} marginTop={5} marginLeft={80}>
+            <CustomText fontFamily={'regular'} fontSize={12} color={colors.gray} marginTop={5} marginLeft={80}>
                 All Settings 
             </CustomText>
             <Image style={{marginTop: 10,}} source={icons.rightArrowBlack} />

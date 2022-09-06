@@ -7,7 +7,7 @@ import search from "../../screens/home/search";
 import favorite from "../../screens/home/favorite";
 import chat from "../../screens/home/chat";
 import icons from "../../../assets/icons";
-import { moderateScale, verticalScale } from "react-native-size-matters";
+import { moderateScale, scale, verticalScale } from "react-native-size-matters";
 import Feather from "react-native-vector-icons/Feather";
 import { colors } from "../../utils/Colors";
 import EditProfile from "../../screens/home/editProfile/EditProfile";
@@ -36,6 +36,9 @@ const MainStack = () => {
         tabBarStyle: {
           backgroundColor: "#fff",
           height: verticalScale(70),
+          // justifyContent:"center",
+          // alignItems:'center'
+          // paddingHorizontal:scale(10)
         },
         tabBarIcon: ({ focused, size, color }) => {
           let iconName;
@@ -61,6 +64,21 @@ const MainStack = () => {
           );
         },
       })}
+
+      // tabBarOptions={{
+        
+      //   activeTintColor: '#f0f',
+      //   inactiveTintColor: '#555',
+      //   activeBackgroundColor: '#fff',
+      //   inactiveBackgroundColor: '#999',
+      //   showLabel: true,
+      //   labelStyle: { fontSize: 14 },
+      //   showIcon: true,
+      // }}
+      activeColor='#f0edf6'
+      inactiveColor='#3e2465'
+      barStyle={{ backgroundColor: '#694fad' }}
+
       tabBarOptions={{
         activeTintColor: colors.primary,
         inactiveTintColor: "#000",
