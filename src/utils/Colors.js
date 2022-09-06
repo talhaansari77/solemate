@@ -11,4 +11,6 @@ export const colors = {
   facebookBlue:"#3E6AB2",
   googleGreen:"#39A751",
   blue: "blue",
+  switchGray: "#E2E2E2",
+  
 };

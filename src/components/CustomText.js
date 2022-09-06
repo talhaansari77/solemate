@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity, Image,Dimensions } from 'react-native';
 import React from 'react';
 import { verticalScale, scale, moderateScale } from 'react-native-size-matters';
 // import colors from '../../Utils/colors';
@@ -18,7 +18,7 @@ function CustomText(props) {
       <Text
         style={[
           {
-            fontSize: props.fontSize || verticalScale(10),
+            fontSize: verticalScale(props.fontSize || 10),
             color: props.color || colors.black,
             fontSize: verticalScale(props.fontSize||10),
             marginTop: verticalScale(props.marginTop || 0),
@@ -50,6 +50,18 @@ function CustomText(props) {
       >
         {props.label}
         {props.children}
+        {
+         props.timer?(
+            <View style={{paddingHorizontal:5,}}> 
+            <Text style={{fontSize:verticalScale(10),color:colors.gray,}}>{props.timer}</Text>
+    
+            </View>
+
+          ):<></>
+        }
+      
+        
+
       </Text>
     </TouchableOpacity>
   );
