@@ -10,11 +10,15 @@ const Tag = ({name}) => {
     borderWidth: 1,
     borderColor: colors.primary,
     borderRadius: moderateScale(14),
-    width: '27%',
+    // width: '27%',
+    // padding: moderateScale(50),
     justifyContent: "center",
     alignItems: "center",
-    marginVertical: verticalScale(5),
-    padding: moderateScale(8),
+    marginVertical: verticalScale(7),
+    // padding: moderateScale(10),
+    paddingVertical:verticalScale(9),
+    paddingHorizontal:verticalScale(14),
+
     marginRight: scale(17),
     backgroundColor: props.backgroundColor,
   }));
@@ -31,7 +35,7 @@ const Tag = ({name}) => {
         backgroundColor={isChecked ? colors.primary : ""}
       >
         <CustomText
-          fontSize={16}
+          fontSize={14}
           fontWeight={"bold"}
           color={isChecked ? colors.white : colors.black}
         >
