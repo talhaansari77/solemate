@@ -37,7 +37,7 @@ const Signup = () => {
       <SignupWithCon />
       <Spacer height={verticalScale(20)} />
 
-      <CustomTextInput withLabel="Email adress" />
+      <CustomTextInput withLabel="Email adress" placeholder={'example@yourmail.com'} />
       <Spacer height={verticalScale(20)} />
 
       <CustomTextInput
@@ -46,6 +46,7 @@ const Signup = () => {
         secureTextEntry={eyeClick}
         eyeClick={eyeClick}
         setEyeClick={setEyeClick}
+        placeholder={'password'}
       />
       <Spacer height={verticalScale(20)} />
       <View

@@ -113,14 +113,14 @@ const OnBoarding = ({ navigation }) => {
                   label={item.text1}
                   fontFamily="regular"
                   color={colors.gray}
-                  fontSize={verticalScale(12)}
+                  fontSize={verticalScale(10)}
                 />
                 <CustomText
                   label={item.privacy}
                   fontFamily="regular"
                   textDecorationLine={true}
                   color={colors.gray}
-                  fontSize={verticalScale(12)}
+                  fontSize={verticalScale(10)}
                   textDecorationColor="black"
                 />
               </View>
@@ -129,13 +129,13 @@ const OnBoarding = ({ navigation }) => {
                   label="and "
                   fontFamily="regular"
                   color={colors.gray}
-                  fontSize={verticalScale(12)}
+                  fontSize={verticalScale(10)}
                 />
                 <CustomText
                   label={item.regarding}
                   fontFamily="regular"
                   color={colors.gray}
-                  fontSize={verticalScale(12)}
+                  fontSize={verticalScale(10)}
                   textDecorationColor="black"
                   textDecorationLine={true}
                 />
@@ -143,12 +143,12 @@ const OnBoarding = ({ navigation }) => {
                   label={item.text2}
                   fontFamily="regular"
                   color={colors.gray}
-                  fontSize={verticalScale(12)}
+                  fontSize={verticalScale(10)}
                 />
               </View>
               <View
                 style={{
-                  marginTop: verticalScale(20),
+                  marginTop: verticalScale(30),
                   width: "100%",
                   alignItems: "center",
                 }}

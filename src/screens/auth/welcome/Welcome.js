@@ -45,7 +45,7 @@ const Welcome = ({navigation}) => {
             marginTop={verticalScale(10)}
             height={verticalScale(45)}
             borderRadius={moderateScale(10)}
-            onPress={() => {}}
+            onPress={() => {navigation.navigate("Login")}}
           />
           <CustomText
             label="Sign up"

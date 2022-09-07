@@ -11,7 +11,7 @@ import { verticalScale, moderateScale } from "react-native-size-matters";
 import { colors } from "../../../utils/Colors";
 import CustomText from "../../../components/CustomText";
 
-const ViewPager = () => {
+const ViewPager = ({navigation}) => {
   const [page, setPage] = useState(0);
   const pager = useRef(null);
 
@@ -65,6 +65,7 @@ const ViewPager = () => {
               color={colors.black}
               marginLeft={verticalScale(5)}
               fontSize={verticalScale(12)}
+              onPress={()=>navigation.navigate("Login")}
             />
           </View>
         ) : null}
