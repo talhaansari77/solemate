@@ -14,7 +14,6 @@ import CustomText from "../../../components/CustomText";
 const ViewPager = ({navigation}) => {
   const [page, setPage] = useState(0);
   const pager = useRef(null);
-
   const onHandleSumbit = () => {
     if(page==2){
       navigation.navigate("MainStack")
@@ -23,7 +22,6 @@ const ViewPager = ({navigation}) => {
       pager?.current?.setPage(page + 1);
     }
   };
-
   return (
     <SafeAreaView style={commonStyles.commonMain}>
       <PagerView

@@ -39,10 +39,7 @@ function CustomText(props) {
             textDecorationLine:props.textDecorationLine,   
             textDecorationColor:props.textDecorationColor,
             // text-decoration-color: "red";
-       
-
             textDecorationLine:props.textDecorationLine, 
-                  
           },
           props.textStyle,
         ]}
