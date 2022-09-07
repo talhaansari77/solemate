@@ -41,6 +41,8 @@ function MainSettings({navigation}) {
 
     <TouchableOpacity>
     <View>
+      {/* <CustomText fontSize={30} fontWeight={'700'} marginLeft={18}  marginBottom={35} marginTop={20}  > */}
+
       <CustomText fontFamily={'bold'} fontSize={30} fontWeight={'700'} marginLeft={18} marginBottom={35} marginTop={20}  >
       Settings
       </CustomText>

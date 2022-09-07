@@ -16,7 +16,12 @@ const ViewPager = ({navigation}) => {
   const pager = useRef(null);
 
   const onHandleSumbit = () => {
-    pager?.current?.setPage(page + 1);
+    if(page==2){
+      navigation.navigate("MainStack")
+    }
+    else{
+      pager?.current?.setPage(page + 1);
+    }
   };
 
   return (
