@@ -22,7 +22,7 @@ export const ChatBody = ({
   const [messages, setMessages] = useState([
     {
       id: 1,
-      mess: "I’ll come after work I’ll come after work I’ll come after work  I’ll come after work I’ll come after work I’ll come after work",
+      mess: "Hi ",
       time: "11:50 AM",
     },
   ]);
@@ -77,9 +77,25 @@ export const ChatBody = ({
           </View>
           <View style={{ backgroundColor: "orange", flex: 1, height: "100%" }}>
             <View style={styles.message2}>
-              <CustomText label={item.mess} textStyle={styles.messageText}
-              timer={item.time}
-               />
+            {/* <CustomText label={item.mess} textStyle={styles.messageText} timer={'10:50'} /> */}
+
+                {/* Testing Extra */}
+              <View style={{backgroundColor: 'purple'}}>
+                <CustomText label={item.mess} textStyle={styles.messageText} textAlign={"justify"}  />
+              </View >
+              {/* <View style={{display: 'flex', alignItems: 'flex-end', backgroundColor: 'purple', width: '100%'}}> */}
+                <View style={{justifyContent:"flex-end",height:'100%',position: "absolute",
+    right: 10, backgroundColor: 'brown'}}>
+                <CustomText label={item.time} textStyle={styles.timerText1} />
+              </View>
+
+              {/* <View style={{backgroundColor:'brown', height: 20, flex:7, display: 'flex', flexWrap:'wrap'}}>
+                <CustomText label={item.mess} textStyle={styles.messageText}  />
+              </View >
+              <View style={{ backgroundColor: 'purple', height: 20, flex:3, alignItems: 'center', justifyContent: 'center' }}>
+                <CustomText label={item.time} textStyle={styles.timerText1} />
+              </View> */}
+
               {/* <CustomText label={item.time} textStyle={styles.timerText1}
                /> */}
               {/* <View style={{ paddingRight: 10 }}>
@@ -214,20 +230,22 @@ const styles = ScaledSheet.create({
   timerText1: {
     fontSize: verticalScale(10),
     color: colors.gray,
-  
-    marginTop: verticalScale(15),
+
+    // marginTop: verticalScale(15),
     fontFamily: "regular",
     // marginRight: "5@s",
-    position: "absolute",
-    right: 10,
+    
 
     // marginLeft: "10@s",
   },
   message2: {
     backgroundColor: colors.white,
-    alignSelf: "flex-start",
+    // width: 'auto',
+    //  alignSelf: "flex-start",
     paddingHorizontal: verticalScale(7),
-    paddingVertical: verticalScale(15),
+    paddingTop: verticalScale(10),
+    paddingBottom: verticalScale(5),
+    paddingLeft: 15,
     borderTopRightRadius: "35%",
     borderBottomLeftRadius: verticalScale(2),
     borderTopLeftRadius: verticalScale(18),
@@ -239,8 +257,9 @@ const styles = ScaledSheet.create({
     shadowOpacity: 5,
     shadowRadius: 3,
     elevation: 5,
+    backgroundColor: "red",
     // display:"flex",
-    flexWrap: "wrap",
+    // flexWrap: "wrap",
 
     // width:"100%"
     maxWidth: "85%",
