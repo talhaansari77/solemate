@@ -45,14 +45,14 @@ const Welcome = ({navigation}) => {
             marginTop={verticalScale(10)}
             height={verticalScale(45)}
             borderRadius={moderateScale(10)}
-            onPress={() => {}}
+            onPress={() => {navigation.navigate("Login")}}
           />
           <CustomText
             label="Sign up"
             fontFamily="bold"
             color={colors.white}
             onPress={()=>{
-              navigation.navigate("ViewPager")
+              navigation.navigate("Signup")
 
             }}
             marginTop={verticalScale(12)}

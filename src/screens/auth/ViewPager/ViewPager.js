@@ -68,6 +68,7 @@ const ViewPager = ({navigation}) => {
               color={colors.black}
               marginLeft={verticalScale(5)}
               fontSize={verticalScale(12)}
+              onPress={()=>navigation.navigate("Login")}
             />
           </View>
         ) : null}

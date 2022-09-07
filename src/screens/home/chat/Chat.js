@@ -38,11 +38,8 @@ const Chat = () => {
         </View>
         <Spacer height={verticalScale(8)} />
         <View style={styles.innerMainContainer}>
-          <ChatBody/>
-
-
+          <ChatBody />
         </View>
-        
 
         <View style={styles.textInputContainer}>
           <View style={styles.addContainer}>
