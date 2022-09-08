@@ -20,16 +20,17 @@ const AuthStack = () => {
     >
       <Stack.Screen name="OnBoarding" component={OnBoarding} />
       <Stack.Screen name="Welcome" component={Welcome} />
-      <Stack.Screen name="ViewPager" component={ViewPager} />
+      {/* <Stack.Screen name="ViewPager" component={ViewPager} /> */}
 
       {/* <Stack.Screen name="Settings" component={Settings} /> */}
       {/* <Stack.Screen name="MainSettings" component={MainSettings} /> */}
       {/* <Stack.Screen name="GeneralSettings" component={GeneralSettings} /> */}
 
-      <Stack.Screen name="Settings" component={Settings} />
+      {/* <Stack.Screen name="Settings" component={Settings} /> */}
+      <Stack.Screen name="Signup" component={Signup} />
+
 
       <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="Signup" component={Signup} />
       <Stack.Screen name="EditProfile" component={EditProfile} />
     </Stack.Navigator>
   );

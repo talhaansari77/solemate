@@ -102,7 +102,7 @@ const Login = ({navigation}) => {
               color={colors.black}
               marginLeft={verticalScale(5)}
               fontSize={verticalScale(12)}
-              onPress={()=>navigation.navigate("ViewPager")}
+              onPress={()=>navigation.navigate("Signup")}
             />
           {/* </View> */}
         </View>

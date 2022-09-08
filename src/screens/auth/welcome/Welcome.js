@@ -52,7 +52,7 @@ const Welcome = ({navigation}) => {
             fontFamily="bold"
             color={colors.white}
             onPress={()=>{
-              navigation.navigate("ViewPager")
+              navigation.navigate("Signup")
 
             }}
             marginTop={verticalScale(12)}

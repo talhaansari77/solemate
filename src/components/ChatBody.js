@@ -24,7 +24,7 @@ export const ChatBody = ({
   const [messages, setMessages] = useState([
     {
       id: 1,
-      mess: "Hello There How are Doing",
+      mess: "H",
       time: "11:50 AM",
     },
   ]);
