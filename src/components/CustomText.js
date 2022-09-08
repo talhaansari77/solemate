@@ -40,8 +40,7 @@ function CustomText(props) {
             textDecorationLine: props.textDecorationLine,
             textDecorationColor: props.textDecorationColor,
             // text-decoration-color: "red";
-
-            textDecorationLine: props.textDecorationLine,
+            textDecorationLine:props.textDecorationLine, 
           },
           props.textStyle,
         ]}
@@ -49,15 +48,7 @@ function CustomText(props) {
       >
         {props.label}
         {props.children}
-        {props.timer ? (
-          <View style={{ paddingHorizontal: 5, backgroundColor: 'pink' }}>
-            <Text style={{ fontSize: verticalScale(10), color: colors.gray, left: 50, }}>
-              {props.timer}
-            </Text>
-         </View>
-        ) : (
-          <></>
-        )}
+        
       </Text>
     </TouchableOpacity>
   );

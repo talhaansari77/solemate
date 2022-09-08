@@ -98,7 +98,7 @@ function GeneralSettings({navigation}) {
       />
       </WithSwitch>
       
-      <CustomText fontFamily={'regular'} fontSize={11} marginTop={10} alignSelf={'left'} color={colors.gray}>
+      <CustomText fontFamily={'regular'} fontSize={11} marginTop={10} alignSelf={'flex-start'} color={colors.gray}>
       The global mode turns on as soon as the profiles in this location run out.
       </CustomText>
       </TouchableOpacity>
@@ -145,7 +145,7 @@ function GeneralSettings({navigation}) {
         }}
       />
       </WithSwitch>
-      <CustomText fontFamily={'regular'} fontSize={11} marginTop={17} alignSelf={'left'} color={colors.gray}>
+      <CustomText fontFamily={'regular'} fontSize={11} marginTop={17} alignSelf={'flex-start'} color={colors.gray}>
       You can turn off the profile function and only turn on the sticker system. All participants will see and find you only by the sticker.      
       </CustomText>
       </TouchableOpacity>

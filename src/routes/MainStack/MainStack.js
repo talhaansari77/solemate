@@ -14,7 +14,8 @@ import EditProfile from "../../screens/home/editProfile/EditProfile";
 import interests from "../../screens/home/interests";
 import { AntDesign } from "@expo/vector-icons";
 import Settings from "../../screens/home/settings";
-
+import SettingStack from "../SettingStack";
+import MessagingStack from "../MessagingStack/MessagingStack";
 const MainStack = () => {
   const Tab = createBottomTabNavigator();
   return (
@@ -31,7 +32,7 @@ const MainStack = () => {
           if (route.name === "Profile") {
             iconName = "user";
             size = focused ? 25 : 22;
-          } else if (route.name === "Chat") {
+          } else if (route.name === "MessagingStack") {
             iconName = "message1";
             size = focused ? 25 : 22;
             return (
@@ -44,7 +45,7 @@ const MainStack = () => {
           } else if (route.name === "Settings") {
             iconName = "settings";
             size = focused ? 25 : 22;
-          } 
+          }
 
           return (
             <Feather name={iconName} size={moderateScale(size)} color={color} />
@@ -62,13 +63,12 @@ const MainStack = () => {
       }}
       initialRouteName="Chat"
     >
-
-<Tab.Screen name="Profile" component={profile} />
-<Tab.Screen name="Chat" component={chat} />
-      <Tab.Screen name="Settings" component={Settings} />
+      <Tab.Screen name="Profile" component={profile} />
+      <Tab.Screen name="MessagingStack" component={MessagingStack} />
+      <Tab.Screen name="Settings" component={SettingStack} />
       {/* <Tab.Screen name="Favorite" component={favorite} />
       <Tab.Screen name="Home" component={base} /> */}
-     
+
       {/* <Tab.Screen
         options={{
           tabBarItemStyle: { display: "none" },
