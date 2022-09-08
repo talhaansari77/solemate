@@ -23,7 +23,8 @@ function CustomButton({
   fontFamily,
   marginBottom,
   marginHorizontal,
-  opacity
+  opacity,
+  fontSize
 }) {
   return (
     <TouchableOpacity
@@ -55,7 +56,7 @@ function CustomButton({
             style={[
               {
                 color: color || colors.white,
-                fontSize: verticalScale(15),
+                fontSize: fontSize||  verticalScale(15),
                 fontFamily: fontFamily 
               },
             ]}

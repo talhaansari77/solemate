@@ -13,7 +13,6 @@ const MessagingStack = () => {
       initialRouteName={"MessagingStack"}
     >
       <Stack.Screen name="Request" component={Request} />
-      <Stack.Screen name="Chat" component={Chat} />
     </Stack.Navigator>
   );
 };

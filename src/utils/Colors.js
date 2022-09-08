@@ -12,5 +12,6 @@ export const colors = {
   googleGreen:"#39A751",
   blue: "blue",
   switchGray: "#E2E2E2",
+  halfGray:"#9F9F9F"
   
 };
