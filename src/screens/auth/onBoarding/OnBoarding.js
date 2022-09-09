@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, Image,TouchableOpacity } from "react-native";
 import React, { useRef, useState } from "react";
 import OnBoardContainer from "./OnBoardContainer";
 import AppIntroSlider from "react-native-app-intro-slider";
@@ -148,15 +148,17 @@ const OnBoarding = ({ navigation }) => {
               </View>
               <View
                 style={{
-                  marginTop: verticalScale(30),
+                  marginTop: verticalScale(20),
                   width: "100%",
                   alignItems: "center",
+                  // backgroundColor:"red"
                 }}
               >
                 <CustomButton
                   title="Next"
                   fontFamily="bold"
                   width="90%"
+                  backgroundColor={colors.primary}
                   marginTop={verticalScale(10)}
                   height={verticalScale(45)}
                   borderRadius={moderateScale(10)}
@@ -168,13 +170,24 @@ const OnBoarding = ({ navigation }) => {
                     }
                   }}
                 />
+                <TouchableOpacity
+                activeOpacity={0.6}
+                style={{marginTop:10}}
+                onPress={()=>{
+                  navigation.navigate("Signup")
+
+                }}
+                >
                 <CustomText
                   label="Skip"
                   fontFamily="bold"
                   color={colors.primary}
-                  marginTop={verticalScale(10)}
-                  fontSize={verticalScale(14)}
+                  // marginTop={20}
+                  fontSize={verticalScale(12)}
                 />
+
+                </TouchableOpacity>
+               
               </View>
             </View>
           </>

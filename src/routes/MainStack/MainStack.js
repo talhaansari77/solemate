@@ -63,6 +63,7 @@ const MainStack = () => {
       }}
       initialRouteName="Chat"
     >
+      
       <Tab.Screen name="Profile" component={profile} />
       <Tab.Screen name="MessagingStack" component={MessagingStack} />
       <Tab.Screen name="Settings" component={SettingStack} />

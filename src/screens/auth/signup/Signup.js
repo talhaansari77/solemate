@@ -72,7 +72,7 @@ const Signup = ({navigation}) => {
           // width="90%"
           opacity={0.4}
           color={colors.white}
-          marginTop={verticalScale(10)}
+          backgroundColor={colors.primary}
           height={verticalScale(45)}
           borderRadius={moderateScale(15)}
           onPress={() => {
