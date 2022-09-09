@@ -42,6 +42,28 @@ const Chat = ({ navigation }) => {
           }}
         />
 
+        <View style={styles.Padding}>
+          {/* <ProfileNav
+            RightSide={() => (
+              <TouchableOpacity
+                activeOpacity={0.6}
+                style={{ alignItems: "flex-end", width: "100%" }}
+              >
+                <Feather
+                  name="plus"
+                  size={moderateScale(25)}
+                  color={colors.black}
+                />
+              </TouchableOpacity>
+            )}
+          />
+          <CustomText
+            label="Chandler"
+            fontFamily="bold"
+            fontSize={verticalScale(15)}
+            marginLeft={verticalScale(5)}
+          /> */}
+        </View>
         <Spacer height={verticalScale(8)} />
         <View style={styles.innerMainContainer}>
           <ChatBody />
@@ -122,6 +144,8 @@ const Chat = ({ navigation }) => {
                   title={"View Samer's Profile"}
                   fontSize={verticalScale(18)}
                   borderRadius={25}
+                  backgroundColor={colors.primary}
+
                   width="90%"
                   fontFamily="bold"
                 />
@@ -132,6 +156,13 @@ const Chat = ({ navigation }) => {
                   borderRadius={25}
                   fontSize={verticalScale(18)}
                   fontFamily="bold"
+                  onPress={()=>{
+                    navigation.navigate("Report")
+                    
+
+                    // Report
+
+                  }}
                   width="90%"
                   title={"End Conversation"}
                 />
@@ -139,10 +170,10 @@ const Chat = ({ navigation }) => {
             </View>
             <View
               style={{
-                width: "100%",
                 height: "70%",
-                backgroundColor: colors.black,
-                opacity: 0.1,
+                backgroundColor:'rgba(0,0,0,0.7)',
+
+                opacity: 0.5,
                 marginTop: verticalScale(-80),
               }}
             ></View>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import commonStyles from "../../../utils/CommonStyles";
-import LoginpWithCon from "./LoginWithCon";
 import CustomTextInput from "../../../components/CustomTextInput";
 import { Spacer } from "../../../components/Spacer";
 import { moderateScale, verticalScale } from "react-native-size-matters";
@@ -10,7 +9,7 @@ import { View } from "react-native";
 import CustomButton from "../../../components/CustomButton";
 import { colors } from "../../../utils/Colors";
 import { styles } from "../ViewPager/styles";
-
+import LoginpWithCon from "./LoginWithCon";
 const passData = [
   { id: 1, txt1: "+ 8 characters ", txt2: "+ 1 symbols" },
   { id: 2, txt1: "+ 1 number", txt2: " get our password" },
@@ -36,7 +35,7 @@ const Login = ({navigation}) => {
       />
       <Spacer height={verticalScale(20)} />
 
-      <SignupWithCon />
+      <LoginpWithCon />
       <Spacer height={verticalScale(20)} />
 
       <CustomTextInput
@@ -80,13 +79,15 @@ const Login = ({navigation}) => {
             title="Continue"
             fontFamily="bold"
             width="100%"
+            backgroundColor={colors.primary}
             opacity={0.4}
             color={colors.white}
             marginTop={verticalScale(10)}
             height={verticalScale(45)}
             borderRadius={moderateScale(15)}
             onPress={() => {
-              onHandleSumbit();
+              // onHandleSumbit();
+              navigation.navigate("MainStack")
             }}
           />
 

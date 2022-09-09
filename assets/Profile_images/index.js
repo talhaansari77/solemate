@@ -7,7 +7,7 @@ const profileImages = {
     cake:require('./cake.png'),
     man:require('./man.jpg'),
     google:require('./google.png'),
-    reportimage:require('./reportImage.png'),
+    reportImage:require('./reportImage.png'),
 }
 
 export default profileImages;

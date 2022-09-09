@@ -10,15 +10,12 @@ import ConditionPassCon from "./molecules/ConditionPassCon";
 import CustomButton from "../../../components/CustomButton";
 import { colors } from "../../../utils/Colors";
 import { styles } from "./styles";
-
 const passData = [
   { id: 1, txt1: "+ 8 characters ", txt2: "+ 1 symbols" },
   { id: 2, txt1: "+ 1 number", txt2: " get our password" },
 ];
-
 const Signup = ({navigation}) => {
   const [eyeClick, setEyeClick] = useState(true);
-
   return (
     <View
       style={[
@@ -36,13 +33,10 @@ const Signup = ({navigation}) => {
         fontSize={verticalScale(15)}
       />
       <Spacer height={verticalScale(15)} />
-
       <SignupWithCon />
       <Spacer height={verticalScale(20)} />
-
       <CustomTextInput withLabel="Email adress" placeholder={'example@yourmail.com'} />
       <Spacer height={verticalScale(20)} />
-
       <CustomTextInput
         withLabel="Password"
         password
@@ -63,8 +57,6 @@ const Signup = ({navigation}) => {
           return <ConditionPassCon txt1={item.txt1} txt2={item.txt2} />;
         })}
       </View>
-
-
       <View style={{ alignItems: "center", padding: 10,flex:1,justifyContent:"flex-end" }}>
         <CustomButton
           title="Continue"

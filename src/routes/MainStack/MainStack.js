@@ -2,7 +2,7 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import base from "../../screens/home/base";
-import profile from "../../screens/home/profile";
+import Profile from "../../screens/home/profile";
 import search from "../../screens/home/search";
 import favorite from "../../screens/home/favorite";
 import chat from "../../screens/home/chat";
@@ -26,6 +26,7 @@ const MainStack = () => {
         tabBarStyle: {
           backgroundColor: "#fff",
           height: verticalScale(70),
+          paddingHorizontal: scale(30),
         },
         tabBarIcon: ({ focused, size, color }) => {
           let iconName;
@@ -63,8 +64,14 @@ const MainStack = () => {
       }}
       initialRouteName="Chat"
     >
-      
-      <Tab.Screen name="Profile" component={profile} />
+      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen
+        name="EditProfile"
+        component={EditProfile}
+        options={{
+          tabBarItemStyle: { display: "none" },
+        }}
+      />
       <Tab.Screen name="MessagingStack" component={MessagingStack} />
       <Tab.Screen name="Settings" component={SettingStack} />
       {/* <Tab.Screen name="Favorite" component={favorite} />

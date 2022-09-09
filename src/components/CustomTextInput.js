@@ -13,7 +13,6 @@ import {
   verticalScale,
 } from "react-native-size-matters";
 import { colors } from "../utils/Colors";
-
 import CustomText from "./CustomText";
 import { Ionicons } from "@expo/vector-icons";
 const CustomTextInput = ({
@@ -126,7 +125,6 @@ const CustomTextInput = ({
   );
 };
 export default CustomTextInput;
-
 const styles = ScaledSheet.create({
   icon: {
     width: "20@s",

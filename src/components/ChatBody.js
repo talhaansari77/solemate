@@ -135,6 +135,8 @@ export const ChatBody = ({
             />
           </View>
         </View>
+
+        
       </View>
     );
   };
