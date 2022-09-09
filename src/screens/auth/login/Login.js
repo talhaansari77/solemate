@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import commonStyles from "../../../utils/CommonStyles";
-import SignupWithCon from "./SignupWithCon";
+import LoginpWithCon from "./LoginWithCon";
 import CustomTextInput from "../../../components/CustomTextInput";
 import { Spacer } from "../../../components/Spacer";
 import { moderateScale, verticalScale } from "react-native-size-matters";

@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import CustomText from '../../../../../components/CustomText'
 import { verticalScale } from 'react-native-size-matters'
+import { colors } from '../../../../../utils/Colors'
 
 const HeaderConatiner = () => {
   return (

@@ -9,6 +9,7 @@ const CustomImage = ({ height, width, resizeMode, src }) => {
       style={{
         height: verticalScale(height) || '100%',
         width: scale(width) || '100%',
+        alignSelf: 'center',
         // tintColor: "red",
         resizeMode: resizeMode || "contain",
       }}

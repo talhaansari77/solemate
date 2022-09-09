@@ -23,7 +23,10 @@ function CustomButton({
   fontFamily,
   marginBottom,
   marginHorizontal,
-  opacity
+  opacity,
+  fontSize,
+  alignSelf,
+  paddingHorizontal
 }) {
   return (
     <TouchableOpacity
@@ -31,18 +34,21 @@ function CustomButton({
       activeOpacity={0.6}
       style={[
         {
-          backgroundColor: backgroundColor || colors.primary,
+          backgroundColor: backgroundColor,
           width: width || '100%',
           height: height || verticalScale(40),
           borderColor: borderColor ,
           borderRadius: borderRadius || 8,
-          // borderWidth: borderWidth || 1.2,
+          borderWidth: borderWidth,
           opacity:opacity,
           alignItems: alignItems || 'center',
+          alignSelf: alignSelf || 'center',
           justifyContent: justifyContent || 'center',
           marginTop,
           marginBottom:marginBottom,
-          marginHorizontal:marginHorizontal
+          marginHorizontal:marginHorizontal,
+          paddingHorizontal:paddingHorizontal,
+
         },
       ]}
       onPress={onPress}
@@ -55,8 +61,9 @@ function CustomButton({
             style={[
               {
                 color: color || colors.white,
-                fontSize: verticalScale(15),
-                fontFamily: fontFamily 
+                fontSize: verticalScale(fontSize),
+                fontFamily: fontFamily,
+                // textAlign: textAlign
               },
             ]}
           >

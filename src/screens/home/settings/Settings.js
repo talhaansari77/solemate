@@ -14,7 +14,7 @@ import icons from "../../../../assets/icons";
 import SettingItem from "./molecules/SettingItem";
 
 const Settings = () => {
-  const [count, setCount] = useState(-1)
+  const [count, setCount] = useState(-1);
   const SettingsArray = [
     {
       id: 1,
@@ -99,7 +99,14 @@ const Settings = () => {
       </TouchableOpacity>
 
       {SettingsArray.map((setting, index) => (
-        <SettingItem name={setting.name} icon={setting.icon} setCount={setCount} count={count} index={index} key={index} />
+        <SettingItem
+          name={setting.name}
+          icon={setting.icon}
+          setCount={setCount}
+          count={count}
+          index={index}
+          key={index}
+        />
       ))}
     </Container>
   );

@@ -10,23 +10,36 @@ import Settings from "../../screens/home/settings";
 import MainSettings from "../../screens/home/settings/MainSettings";
 import GeneralSettings from "../../screens/home/settings/GeneralSettings";
 import EditProfile from "../../screens/home/editProfile";
+import Report from "../../screens/home/report/Report";
+import ReportReason from "../../screens/home/reportReason";
+import Reported from "../../screens/home/reported/Reported";
+import reportReason from "../../screens/home/reportReason";
+import reported from "../../screens/home/reported";
 
 const AuthStack = () => {
   const Stack = createStackNavigator();
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      // initialRouteName={"Login"}
+      // initialRouteName={"Report"}
     >
+      <Stack.Screen name="Report" component={Report} />
+      <Stack.Screen name="ReportReason" component={ReportReason} />
+      <Stack.Screen name="Reported" component={Reported} />
+
+
       <Stack.Screen name="OnBoarding" component={OnBoarding} />
       <Stack.Screen name="Welcome" component={Welcome} />
-      {/* <Stack.Screen name="ViewPager" component={ViewPager} /> */}
+      <Stack.Screen name="ViewPager" component={ViewPager} />
 
       {/* <Stack.Screen name="Settings" component={Settings} /> */}
       {/* <Stack.Screen name="MainSettings" component={MainSettings} /> */}
       {/* <Stack.Screen name="GeneralSettings" component={GeneralSettings} /> */}
 
       {/* <Stack.Screen name="Settings" component={Settings} /> */}
+
+
+
       <Stack.Screen name="Signup" component={Signup} />
 
 

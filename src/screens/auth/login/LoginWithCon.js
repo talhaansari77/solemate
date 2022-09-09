@@ -6,7 +6,7 @@ import CustomText from '../../../components/CustomText'
 import { verticalScale } from 'react-native-size-matters'
 import commonStyles from '../../../utils/CommonStyles'
 import profileImages from '../../../../assets/Profile_images'
-const SignupWithCon = () => {
+const LoginpWithCon = () => {
 
  
   return (
@@ -35,7 +35,7 @@ const SignupWithCon = () => {
     </View>
   )
 }
-export default SignupWithCon
+export default LoginpWithCon
 const styles = ScaledSheet.create({
     mainContainer:{
         width:"100%",

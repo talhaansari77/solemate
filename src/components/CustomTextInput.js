@@ -45,7 +45,7 @@ const CustomTextInput = ({eyeClick,password,setEyeClick,error,withLabel,...props
           width: props.width || '100%',
           height: props.height || verticalScale(50),
           borderRadius: props.borderRadius || moderateScale(15),
-          backgroundColor: props.backgroundColor || colors.white,
+          backgroundColor: props.backgroundColor,
           marginTop: props.marginTop || verticalScale(0),
           flexDirection: 'row',
         borderColor:props.borderColor || colors.primary,
@@ -72,6 +72,7 @@ const CustomTextInput = ({eyeClick,password,setEyeClick,error,withLabel,...props
             height: props.inputHeight || '100%',
             marginLeft: props.inputLeftMargin || 10,
             paddingRight:props.paddingRight ||  10,
+            paddingHorizontal: props.paddingHorizontal,
             fontFamily:"bold",
             fontSize:verticalScale(13)
           },
