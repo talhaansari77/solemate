@@ -5,7 +5,7 @@ import CustomText from "../../../../components/CustomText";
 import { colors } from "../../../../utils/Colors";
 
 const GenderContainer = ({ index, txt }) => {
-  const [isSelect, setIsSelect] = useState(0);
+  const [isSelect, setIsSelect] = useState(-1);
   return (
     <TouchableOpacity
       activeOpacity={0.6}

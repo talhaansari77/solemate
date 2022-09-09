@@ -14,11 +14,11 @@ const RootNavigator = () => {
         screenOptions={{ headerShown: false }}
         // initialRouteName="SettingStack"
       >
-        <Stack.Screen name="AuthStack" component={AuthStack} />
+        {/* <Stack.Screen name="AuthStack" component={AuthStack} /> */}
 
         <Stack.Screen name="MainStack" component={MainStack} />
-        <Stack.Screen name="Chat" component={Chat} />
-        <Stack.Screen name="SettingStack" component={SettingStack} />
+        {/* <Stack.Screen name="Chat" component={Chat} />
+        <Stack.Screen name="SettingStack" component={SettingStack} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

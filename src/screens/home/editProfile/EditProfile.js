@@ -127,10 +127,14 @@ const EditProfile = () => {
               </CustomText>
               <Spacer height={10} />
               <TextInput
+                multiline={true}
+                numberOfLines={5}
+                
                 style={{
                   borderWidth: 1,
                   padding: moderateScale(5),
-                  borderRadius: moderateScale(10),                  
+                  borderRadius: moderateScale(10),
+                  color:colors.gray
                 }}
               />
             </View>
