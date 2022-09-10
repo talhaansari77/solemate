@@ -3,6 +3,16 @@
     "name": "SoleMate",
     "slug": "SoleMate",
     "version": "1.0.0",
+    "plugins": [
+      [
+        "react-native-fbsdk-next",
+        {
+          "appID": "1275225653331121",
+          "clientToken": "b52d785f4f56b19e7b2040ad11187a8c",
+          "displayName": "SoleMate"
+        }
+      ]
+    ],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",

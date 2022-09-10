@@ -24,6 +24,8 @@
     "react-native": "0.69.5",
     "react-native-app-intro-slider": "^4.0.4",
     "react-native-elements": "^3.4.2",
+    "react-native-fbsdk": "^3.0.0",
+    "react-native-fbsdk-next": "^10.1.0",
     "react-native-gesture-handler": "~2.5.0",
     "react-native-modal": "^13.0.1",
     "react-native-pager-view": "5.4.24",

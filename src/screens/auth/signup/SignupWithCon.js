@@ -6,6 +6,7 @@ import CustomText from '../../../components/CustomText'
 import { verticalScale } from 'react-native-size-matters'
 import commonStyles from '../../../utils/CommonStyles'
 import profileImages from '../../../../assets/Profile_images'
+import { signInWithFB } from '../../../services/FirebaseAuth'
 const SignupWithCon = () => {
 
  
@@ -17,6 +18,7 @@ const SignupWithCon = () => {
             fontFamily="bold"
             color={colors.facebookBlue}
             fontSize={verticalScale(12)}
+            onPress={() => signInWithFB().then(() => console.log('Signed in with Facebook!'))}
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.childContainer}>
