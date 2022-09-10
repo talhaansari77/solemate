@@ -170,7 +170,7 @@ const Chat = ({ navigation }) => {
             </View>
             <View
               style={{
-                height: "70%",
+                // height: "70%",
                 backgroundColor:'rgba(0,0,0,0.7)',
 
                 opacity: 0.5,

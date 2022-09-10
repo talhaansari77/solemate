@@ -23,7 +23,7 @@ const OnBoardingData = [
   },
   {
     id: 1,
-    title: "Get refer to by your friends",
+    title: "Chat with your special one",
     text1: "Please read our ",
     privacy: "privacy policy",
     regarding: "policy regarding",
@@ -34,7 +34,7 @@ const OnBoardingData = [
   },
   {
     id: 2,
-    title: "Get refer to by your friends",
+    title: "Delete the app after use",
     text1: "Please read our ",
     privacy: "privacy policy",
     regarding: "policy regarding",

@@ -52,6 +52,8 @@ const Welcome = ({navigation}) => {
             label="Sign up"
             fontFamily="bold"
             color={colors.white}
+            backgroundColor={colors.primary}
+
             onPress={()=>{
               navigation.navigate("Signup")
 

@@ -35,7 +35,7 @@ const Signup = ({navigation}) => {
       <Spacer height={verticalScale(15)} />
       <SignupWithCon />
       <Spacer height={verticalScale(20)} />
-      <CustomTextInput withLabel="Email adress" placeholder={'example@yourmail.com'} />
+      <CustomTextInput withLabel="Email adress" placeholder={'example@gmail.com'} />
       <Spacer height={verticalScale(20)} />
       <CustomTextInput
         withLabel="Password"
