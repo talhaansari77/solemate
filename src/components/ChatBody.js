@@ -10,6 +10,8 @@ import CustomText from "./CustomText";
 import { colors } from "../utils/Colors";
 import profileImages from "../../assets/Profile_images";
 import commonStyles from "../utils/CommonStyles";
+import icons from "../../assets/icons";
+import CustomImage from "./CustomImage";
 // import colors from "../../Utils/colors";
 // import { getMessages } from "../Services/chats";
 export const ChatBody = ({
@@ -22,7 +24,7 @@ export const ChatBody = ({
   const [messages, setMessages] = useState([
     {
       id: 1,
-      mess: "Hi ",
+      mess: "Hello There How are Doing",
       time: "11:50 AM",
     },
   ]);
@@ -43,9 +45,27 @@ export const ChatBody = ({
     // const isUser = message?.from == authId;
     return (
       <View style={{ padding: 5, flex: 1 }}>
+        {/* msg1 */}
         <View style={styles.message1}>
-          <CustomText label={item.mess} textStyle={styles.messageText} />
+          <View>
+            <CustomText
+              label={item.mess}
+              textStyle={{ ...styles.messageText, color: colors.white }}
+              textAlign={"justify"}
+            />
+          </View>
+          <View
+            style={{
+              alignSelf: "flex-end",
+            }}
+          >
+            <CustomText
+              label={item.time}
+              textStyle={{ ...styles.timerText1, color: colors.white }}
+            />
+          </View>
         </View>
+        {/* date */}
         <CustomText label={item.date} textStyle={styles.timerText} />
         <View
           style={{
@@ -75,33 +95,32 @@ export const ChatBody = ({
               />
             </View>
           </View>
-          <View style={{ backgroundColor: "orange", flex: 1, height: "100%" }}>
+          <View style={{ flex: 1, height: "100%", flexDirection: "row" }}>
             <View style={styles.message2}>
-            {/* <CustomText label={item.mess} textStyle={styles.messageText} timer={'10:50'} /> */}
+              {/* <CustomText label={item.mess} textStyle={styles.messageText} timer={'10:50'} /> */}
 
-                {/* Testing Extra */}
-              <View style={{backgroundColor: 'purple'}}>
-                <CustomText label={item.mess} textStyle={styles.messageText} textAlign={"justify"}  />
-              </View >
-              {/* <View style={{display: 'flex', alignItems: 'flex-end', backgroundColor: 'purple', width: '100%'}}> */}
-                <View style={{justifyContent:"flex-end",height:'100%',position: "absolute",
-    right: 10, backgroundColor: 'brown'}}>
+              {/* Testing Extra */}
+              <View>
+                <CustomText
+                  label={item.mess}
+                  textStyle={styles.messageText}
+                  textAlign={"justify"}
+                />
+              </View>
+              <View
+                style={{
+                  alignSelf: "flex-end",
+                }}
+              >
                 <CustomText label={item.time} textStyle={styles.timerText1} />
               </View>
-
-              {/* <View style={{backgroundColor:'brown', height: 20, flex:7, display: 'flex', flexWrap:'wrap'}}>
-                <CustomText label={item.mess} textStyle={styles.messageText}  />
-              </View >
-              <View style={{ backgroundColor: 'purple', height: 20, flex:3, alignItems: 'center', justifyContent: 'center' }}>
-                <CustomText label={item.time} textStyle={styles.timerText1} />
-              </View> */}
-
-              {/* <CustomText label={item.time} textStyle={styles.timerText1}
-               /> */}
-              {/* <View style={{ paddingRight: 10 }}>
-              <CustomText label={item.time} textStyle={styles.timerText1}
-               />
-            </View> */}
+            </View>
+            <View style={{ justifyContent: "center", marginLeft: scale(5) }}>
+              <CustomImage
+                src={icons.orangeTickReadIcon}
+                height={15}
+                width={15}
+              />
             </View>
           </View>
           {/* <Text>cdjnbcjd</Text> */}
@@ -197,8 +216,8 @@ const styles = ScaledSheet.create({
 
   message: {
     backgroundColor: "#F3F3F3",
-    borderTopRightRadius: 20,
-    borderTopLeftRadius: 20,
+    // borderTopRightRadius: 20,
+    // borderTopLeftRadius: 20,
     padding: 20,
     minHeight: 100,
     justifyContent: "center",
@@ -215,10 +234,11 @@ const styles = ScaledSheet.create({
     backgroundColor: colors.primary,
     alignSelf: "flex-end",
     paddingHorizontal: verticalScale(15),
-    paddingVertical: verticalScale(5),
-    borderBottomLeftRadius: verticalScale(10),
-    borderBottomRightRadius: verticalScale(10),
-    borderTopLeftRadius: verticalScale(10),
+    paddingVertical: verticalScale(10),
+    color: colors.white,
+    // borderBottomLeftRadius: verticalScale(10),
+    // borderBottomRightRadius: verticalScale(10),
+    // borderTopLeftRadius: verticalScale(10),
   },
   timerText: {
     fontSize: verticalScale(9),
@@ -234,7 +254,6 @@ const styles = ScaledSheet.create({
     // marginTop: verticalScale(15),
     fontFamily: "regular",
     // marginRight: "5@s",
-    
 
     // marginLeft: "10@s",
   },
@@ -243,21 +262,24 @@ const styles = ScaledSheet.create({
     // width: 'auto',
     //  alignSelf: "flex-start",
     paddingHorizontal: verticalScale(7),
-    paddingTop: verticalScale(10),
-    paddingBottom: verticalScale(5),
+    // paddingTop: verticalScale(10),
+    // paddingBottom: verticalScale(5),
+    paddingVertical: verticalScale(10),
     paddingLeft: 15,
-    borderTopRightRadius: "35%",
-    borderBottomLeftRadius: verticalScale(2),
-    borderTopLeftRadius: verticalScale(18),
-    borderBottomRightRadius: "35%",
-    flexDirection: "row",
-    alignItems: "center",
+    marginLeft: scale(5),
+    // borderTopRightRadius: "35%",
+    // borderBottomLeftRadius: verticalScale(2),
+    // borderTopLeftRadius: verticalScale(18),
+    // borderBottomRightRadius: "35%",
+    borderRadius: 20,
+    // flexDirection: "row",
+    // alignItems: "center",
     shadowColor: colors.gray,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 5,
     shadowRadius: 3,
     elevation: 5,
-    backgroundColor: "red",
+    // backgroundColor: "red",
     // display:"flex",
     // flexWrap: "wrap",
 
