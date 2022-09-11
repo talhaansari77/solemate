@@ -22,19 +22,9 @@ const Settings = () => {
       icon: icons.profileIcon,
     },
     {
-      id: 2,
-      name: "Confidentiality",
-      icon: icons.lockIcon,
-    },
-    {
       id: 3,
       name: "Language",
       icon: icons.langWhite,
-    },
-    {
-      id: 4,
-      name: "Stickers",
-      icon: icons.smileIcon,
     },
     {
       id: 5,
@@ -48,7 +38,7 @@ const Settings = () => {
     },
     {
       id: 7,
-      name: "QR code",
+      name: "Generate link",
       icon: icons.qrIcon,
     },
     {
@@ -60,6 +50,7 @@ const Settings = () => {
       id: 9,
       name: "Video settings",
       icon: icons.camIcon,
+      comingSoon: "CommingSoon",
     },
     {
       id: 10,
@@ -99,14 +90,22 @@ const Settings = () => {
       </TouchableOpacity>
 
       {SettingsArray.map((setting, index) => (
-        <SettingItem
-          name={setting.name}
-          icon={setting.icon}
-          setCount={setCount}
-          count={count}
-          index={index}
-          key={index}
-        />
+        <View style={{display: 'flex', alignSelf: "space-evenly"}}>
+          
+          <SettingItem
+            name={setting.name}
+            coming={setting.comingSoon}
+            icon={setting.icon}
+            setCount={setCount}
+            count={count}
+            index={index}
+            key={index}
+          />
+          {/* <CustomText>
+          {setting.comingSoon ? "CommingSoon" : ""}
+          </CustomText> */}
+          
+        </View>
       ))}
     </Container>
   );

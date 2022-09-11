@@ -3,7 +3,6 @@ import styled from "react-native-styled-components";
 import { moderateScale, scale, verticalScale } from "react-native-size-matters";
 import profileImages from "../../../../../assets/Profile_images";
 import { colors } from "../../../../utils/Colors";
-
 const PictureBox = () => {
   return (
     <View style={{ height: verticalScale(300) }}>
@@ -196,19 +195,7 @@ const PictureBox = () => {
           />
         </TouchableOpacity>
       </View>
-      {/* <FlatList
-        data={[1, 2]}
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        ListHeaderComponent={() => (
-          <VerticalPadding>
-            <UploadPicture editable={true} />
-          </VerticalPadding>
-        )}
-        renderItem={() => (
-          <UploadPicture height={130} width={100} marginLeft={10} />
-        )}
-      /> */}
+   
     </View>
   );
 };

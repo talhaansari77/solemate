@@ -59,6 +59,7 @@ const icons = {
     work:require('./material-work.png'),
     location:require('./metro-location.png'),
     resizeHeight:require('./open-resize-height.png'),
+    langWhite:require('./langWhite.png'),
 
 }
 

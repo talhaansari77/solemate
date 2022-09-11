@@ -34,7 +34,7 @@ function CustomButton({
       activeOpacity={0.6}
       style={[
         {
-          backgroundColor: backgroundColor,
+          backgroundColor: backgroundColor || colors.primary,
           width: width || '100%',
           height: height || verticalScale(40),
           borderColor: borderColor ,
@@ -62,7 +62,7 @@ function CustomButton({
               {
                 color: color || colors.white,
                 fontSize: fontSize||  verticalScale(15),
-                fontFamily: fontFamily 
+                fontFamily: fontFamily || "bold"
                 // textAlign: textAlign
               },
             ]}

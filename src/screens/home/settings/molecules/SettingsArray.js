@@ -32,7 +32,7 @@ const SettingsArray = [
     },
     {
         id: 7,
-        name: "QR code",
+        name: "Generate link",
         icon: icons.qrIcon
     },
     {
