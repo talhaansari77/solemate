@@ -28,7 +28,15 @@ const Chat = () => {
     <SafeAreaView style={commonStyles.commonMain}>
       <View style={styles.mainContainer}>
         <View style={styles.Padding}>
-          <ProfileNav icon />
+          <ProfileNav
+            RightSide={() => (
+              <Feather
+                name="plus"
+                size={moderateScale(25)}
+                color={colors.black}
+              />
+            )}
+          />
           <CustomText
             label="Chandler"
             fontFamily="bold"

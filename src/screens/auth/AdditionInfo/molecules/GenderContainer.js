@@ -15,16 +15,16 @@ const GenderContainer = ({ index, txt }) => {
       style={[
         styles.mainContainer,
         {
-          backgroundColor:  isSelect ==index ? colors.primary : colors.white,
-          borderRadius: 15,
-          borderColor:  isSelect == index  ? null : colors.primary,
+          // backgroundColor:  isSelect ==index ? colors.primary : colors.white,
+          borderRadius: 50,
+          borderColor:  isSelect == index  ? colors.orange : colors.black,
           borderWidth: 1,
         },
       ]}
     >
       <CustomText
         label={txt}
-        color={ isSelect ==  index  ? colors.white : colors.primary}
+        color={ isSelect ==  index  ? colors.orange : colors.black}
         fontFamily="bold"
         fontSize={verticalScale(10)}
       />
@@ -37,7 +37,7 @@ export default GenderContainer;
 const styles = ScaledSheet.create({
   mainContainer: {
     width: "130@s",
-    height: "45@vs",
+    height: "35@vs",
     alignItems: "center",
     justifyContent: "center",
   },
