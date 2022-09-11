@@ -5,6 +5,16 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "plugins": [
+      [
+        "react-native-fbsdk-next",
+        {
+          "appID": "1275225653331121",
+          "clientToken": "b52d785f4f56b19e7b2040ad11187a8c",
+          "displayName": "SoleMate"
+        }
+      ]
+    ],
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -14,9 +24,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.zaidanwar.SoleMate"

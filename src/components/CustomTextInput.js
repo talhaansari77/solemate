@@ -113,9 +113,9 @@ const CustomTextInput = ({
       </TouchableOpacity>
       {error ? (
         <CustomText
-          label={error}
-          childern="*"
-          fontSize={verticalScale(10)}
+          label="* "
+          children={error}
+          fontSize={verticalScale(8)}
           color={colors.red}
           fontWeight="600"
           marginTop={verticalScale(5)}
