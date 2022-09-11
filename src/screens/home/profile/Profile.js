@@ -64,7 +64,7 @@ const expectation = [
   { id: 7, title: "Height", label: "5'6" },
   { id: 8, title: "Language", label: "English" },
 ];
-const Profile = ({ navigation, actions = true, getApp = false }) => {
+const Profile = ({ navigation, actions = true, getApp = true }) => {
   return (
     <View
       style={{
