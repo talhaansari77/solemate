@@ -41,7 +41,24 @@ const icons = {
     profileIcon02:require('./Profile_02.png'),
     qrIcon:require('./QR_icon.png'),
     rightArrowBlack:require('./rightArrowBlack.png'),
-    langWhite:require('./langWhite.png')
+    babayCarriage:require('./awesome-baby-carriage.png'),
+    baby:require('./awesome-baby.png'),
+    bookOpen:require('./awesome-book-open.png'),
+    expandArrow:require('./awesome-expand-arrows-alt.png'),
+    language:require('./awesome-language.png'),
+    smoking:require('./awesome-smoking.png'),
+    circleTickOrange:require('./circleTickOrange.png'),
+    education:require('./Education.png'),
+    featherFlag:require('./feather-flag.png'),
+    heartBlack:require('./awesome-heart.png'),
+    heartBeatBlack:require('./awesome-heartbeat.png'),
+    partlySunny:require('./ionic-ios-partly-sunny.png'),
+    moonStar:require('./map-mosque.png'),
+    locationEdit:require('./material-edit-location.png'),
+    drink:require('./material-local-drink.png'),
+    work:require('./material-work.png'),
+    location:require('./metro-location.png'),
+    resizeHeight:require('./open-resize-height.png'),
 
 }
 
