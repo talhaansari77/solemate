@@ -71,7 +71,6 @@ const EditProfile = () => {
       <Spacer height={10} />
       <Divider />
       <Spacer height={10} />
-
       <ScrollView showsVerticalScrollIndicator={false}>
         <PictureBox />
         {/* <Spacer height={10}/> */}

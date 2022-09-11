@@ -52,17 +52,17 @@ const PictureBox = () => {
             }}
           >
             <Text
-            style={{
-              position: "absolute",
-              zIndex: 1,
-              color: colors.white,
-              fontFamily: "bold",
-              top: verticalScale(10),
-              left: scale(10),
-            }}
-          >
-            2
-          </Text>
+              style={{
+                position: "absolute",
+                zIndex: 1,
+                color: colors.white,
+                fontFamily: "bold",
+                top: verticalScale(10),
+                left: scale(10),
+              }}
+            >
+              2
+            </Text>
             <Image
               source={profileImages.profile02}
               style={{
@@ -81,17 +81,17 @@ const PictureBox = () => {
             }}
           >
             <Text
-            style={{
-              position: "absolute",
-              zIndex: 1,
-              color: colors.white,
-              fontFamily: "bold",
-              top: verticalScale(10),
-              left: scale(10),
-            }}
-          >
-            3
-          </Text>
+              style={{
+                position: "absolute",
+                zIndex: 1,
+                color: colors.white,
+                fontFamily: "bold",
+                top: verticalScale(10),
+                left: scale(10),
+              }}
+            >
+              3
+            </Text>
             <Image
               source={profileImages.profile03}
               style={{
