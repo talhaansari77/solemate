@@ -37,12 +37,37 @@ const EditProfile = ({ navigation }) => {
   const [isSelect, setIsSelect] = useState(-1);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [aboutMe, setAboutMe] = useState("")
+  const [aboutMe, setAboutMe] = useState("");
+  const [familyOrigin, setfamilyOrigin] = useState("");
+  const [language, setLanguage] = useState("");
+  const [employment, setEmployment] = useState("");
+  const [occupation, setOccupation] = useState("");
+  const [religion, setReligion] = useState("");
+  const [religiousity, setReligiousity] = useState("");
+  const [prayerLevel, setPrayerLevel] = useState("");
+  const [sector, setSector] = useState("");
+  const [martialHistory, setMartialHistory] = useState("");
+  const [martialTimming, setMartialTimming] = useState("");
+
+  const [editLocation, setEditLocation] = useState("");
+  const [month, setMonth] = useState("");
 
   const [submitError, setSubmitError] = useState({
     firstNameError: "",
     lastNameError: "",
-    aboutError:""
+    aboutError: "",
+    familyError: "",
+    languageError: "",
+    employmentError: "",
+    monthError: "",
+    editlocationError: "",
+    occupationError: "",
+    religionError: "",
+    religiousityError: "",
+    prayerLevelError: "",
+    sectorError: "",
+    martialHistoryError: "",
+    martialTimmingError: "",
   });
 
   // const [questions, setQuestions] = useState([
@@ -57,7 +82,20 @@ const EditProfile = ({ navigation }) => {
     const data = {
       firstName: firstName,
       lastName: lastName,
-      aboutMe:aboutMe
+      aboutMe: aboutMe,
+      familyOrigin: familyOrigin,
+      language: language,
+      editLocation: editLocation,
+      month: month,
+      employment: employment,
+      occupation: occupation,
+      religion: religion,
+      religiousity: religiousity,
+      prayerLevel: prayerLevel,
+      sector: sector,
+      martialHistory,
+      martialTimming,
+
     };
     const response = EditValidate(data, submitError, setSubmitError);
     if (response) {
@@ -110,7 +148,8 @@ const EditProfile = ({ navigation }) => {
             <Spacer height={15} />
             {/* About Me */}
 
-            <TextArea label={"About Me"} 
+            <TextArea
+              label={"About Me"}
               value={aboutMe}
               onChangeText={(about) => {
                 setAboutMe(about),
@@ -133,7 +172,14 @@ const EditProfile = ({ navigation }) => {
 
             <Spacer height={20} />
             {/* Birthday */}
-            <BirthdayField />
+            <BirthdayField
+            value={month}
+            onChangeText={(mnt) => {
+              setMonth(mnt),
+                setSubmitError({ ...submitError, monthError: "" });
+            }}
+            error={submitError.monthError}
+            />
             {/* Demographics */}
 
             <Spacer height={10} />
@@ -147,12 +193,28 @@ const EditProfile = ({ navigation }) => {
               {/* Family Origin */}
               <Spacer height={10} />
               <PH10>
-                <InputField label={"Family Origin"} />
+                <InputField
+                  label={"Family Origin"}
+                  value={familyOrigin}
+                  onChangeText={(family) => {
+                    setfamilyOrigin(family),
+                      setSubmitError({ ...submitError, familyError: "" });
+                  }}
+                  error={submitError.familyError}
+                />
               </PH10>
               {/* Language */}
               <Spacer height={10} />
               <PH10>
-                <InputField label={"Language"} />
+                <InputField
+                  label={"Language"}
+                  value={language}
+                  onChangeText={(lang) => {
+                    setLanguage(lang),
+                      setSubmitError({ ...submitError, languageError: "" });
+                  }}
+                  error={submitError.languageError}
+                />
               </PH10>
               {/* Gender */}
               <Spacer height={10} />
@@ -187,7 +249,16 @@ const EditProfile = ({ navigation }) => {
               {/* Current Location */}
               <Spacer height={10} />
               <PH10>
-                <InputField label={" Current Location"} />
+              <InputField
+              label={"Current Location"}
+              // arrow={false}
+              value={editLocation}
+              onChangeText={(nam) => {
+                setEditLocation(nam),
+                  setSubmitError({ ...submitError, editlocationError: "" });
+              }}
+              error={submitError.editlocationError}
+            />
               </PH10>
               {/* Height */}
               <Spacer height={10} />
@@ -206,12 +277,26 @@ const EditProfile = ({ navigation }) => {
               {/* Employment */}
               <Spacer height={10} />
               <PH10>
-                <InputField label={"Employment"} />
+                <InputField
+                  label={"Employment"}
+                  onChangeText={(emp) => {
+                    setEmployment(emp),
+                      setSubmitError({ ...submitError, employmentError: "" });
+                  }}
+                  error={submitError.employmentError}
+                />
               </PH10>
               {/* Occupation */}
               <Spacer height={10} />
               <PH10>
-                <InputField label={"Occupation"} />
+                <InputField
+                  label={"Occupation"}
+                  onChangeText={(occ) => {
+                    setOccupation(occ),
+                      setSubmitError({ ...submitError, occupationError: "" });
+                  }}
+                  error={submitError.occupationError}
+                />
               </PH10>
             </View>
 
@@ -228,22 +313,50 @@ const EditProfile = ({ navigation }) => {
               {/* Religion */}
               <Spacer height={10} />
               <PH10>
-                <InputField label={"Religion"} />
+                <InputField
+                  label={"Religion"}
+                  onChangeText={(rel) => {
+                    setReligion(rel),
+                      setSubmitError({ ...submitError, religionError: "" });
+                  }}
+                  error={submitError.religionError}
+                />
               </PH10>
               {/* Religiousity */}
               <Spacer height={10} />
               <PH10>
-                <InputField label={"Religiousity"} />
+                <InputField
+                  label={"Religiousity"}
+                  onChangeText={(relg) => {
+                    setReligiousity(relg),
+                      setSubmitError({ ...submitError, religiousityError: "" });
+                  }}
+                  error={submitError.religiousityError}
+                />
               </PH10>
               {/* Prayer Level */}
               <Spacer height={10} />
               <PH10>
-                <InputField label={"Prayer Level"} />
+                <InputField
+                  label={"Prayer Level"}
+                  onChangeText={(pry) => {
+                    setPrayerLevel(pry),
+                      setSubmitError({ ...submitError, prayerLevelError: "" });
+                  }}
+                  error={submitError.prayerLevelError}
+                />
               </PH10>
               {/* Sector */}
               <Spacer height={10} />
               <PH10>
-                <InputField label={"Sector"} />
+                <InputField
+                  label={"Sector"}
+                  onChangeText={(sec) => {
+                    setSector(sec),
+                      setSubmitError({ ...submitError, sectorError: "" });
+                  }}
+                  error={submitError.sectorError}
+                />
               </PH10>
             </View>
 
@@ -260,12 +373,24 @@ const EditProfile = ({ navigation }) => {
               {/* Marital History */}
               <Spacer height={10} />
               <PH10>
-                <InputField label={"Marital History"} />
+                <InputField label={"Marital History"}
+                 onChangeText={(marh) => {
+                  setMartialHistory(marh),
+                    setSubmitError({ ...submitError, martialHistoryError: "" });
+                }}
+                error={submitError.martialHistoryError}
+                />
               </PH10>
               {/* Marital Timing */}
               <Spacer height={10} />
               <PH10>
-                <InputField label={"Marital Timing"} />
+                <InputField label={"Marital Timing"}
+                 onChangeText={(mart) => {
+                  setMartialTimming(mart),
+                    setSubmitError({ ...submitError, martialTimmingError: "" });
+                }}
+                error={submitError.martialTimmingError}
+                />
               </PH10>
             </View>
 
@@ -282,21 +407,20 @@ const EditProfile = ({ navigation }) => {
 
             {/* End Container */}
             <Spacer height={40} />
-          
 
             <Spacer height={10} />
           </View>
         </View>
       </ScrollView>
-      <View style={{marginBottom:verticalScale(10)}}>
-              <CustomButton
-                title="Save"
-                onPress={() => {
-                  onHandleSubmit();
-                }}
-                backgroundColor={colors.darkOrange}
-              />
-            </View>
+      <View style={{ marginBottom: verticalScale(10) }}>
+        <CustomButton
+          title="Save"
+          onPress={() => {
+            onHandleSubmit();
+          }}
+          backgroundColor={colors.darkOrange}
+        />
+      </View>
     </Container>
   );
 };

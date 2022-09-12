@@ -6,7 +6,7 @@ import { Spacer } from "../../../../components/Spacer";
 import { moderateScale, scale, verticalScale } from "react-native-size-matters";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 
-const BirthdayField = () => {
+const BirthdayField = ({ onChangeText, value, error }) => {
   return (
     <>
       <View>
@@ -26,7 +26,16 @@ const BirthdayField = () => {
           }}
         >
           <View style={{ flex: 5 }}>
-            <CustomText color={colors.gray} label={"Month"} />
+            <CustomText
+              color={colors.gray}
+              label={"Month"}
+              // value={month}
+              // onChangeText={(mnt) => {
+              //   setMonth(mnt),
+              //     setSubmitError({ ...submitError, monthError: "" });
+              // }}
+              // error={submitError.monthError}
+            />
             <View
               style={{
                 borderWidth: 1,
@@ -40,14 +49,28 @@ const BirthdayField = () => {
               }}
             >
               <TextInput
+                value={value}
+                onChangeText={onChangeText}
                 placeholder="January"
                 placeholderTextColor={"#5B5B5B"}
                 style={{ width: "70%" }}
               />
+              
               <View>
                 <FontAwesomeIcon name="chevron-down" />
               </View>
+              
             </View>
+            {error ? (
+                <CustomText
+                  color={colors.red}
+                  fontFamily={"medium"}
+                  fontSize={11}
+                  marginTop={4}
+                >
+                  * {error}
+                </CustomText>
+               ) : null} 
           </View>
           <Spacer width={10} />
           <View style={{ flex: 2 }}>
