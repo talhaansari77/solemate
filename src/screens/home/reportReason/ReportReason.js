@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CustomText from "../../../components/CustomText";
 import styled from "react-native-styled-components";
 import { moderateScale } from "react-native-size-matters";
@@ -10,6 +10,12 @@ import CustomTextInput from "../../../components/CustomTextInput";
 
 const ReportReason = ({navigation}) => {
   const [count, setCount] = useState(-1);
+  // const [off, setOff] = useState(false)
+ 
+  useEffect(() => {
+
+  }, [])
+
   const ReportListArray = [
     {
       id: 1,
@@ -62,21 +68,24 @@ const ReportReason = ({navigation}) => {
         <View style={{ marginTop: 40 }}>
           {ReportListArray.map((reportlist, index) => (
             <ReportItem
-              name={reportlist.name}
-              setCount={setCount}
-              count={count}
-              index={index}
-              key={index}
-            />
+            name={reportlist.name}
+            setCount={setCount}
+            count={count}
+            hideColor={() => setOff(false)}
+            index={index}
+            key={index}
+            /> 
           ))}
-        </View>
+        </View> 
         <View style={{marginTop: 10}}>
           <CustomTextInput
             borderColor= {colors.black}
             height = {45}
             placeholder = {"Write your own reason......"}
-            
             paddingHorizontal = {8}
+            // onPress={() => {
+            //   setOff(true)
+            // }}
            />
         </View>
 

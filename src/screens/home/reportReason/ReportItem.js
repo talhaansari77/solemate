@@ -1,15 +1,10 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
 import CustomButton from '../../../components/CustomButton'
 import { colors } from '../../../utils/Colors'
 
-const ReportItem = ({name, setCount, count, index, }) => {
-    <TouchableOpacity 
-    onPress={() => {
-        setCount(index);
-      }}
-    /> 
-   
+const ReportItem = ({name, setCount, count, index, hideColor}) => {  
+
   return (
     <View>
        <CustomButton
@@ -19,11 +14,18 @@ const ReportItem = ({name, setCount, count, index, }) => {
               fontSize={12}
               title={name}
               borderWidth={1.1}
-              color={count == index ? colors.primary : colors.black}
+              color={count == index ? colors.darkOrange : colors.black}
+              borderColor={count == index ? colors.darkOrange : colors.black}
               borderRadius={15}
               alignItems={"left"}
               paddingHorizontal={15}
-            />
+              onPress={() => {
+                setCount(index);
+                // hideColor(true)
+              }}
+            >
+              
+            </CustomButton>
                 
     </View>
   )
