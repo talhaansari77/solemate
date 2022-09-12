@@ -30,11 +30,16 @@ const Chat = () => {
         <View style={styles.Padding}>
           <ProfileNav
             RightSide={() => (
-              <Feather
-                name="plus"
-                size={moderateScale(25)}
-                color={colors.black}
-              />
+              <TouchableOpacity
+                activeOpacity={0.6}
+                style={{ alignItems: "flex-end", width: "100%" }}
+              >
+                <Feather
+                  name="plus"
+                  size={moderateScale(25)}
+                  color={colors.black}
+                />
+              </TouchableOpacity>
             )}
           />
           <CustomText

@@ -178,9 +178,7 @@ const Profile = ({ navigation, actions = false, getApp = false }) => {
           <View style={{ height: Dimensions.get("window").height / 2.3 }}>
             <Image
               resizeMode="cover"
-              source={{
-                uri: "https://w0.peakpx.com/wallpaper/121/369/HD-wallpaper-beautiful-girl-flower-aesthetic-ultra-girls-flower-girl-style-beautiful-portrait-woman-design-human-background-charming-young-face-female-beauty-model-gerbera-fashion-look-pretty.jpg",
-              }}
+              source={profileImages.reportImage}
               style={{ height: "100%", width: "100%" }}
             />
             <View

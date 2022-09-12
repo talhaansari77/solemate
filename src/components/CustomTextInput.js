@@ -47,16 +47,14 @@ const CustomTextInput = ({
           {
             width: props.width || "100%",
             height: props.height || verticalScale(50),
-            borderRadius: props.borderRadius || 0,
+            borderRadius: props.borderRadius || moderateScale(15),
             backgroundColor: props.backgroundColor || colors.white,
             marginTop: props.marginTop || verticalScale(0),
             flexDirection: "row",
             borderColor: props.borderColor || colors.primary,
-            borderWidth: 1.3||0,
+            borderWidth: 1.3,
             alignItems: "center",
             paddingLeft: props.paddingLeft,
-            borderBottomWidth: props.borderBottomWidth || 0,
-            borderBottomColor: props.borderBottomColor || colors.primary,
           },
         ]}
       >

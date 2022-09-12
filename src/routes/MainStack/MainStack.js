@@ -26,7 +26,7 @@ const MainStack = () => {
         tabBarStyle: {
           backgroundColor: "#fff",
           height: verticalScale(70),
-          paddingHorizontal:scale(30),
+          paddingHorizontal: scale(30),
         },
         tabBarIcon: ({ focused, size, color }) => {
           let iconName;
@@ -66,8 +66,8 @@ const MainStack = () => {
     >
       <Tab.Screen name="Profile" component={Profile} />
       <Tab.Screen
-          name="EditProfile"
-          component={EditProfile}
+        name="EditProfile"
+        component={EditProfile}
         options={{
           tabBarItemStyle: { display: "none" },
         }}
