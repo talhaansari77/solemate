@@ -6,7 +6,7 @@ import { moderateScale, scale, verticalScale } from "react-native-size-matters";
 import { colors } from "../../../../utils/Colors";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 
-const TagsField = ({title}) => {
+const TagsField = ({title,label}) => {
   return (
     <>
       <View>
@@ -25,20 +25,26 @@ const TagsField = ({title}) => {
             flexDirection: "row",
           }}
         >
-          <TouchableOpacity
-            activeOpacity={0.9}
-            style={{
-              paddingVertical: verticalScale(6),
-              paddingHorizontal: scale(20),
-              backgroundColor: colors.primary,
-              borderRadius: moderateScale(20),
+          {
+            label?(
+              <TouchableOpacity
+              activeOpacity={0.9}
+              style={{
+                paddingVertical: verticalScale(6),
+                paddingHorizontal: scale(20),
+                backgroundColor: colors.primary,
+                borderRadius: moderateScale(20),
+  
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <CustomText color={colors.white}>{label}</CustomText>
+            </TouchableOpacity>
 
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <CustomText color={colors.white}>Gamer</CustomText>
-          </TouchableOpacity>
+            ):<></>
+          }
+        
           <TouchableOpacity
             activeOpacity={0.6}
             style={{

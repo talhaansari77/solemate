@@ -6,17 +6,27 @@ import { colors } from "../../../../utils/Colors";
 import icons from "../../../../../assets/icons";
 import { Spacer } from "../../../../components/Spacer";
 
-const GenderContainer = ({ index, txt, isSelect, setIsSelect }) => {
+const GenderContainer = ({ index, txt, isSelect, setIsSelect,  setGender,error,
+  setSubmitError,
+  submitError,
+}) => {
+
   return (
     <TouchableOpacity
       activeOpacity={0.6}
       onPress={() => {
+
         setIsSelect(index);
+        setGender(txt)
+        setSubmitError({ ...submitError, genderError: "" });
+
+
+
       }}
       style={[
         styles.mainContainer,
         {
-          borderColor: isSelect == index ? colors.darkOrange : colors.black,
+          borderColor: isSelect == index ? colors.darkOrange : colors.lightBlack,
           borderRadius: 50,
           // borderColor: color,
           borderWidth: 1,
@@ -24,11 +34,12 @@ const GenderContainer = ({ index, txt, isSelect, setIsSelect }) => {
         },
       ]}
     >
-      <View style={{ flex: 7, alignItems: "center" }}>
+      <View 
+      style={{ flex: 7, alignItems: "center" }}>
         <CustomText
           label={txt}
           color={isSelect == index ? colors.darkOrange : colors.black}
-          fontFamily="bold"
+          fontFamily="regular"
           fontSize={verticalScale(10)}
           marginLeft={scale(30)}
         />
@@ -44,6 +55,10 @@ const GenderContainer = ({ index, txt, isSelect, setIsSelect }) => {
       ) : (
         <Spacer width={35}/>
       )}
+
+
+
+      
     </TouchableOpacity>
   );
 };

@@ -3,17 +3,25 @@ import React from "react";
 import CustomText from "../../../../components/CustomText";
 import { colors } from "../../../../utils/Colors";
 import { Spacer } from "../../../../components/Spacer";
-import { moderateScale, scale } from "react-native-size-matters";
+import { moderateScale, scale, verticalScale } from "react-native-size-matters";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 
-const HeightField = () => {
+const HeightField = ({
+  inchesHeight,
+  setInchesHeight,
+  feetHeight,
+  setFeetHeight,
+  submitError,
+  setSubmitError,
+
+}) => {
   return (
     <>
       <View style={{ paddingHorizontal: scale(10) }}>
         <CustomText
           label={"Height"}
           color={colors.darkOrange}
-          fontFamily={"bold"}
+          fontFamily={"regular"}
           fontSize={11}
         />
 
@@ -27,12 +35,15 @@ const HeightField = () => {
           }}
         >
           <View style={{ flex: 1 }}>
-            <CustomText>Feet</CustomText>
+            <CustomText color={colors.gray}
+            marginLeft={verticalScale(5)}
+            >Feet</CustomText>
             <View
               style={{
                 borderWidth: 1,
                 padding: moderateScale(2),
-                borderRadius: moderateScale(10),
+                borderRadius: moderateScale(7),
+                height: verticalScale(25),
                 flexDirection: "row",
                 justifyContent: "space-between",
                 alignItems: "center",
@@ -40,11 +51,18 @@ const HeightField = () => {
             >
               <View style={{ width: "80%", alignItems: "center" }}>
                 <TextInput
+                value={feetHeight}
+                onChangeText={(feet)=>{
+                  setSubmitError({ ...submitError, heightError: "" });
+
+                  setFeetHeight(feet)
+
+                }}
                   placeholder={"6"}
                   style={{ marginLeft: scale(20) }}
                 />
               </View>
-              <View>
+              <View style={{ paddingRight: 5 }}>
                 <FontAwesomeIcon name="chevron-down" />
               </View>
             </View>
@@ -52,12 +70,18 @@ const HeightField = () => {
 
           <Spacer width={10} />
           <View style={{ flex: 1 }}>
-            <CustomText>Inches</CustomText>
+            <CustomText color={colors.gray}
+                        marginLeft={verticalScale(5)}
+
+
+            >Inches</CustomText>
             <View
               style={{
                 borderWidth: 1,
                 padding: moderateScale(2),
-                borderRadius: moderateScale(10),
+                borderRadius: moderateScale(7),
+                height: verticalScale(25),
+
                 flexDirection: "row",
                 justifyContent: "space-between",
                 alignItems: "center",
@@ -65,11 +89,20 @@ const HeightField = () => {
             >
               <View style={{ width: "80%", alignItems: "center" }}>
                 <TextInput
+                 value={inchesHeight}
+                 onChangeText={(inches)=>{
+                  setSubmitError({ ...submitError, heightError: "" });
+                  setInchesHeight(inches)
+
+
+
+                 }}
+                  
                   placeholder={"6 "}
                   style={{ marginLeft: scale(20) }}
                 />
               </View>
-              <View>
+              <View style={{ paddingRight: 5 }}>
                 <FontAwesomeIcon name="chevron-down" />
               </View>
             </View>

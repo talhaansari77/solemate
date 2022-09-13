@@ -7,7 +7,7 @@ import CustomText from "../../../../components/CustomText";
 import { scale, ScaledSheet, verticalScale } from "react-native-size-matters";
 import icons from "../../../../../assets/icons";
 
-const SelectBtn = ({ label, txt1, txt2, index }) => {
+const SelectBtn = ({ label, txt1, txt2, index,onValue }) => {
   const [status, setStatus] = useState(-1); //yes or no
   const [isSelect, setIsSelect] = useState(-1); //multiple
   return (
@@ -17,7 +17,7 @@ const SelectBtn = ({ label, txt1, txt2, index }) => {
         <CustomText
           label={label}
           color={colors.darkOrange}
-          fontFamily={"bold"}
+          fontFamily={"medium"}
           fontSize={11}
         />
 
@@ -35,6 +35,7 @@ const SelectBtn = ({ label, txt1, txt2, index }) => {
             onPress={() => {
               setIsSelect(index);
               setStatus(1);
+              onValue(txt1)
             }}
             style={[
               styles.mainContainer,
@@ -43,7 +44,7 @@ const SelectBtn = ({ label, txt1, txt2, index }) => {
                 borderColor:
                   isSelect == index && status
                     ? colors.darkOrange
-                    : colors.black,
+                    : colors.gray,
                 borderWidth: 1,
                 flexDirection: "row",
               },
@@ -55,7 +56,7 @@ const SelectBtn = ({ label, txt1, txt2, index }) => {
                 color={
                   isSelect == index && status ? colors.darkOrange : colors.black
                 }
-                fontFamily="bold"
+                fontFamily="regular"
                 fontSize={verticalScale(10)}
                 marginLeft={scale(30)}
               />
@@ -80,6 +81,8 @@ const SelectBtn = ({ label, txt1, txt2, index }) => {
             onPress={() => {
               setIsSelect(index);
               setStatus(0);
+              onValue(txt2)
+
             }}
             style={[
               styles.mainContainer,
@@ -88,7 +91,7 @@ const SelectBtn = ({ label, txt1, txt2, index }) => {
                 borderColor:
                   isSelect == index && !status
                     ? colors.darkOrange
-                    : colors.black,
+                    : colors.gray,
                 borderWidth: 1,
                 flexDirection: "row",
               },
@@ -102,7 +105,7 @@ const SelectBtn = ({ label, txt1, txt2, index }) => {
                     ? colors.darkOrange
                     : colors.black
                 }
-                fontFamily="bold"
+                fontFamily="regular"
                 fontSize={verticalScale(10)}
                 marginLeft={scale(30)}
               />

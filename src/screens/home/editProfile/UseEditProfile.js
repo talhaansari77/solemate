@@ -1,3 +1,7 @@
+import moment from "moment";
+import Toast from "react-native-root-toast";
+
+
 export const EditValidate=(data,submitError,setSubmitError)=>{
 
     if(!data.firstName){
@@ -11,15 +15,34 @@ export const EditValidate=(data,submitError,setSubmitError)=>{
     if(!data.aboutMe){
         return setSubmitError({...submitError,aboutError:"About me is required"})
     }
+    if(!data.dob){
+        return setSubmitError({...submitError,birthdayError:"Birthday is required"})
+    }
+    if (moment().diff(data.dob, "years", false) < 17){
+        return setSubmitError({...submitError,birthdayError:"Your age must be 17"})
+
+
+    }
+  
 
     if(!data.familyOrigin){
         return setSubmitError({...submitError,familyError:"Family Origin is required"})
     }
-
+    
     if(!data.language){
         return setSubmitError({...submitError,languageError:"Language is required"})
     }
 
+    if(!data.gender){
+        return setSubmitError({...submitError,genderError:"Gender is required"})
+    }
+    if(!data.location){
+        return setSubmitError({...submitError,editlocationError:"Location is required"})
+
+    }
+    if(!data.height){
+        return setSubmitError({...submitError,heightError:"height is required"})
+    }
     if(!data.employment){
         return setSubmitError({...submitError,employmentError:"Employment is required"})
     }
@@ -51,15 +74,37 @@ export const EditValidate=(data,submitError,setSubmitError)=>{
     if(!data.martialTimming){
         return setSubmitError({...submitError,martialTimmingError:"Martial Timming is required"})
     }
+    // whatKids:whatKids,
+    // hasKids:hasKids,
+    // willRelocate:willRelocate,
+    // jobStatus:jobStatus,
+    // drinking:drinking,
+    // smoking:smoking,
 
-    if(!data.month){
-        return setSubmitError({...submitError,monthError:"Month is required"})
+    if(!data.whatKids){
+        return  Toast.show("Whats Kids is required",)
+    }
+    if(!data.hasKids){
+        return  Toast.show("Has Kids is required")
+    } 
+       if(!data.willRelocate){
+        return  Toast.show("willing Relocate is required")
+    } 
+       if(!data.jobStatus){
+        return  Toast.show("Job Status is required")
+    } 
+       if(!data.drinking){
+        return  Toast.show("Drinking is required")
+    }
+    if(!data.smoking){
+        return  Toast.show("Smoking is required")
     }
 
-    if(!data.editLocation){
-        return setSubmitError({...submitError,editlocationError:"Location is required"})
 
-    }
+
+  
+
+ 
     
     
     return true
