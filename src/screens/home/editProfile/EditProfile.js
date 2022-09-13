@@ -52,6 +52,7 @@ const EditProfile = ({ navigation }) => {
   const [jobStatus, setJobStatus] = useState("");
   const [drinking, setDrinking] = useState("");
   const [smoking, setSmoking] = useState("");
+  const [addMore, setAddMore] = useState("")
   const [personality, setperSonality] = useState([
     // {label:"anotherone"}
   ]);
@@ -70,7 +71,7 @@ const EditProfile = ({ navigation }) => {
 
   
 
-  console.log("whatKids", whatKids);
+  console.log("addMore", personality);
 
   const [editLocation, setEditLocation] = useState("");
   console.log("aboutMe", aboutMe);
@@ -135,6 +136,16 @@ const EditProfile = ({ navigation }) => {
       console.log("ok");
     }
   };
+  const onSavePersonality=()=>{
+    let data = {
+      personality:addMore
+    };
+    personality.push(data)
+
+    setModalVisible(!modalVisible)
+
+
+  }
   return (
     <Container>
       {/* Header */}
@@ -202,15 +213,14 @@ const EditProfile = ({ navigation }) => {
               fontFamily={"medium"}
               fontSize={11}
             /> */}
-          <CustomText label="personality" color={colors.darkOrange} ></CustomText>
-
+          <CustomText label="personality" color={colors.darkOrange} />
           <View style={{width: "100%",flexDirection: "row", flexWrap: 'wrap'}}>
 
           <View style={{flexDirection: "row", flexWrap: 'wrap'}} >
           {personality.map((item,) => {
               return <TagsField  
-              label={item.label}
-              //  addItems={addItems}
+              label={item.personality}
+              //  addItems.={addItems}
                  />
             })}
           </View>
@@ -268,6 +278,9 @@ const EditProfile = ({ navigation }) => {
                 <CustomTextInput
                   withLabel={"Add Personality"}
                   height={52}
+                  value={addMore}
+                  onChangeText={(add)=>setAddMore(add)}
+                  placeholder="Personality"
                   onPress={() => {
                     // {addItems}
                     console.log(addItems,"addItems")
@@ -277,7 +290,9 @@ const EditProfile = ({ navigation }) => {
                 <Spacer height={verticalScale(20)} />
 
                 <CustomButton
-                  onPress={() => setModalVisible(!modalVisible)}
+                  onPress={() =>
+                    onSavePersonality()
+                    }
                   title="Save"
                   
                 />

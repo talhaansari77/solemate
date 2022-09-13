@@ -1,7 +1,7 @@
 export const colors = {
-  primary: "#167070",
+  primary: "#5D03EC",
   black: "#080808",
-  darkOrange: "#FE6625",
+  darkOrange: "#5D03EC",
   orange: "#FB9334",
   lightRed: "#E24E59",
   gray: "#8D8D8D",
@@ -14,5 +14,4 @@ export const colors = {
   switchGray: "#E2E2E2",
   halfGray:"#9F9F9F",
   lightBlack:"#707070"
-  
 };

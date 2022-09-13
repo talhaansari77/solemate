@@ -15,7 +15,7 @@ import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import CustomButton from "../../../../components/CustomButton";
 import CustomTextInput from "../../../../components/CustomTextInput";
 
-const TagsField = ({ title, label, addItems }) => {
+const TagsField = ({ title, label, addItems,item }) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
@@ -29,7 +29,7 @@ const TagsField = ({ title, label, addItems }) => {
           //   flexDirection: "row",
           // }}
         >
-          {label ? (
+          { label? (
             <TouchableOpacity
               activeOpacity={0.9}
               style={{
