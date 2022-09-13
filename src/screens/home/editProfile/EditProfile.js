@@ -1,4 +1,4 @@
-import { View, ScrollView } from "react-native";
+import { View, ScrollView, TouchableOpacity, Modal, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import { Container } from "../profile/Profile";
 import { Spacer } from "../../../components/Spacer";
@@ -18,7 +18,9 @@ import HeightField from "./molecules/HeightField";
 import TextArea from "./molecules/TextArea";
 import styled from "react-native-styled-components";
 import CustomButton from "../../../components/CustomButton";
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import { EditValidate } from "./UseEditProfile";
+import CustomTextInput from "../../../components/CustomTextInput";
 
 const genders = [
   { id: 1, name: "Male" },
@@ -51,9 +53,22 @@ const EditProfile = ({ navigation }) => {
   const [drinking, setDrinking] = useState("");
   const [smoking, setSmoking] = useState("");
   const [personality, setperSonality] = useState([
-    {id:1,label:"ckdncdk"}
-
+    // {label:"anotherone"}
   ]);
+
+  personality.push({label:"anotherone"})
+
+  const [modalVisible, setModalVisible] = useState(false);
+
+  // const addItems = () => {
+  //   setperSonality([...personality, {
+  //     id: personality.length,
+  //     label: 'personality'
+  //   }
+  //   ])
+  // }
+
+  
 
   console.log("whatKids", whatKids);
 
@@ -187,10 +202,102 @@ const EditProfile = ({ navigation }) => {
               fontFamily={"medium"}
               fontSize={11}
             /> */}
+          <CustomText label="personality" color={colors.darkOrange} ></CustomText>
 
-            {personality.map((item) => {
-              return <TagsField  title={"Personality"} label={item.label} />;
+          <View style={{width: "100%",flexDirection: "row", flexWrap: 'wrap'}}>
+
+          <View style={{flexDirection: "row", flexWrap: 'wrap'}} >
+          {personality.map((item,) => {
+              return <TagsField  
+              label={item.label}
+              //  addItems={addItems}
+                 />
             })}
+          </View>
+
+          <View style={{marginTop: 8}}>
+          <TouchableOpacity
+            activeOpacity={0.6}
+            style={{
+              paddingVertical: verticalScale(6),
+              paddingHorizontal: scale(20),
+              borderRadius: moderateScale(15),
+              borderStyle: "dashed",
+              borderColor: colors.primary,
+              borderWidth: 1,
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+              marginLeft: scale(5),
+            }}
+            onPress={() => setModalVisible(true)}
+          >
+            <CustomText color={colors.primary} fontFamily={"bold"} >
+              Add More
+            </CustomText>
+            <Spacer width={5} />
+            <View
+              style={{
+                backgroundColor: colors.primary,
+                height: 20,
+                width: 20,
+                borderRadius: 10,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <FontAwesomeIcon name="plus" color={colors.white} />
+            </View>
+          </TouchableOpacity>
+          </View>
+
+          </View>
+
+          {/* Modal For Add More */}
+
+          <Modal
+            animationType="fade"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+              setModalVisible(!modalVisible);
+            }}
+          >
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <CustomTextInput
+                  withLabel={"Add Personality"}
+                  height={52}
+                  onPress={() => {
+                    // {addItems}
+                    console.log(addItems,"addItems")
+                  }}
+                />
+
+                <Spacer height={verticalScale(20)} />
+
+                <CustomButton
+                  onPress={() => setModalVisible(!modalVisible)}
+                  title="Save"
+                  
+                />
+
+                <Spacer height={verticalScale(10)} />
+
+                <CustomButton
+                  onPress={() => setModalVisible(!modalVisible)}
+                  title="Cancel"
+                  color={colors.black}
+                  backgroundColor={colors.white}
+                  borderColor={colors.black}
+                  borderWidth={0.5}
+                />
+              </View>
+            </View>
+          </Modal>
+       
+            
+           
 
             <Spacer height={20} />
             {/* Characteristics */}
@@ -493,6 +600,32 @@ const EditProfile = ({ navigation }) => {
     </Container>
   );
 };
+
+const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    // marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    width: "90%",
+    height: "35%",
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+});
 
 export default EditProfile;
 
