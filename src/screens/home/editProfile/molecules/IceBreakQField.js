@@ -1,12 +1,16 @@
-import { View, Text, TouchableOpacity } from "react-native";
-import React from "react";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import React, { useState } from "react";
 import CustomText from "../../../../components/CustomText";
 import { colors } from "../../../../utils/Colors";
 import { Spacer } from "../../../../components/Spacer";
-import { moderateScale } from "react-native-size-matters";
+import { moderateScale, verticalScale } from "react-native-size-matters";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
+import TwoInputModal from "./TwoInputModal";
+import CustomTextInput from "../../../../components/CustomTextInput";
+import CustomButton from "../../../../components/CustomButton";
 
 const IceBreakQField = () => {
+  const [modalVisible, setModalVisible] = useState(false);
   const questions = [1, 2, 3];
   return (
     <>
@@ -34,6 +38,7 @@ const IceBreakQField = () => {
                   justifyContent: "space-between",
                   alignItems: "center",
                 }}
+                onPress={() => setModalVisible(true)}
               >
                 <View style={{ width: "80%" }}>
                   <CustomText fontSize={12}>
@@ -57,6 +62,11 @@ const IceBreakQField = () => {
                 </View>
               </TouchableOpacity>
               <Spacer height={10} />
+
+             <TwoInputModal
+             setModalVisible={setModalVisible}
+             modalVisible={modalVisible}
+             />
             </>
           ))}
         </View>
@@ -64,5 +74,7 @@ const IceBreakQField = () => {
     </>
   );
 };
+
+
 
 export default IceBreakQField;
