@@ -54,22 +54,12 @@ const EditProfile = ({ navigation }) => {
   const [smoking, setSmoking] = useState("");
   const [addMore, setAddMore] = useState("")
   const [personality, setperSonality] = useState([
-    // {label:"anotherone"}
   ]);
+ 
 
-  personality.push({label:"anotherone"})
 
   const [modalVisible, setModalVisible] = useState(false);
 
-  // const addItems = () => {
-  //   setperSonality([...personality, {
-  //     id: personality.length,
-  //     label: 'personality'
-  //   }
-  //   ])
-  // }
-
-  
 
   console.log("addMore", personality);
 
@@ -145,6 +135,9 @@ const EditProfile = ({ navigation }) => {
     setModalVisible(!modalVisible)
 
 
+  
+
+
   }
   return (
     <Container>
@@ -204,7 +197,13 @@ const EditProfile = ({ navigation }) => {
 
             <Spacer height={20} />
             {/* Ice Breaker Question */}
-            <IceBreakQField />
+            <IceBreakQField 
+              // addIceBreaker={addIceBreaker}
+              // setAddIceBreaker= {setAddIceBreaker}
+              // iceBreaker={iceBreaker}
+              
+              // onSaveIceBreaker={onSaveIceBreaker()}
+            />
             {/* Personality */}
             <Spacer height={10} />
             {/* <CustomText
