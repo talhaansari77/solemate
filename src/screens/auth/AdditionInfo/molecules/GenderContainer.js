@@ -36,13 +36,13 @@ const GenderContainer = ({ index, txt, isSelect, setIsSelect }) => {
       {isSelect == index ? (
         <View style={{ flex: 3, alignItems: "center" }}>
           <Image
-            source={icons.orangeCircleIcon}
-            style={{ height: verticalScale(20), width: scale(20) }}
+            source={icons.circleTickOrange}
+            style={{ height: verticalScale(30), width: scale(30) }}
             resizeMode={"contain"}
           />
         </View>
       ) : (
-        <></>
+        <Spacer width={35}/>
       )}
     </TouchableOpacity>
   );

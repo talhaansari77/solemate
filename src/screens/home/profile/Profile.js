@@ -19,6 +19,7 @@ import Infos from "./molecules/Infos";
 import FavFoodText from "./molecules/FavFoodText";
 import ActionBtn from "./molecules/ActionBtn";
 import GetAppBtn from "./molecules/GetAppBtn";
+import icons from "../../../../assets/icons";
 
 const traits = [
   { id: 1, trait: "Gamer" },
@@ -33,31 +34,41 @@ const basicInfo = [
     id: 1,
     title: "Current Location",
     label: "California, US",
-    icon: "location",
+    icon: icons.location,
   },
-  { id: 2, title: "Family Origin", label: "Us", icon: "flag-o" },
-  { id: 3, title: "Height", label: "5'6", icon: "height" },
-  { id: 4, title: "Language", label: "English", icon: "language" },
+  { id: 2, title: "Family Origin", label: "Us", icon: icons.featherFlag },
+  { id: 3, title: "Height", label: "5'6", icon: icons.resizeHeight },
+  { id: 4, title: "Language", label: "English", icon: icons.language },
 ];
 const education = [
-  { id: 1, title: "Current Location", label: "California, US" },
-  { id: 2, title: "Family Origin", label: "Us" },
+  { id: 1, title: "Occupation", label: "California, US", icon: icons.work },
+  { id: 2, title: "Education", label: "Us", icon: icons.education },
 ];
 const religiousness = [
-  { id: 1, title: "Current Location", label: "California, US" },
-  { id: 2, title: "Family Origin", label: "Us" },
-  { id: 3, title: "Height", label: "5'6" },
-  { id: 4, title: "Language", label: "English" },
+  { id: 1, title: "Religion", label: "California, US", icon: icons.moonStar },
+  { id: 2, title: "Religiousity", label: "Us", icon: icons.bookOpen },
+  { id: 3, title: "Prayer level", label: "5'6", icon: icons.partlySunny },
+  { id: 4, title: "Sector", label: "English", icon: icons.expandArrow },
 ];
 const expectation = [
-  { id: 1, title: "Current Location", label: "California, US" },
-  { id: 2, title: "Family Origin", label: "Us" },
-  { id: 3, title: "Height", label: "5'6" },
-  { id: 4, title: "Language", label: "English" },
-  { id: 5, title: "Current Location", label: "California, US" },
-  { id: 6, title: "Family Origin", label: "Us" },
-  { id: 7, title: "Height", label: "5'6" },
-  { id: 8, title: "Language", label: "English" },
+  {
+    id: 1,
+    title: "Marital History",
+    label: "California, US",
+    icon: icons.heartBeatBlack,
+  },
+  { id: 2, title: "Marital Timing", label: "Us", icon: icons.heartBlack },
+  { id: 3, title: "Want Kind?", label: "5'6", icon: icons.babayCarriage },
+  { id: 4, title: "Has Children?", label: "English", icon: icons.baby },
+  {
+    id: 5,
+    title: "Willing to Relocate",
+    label: "California, US",
+    icon: icons.locationEdit,
+  },
+  { id: 6, title: "Job Status", label: "Us", icon: icons.work },
+  { id: 7, title: "Drinking", label: "5'6", icon: icons.drink },
+  { id: 8, title: "Smoking", label: "English", icon: icons.smoking },
 ];
 const Profile = ({ navigation, actions = true, getApp = false }) => {
   return (

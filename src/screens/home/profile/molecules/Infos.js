@@ -1,4 +1,4 @@
-import { View, Text, Dimensions } from "react-native";
+import { View, Text, Dimensions, Image } from "react-native";
 import React from "react";
 import { moderateScale } from "react-native-size-matters";
 import CustomText from "../../../../components/CustomText";
@@ -37,9 +37,9 @@ const Infos = ({title, infoList=[]}) => {
                 width: Dimensions.get("window").width / 2.5,
               }}
             >
-              <View style={{ flexDirection: "row" }}>
-                <Ionicons name="ios-location" />
-                <CustomText color={colors.orange}>{info.title}</CustomText>
+              <View style={{ flexDirection: "row",alignItems:"center" }}>
+                <Image source={info.icon} resizeMode={'contain'}/>
+                <CustomText color={colors.orange} marginLeft={3}>{info.title}</CustomText>
               </View>
               <CustomText marginTop={5} marginLeft={15}>
                 {info.label}

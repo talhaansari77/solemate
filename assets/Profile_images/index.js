@@ -1,19 +1,15 @@
-
 const profileImages = {
-    profile01:require('./profile-01.png'),
-    profile02:require('./profile-02.png'),
-    profile03:require('./profile-03.png'),
-    profile04:require('./profile-04.png'),
-    cake:require('./Cake.png'),
-    man:require('./man.jpg'),
-    google:require('./google.png'),
-    reportImage:require('./reportImage.png'),
-<<<<<<< HEAD
-    prettyFace:require('./prettyFace.jpg'),
-=======
-    editProfile01:require('./editProfile01.png'),
-    editProfile01:require('./editProfile01.png'),
->>>>>>> 738ca2ea1d6632b29a45c79d8ba4271cf6670601
-}
+  profile01: require("./profile-01.png"),
+  profile02: require("./profile-02.png"),
+  profile03: require("./profile-03.png"),
+  profile04: require("./profile-04.png"),
+  cake: require("./Cake.png"),
+  man: require("./man.jpg"),
+  google: require("./google.png"),
+  reportImage: require("./reportImage.png"),
+  prettyFace: require("./prettyFace.jpg"),
+  editProfile01: require("./editProfile01.png"),
+  editProfile01: require("./editProfile01.png"),
+};
 
 export default profileImages;
