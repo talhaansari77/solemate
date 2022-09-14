@@ -13,6 +13,7 @@ import LoginpWithCon from "./LoginWithCon";
 import { ValidateInput } from "../signup/UseSignup";
 import { AuthLogin } from "../../../services/FirebaseAuth";
 import { ValidateLogin } from "./molecules/UseLogin";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Login = ({ navigation }) => {
   const [eyeClick, setEyeClick] = useState(true);
@@ -39,6 +40,9 @@ const Login = ({ navigation }) => {
       try {
         const res = await AuthLogin(email, password);
         if (res.user.uid) {
+
+          AsyncStorage.setItem("userAuth", res.user.uid);
+
           navigation.reset({
             index: 0,
             routes: [{ name: "MainStack" }],

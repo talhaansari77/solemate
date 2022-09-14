@@ -5,7 +5,7 @@ import {
   Modal,
   StyleSheet,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container } from "../profile/Profile";
 import { Spacer } from "../../../components/Spacer";
 import CustomText from "../../../components/CustomText";
@@ -28,6 +28,13 @@ import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import { EditValidate } from "./UseEditProfile";
 import CustomTextInput from "../../../components/CustomTextInput";
 import PersonalityModal from "./molecules/PersonalityModal";
+import AddMoreContainer from "./molecules/AddMoreContainer";
+import PhotoContainer from "./molecules/PhotoContainer";
+import {
+  getAuthId,
+  saveUser,
+  uploadImage,
+} from "../../../services/FirebaseAuth";
 
 const genders = [
   { id: 1, name: "Male" },
@@ -49,6 +56,7 @@ const EditProfile = ({ navigation }) => {
   const [sector, setSector] = useState("");
   const [martialHistory, setMartialHistory] = useState("");
   const [martialTimming, setMartialTimming] = useState("");
+  const [loading, setLoading] = useState(false);
   const [birthday, setBirthday] = useState("");
   const [gender, setGender] = useState("");
   const [feetHeight, setFeetHeight] = useState("");
@@ -60,19 +68,13 @@ const EditProfile = ({ navigation }) => {
   const [drinking, setDrinking] = useState("");
   const [smoking, setSmoking] = useState("");
   const [addMore, setAddMore] = useState("");
-  const [personality, setperSonality] = useState([
-    // {label:"anotherone"}
-  ]);
-
-  personality.push({ label: "anotherone" });
-
+  const [personality, setPersonality] = useState([]);
+  const [characteristics, setcharacteristics] = useState([]);
+  const [characterModal, setCharacterModal] = useState(false);
+  const [images, setImages] = useState([]);
   const [personalityModal, setPersonalityModal] = useState(false);
-
-
-  console.log("addMore", personality);
-
   const [editLocation, setEditLocation] = useState("");
-  console.log("aboutMe", aboutMe);
+  const [authID, setAuthID] = useState("");
 
   const questions = [
     { id: 1, question: "Want Kids", onValue: setWhatKids },
@@ -82,6 +84,13 @@ const EditProfile = ({ navigation }) => {
     { id: 5, question: "Drinking", onValue: setDrinking },
     { id: 6, question: "Smoking", onValue: setSmoking },
   ];
+  const [data] = useState([1, 2, 3, 4, 5, 6]);
+
+  useEffect(async () => {
+    await getAuthId().then((id) => {
+      setAuthID(id);
+    });
+  }, []);
 
   const [submitError, setSubmitError] = useState({
     firstNameError: "",
@@ -101,9 +110,11 @@ const EditProfile = ({ navigation }) => {
     sectorError: "",
     martialHistoryError: "",
     martialTimmingError: "",
+    addPersonalityError: "",
+    characterError: "",
   });
 
-  const onHandleSubmit = () => {
+  const onHandleSubmit = async () => {
     const data = {
       firstName: firstName,
       lastName: lastName,
@@ -111,6 +122,9 @@ const EditProfile = ({ navigation }) => {
       dob: birthday,
       familyOrigin: familyOrigin,
       language: language,
+      personality: personality.map((item) => item.personality),
+      characteristics: characteristics.map((item) => item.characteristics),
+      images: images,
       gender: gender,
       location: editLocation,
       height: feetHeight + inchesHeight,
@@ -131,16 +145,65 @@ const EditProfile = ({ navigation }) => {
     };
     const response = EditValidate(data, submitError, setSubmitError);
     if (response) {
-      console.log("ok");
+      setLoading(true);
+
+      // try {
+      //   let imageLink = [];
+      //   for (let index = 0; index < data.images.length; index++) {
+      //     const element = data.images[index];
+      //     const link = await uploadImage(element);
+      //     imageLink.push(link);
+      //   }
+      //   data.images = imageLink;
+
+      //   setLoading(false);
+      //   if (authID) {
+      //     await saveUser(authID, data);
+
+      //     setLoading(false);
+      //     console.log("dataSave");
+      //     // navigation.reset({
+      //     //   index: 0,
+      //     //   routes: [{ name: "EmailVerification" }],
+      //     // })
+      //   }
+      // } catch (error) {
+      //   setLoading(false);
+      //   console.log("onSubmit Registeration", error);
+      // }
+    }
+  };
+  const onSaveCharacter = () => {
+    if (!addMore) {
+      return setSubmitError({
+        ...submitError,
+        characterError: "This field is required",
+      });
+    } else {
+      let data = {
+        characteristics: addMore,
+      };
+      characteristics.push(data);
+      setAddMore("");
+      setSubmitError({ ...submitError, characterError: "" });
+      setCharacterModal(false);
     }
   };
   const onSavePersonality = () => {
-    let data = {
-      personality: addMore,
-    };
-    personality.push(data);
-
-    setPersonalityModal(!personalityModal);
+    if (!addMore) {
+      return setSubmitError({
+        ...submitError,
+        addPersonalityError: "This field is required",
+      });
+    } else {
+      let data = {
+        personality: addMore,
+      };
+      personality.push(data);
+      setAddMore("");
+      setSubmitError({ ...submitError, addPersonalityError: "" });
+      setPersonalityModal(false);
+    }
   };
   return (
     <Container>
@@ -149,7 +212,22 @@ const EditProfile = ({ navigation }) => {
       <Divider />
       <Spacer height={10} />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <PictureBox />
+        <View style={styles.imageView}>
+          {data.map((item, index) => (
+            <PhotoContainer
+              key={index}
+              index={index}
+              label={item}
+              images={images}
+              setImages={setImages}
+              width={moderateScale(100)}
+              height={verticalScale(95)}
+            />
+          ))}
+        </View>
+
+        {/* <PhotoContainer images={images} setImages={setImages}/> */}
+        {/* <PictureBox /> */}
         {/* <Spacer height={10}/> */}
         <View style={{ padding: moderateScale(5) }}>
           <CustomText
@@ -200,18 +278,23 @@ const EditProfile = ({ navigation }) => {
 
             <Spacer height={20} />
             {/* Ice Breaker Question */}
-            <IceBreakQField />
+            <IceBreakQField
+            // addIceBreaker={addIceBreaker}
+            // setAddIceBreaker= {setAddIceBreaker}
+            // iceBreaker={iceBreaker}
+
+            // onSaveIceBreaker={onSaveIceBreaker()}
+            />
             {/* Personality */}
             <Spacer height={10} />
-            {/* <CustomText
-              label={"Personality"}
-              color={colors.darkOrange}
-              fontFamily={"medium"}
-              fontSize={11}
-            /> */}
             <CustomText label="personality" color={colors.darkOrange} />
             <View
-              style={{ width: "100%", flexDirection: "row", flexWrap: "wrap" }}
+              style={{
+                width: "100%",
+                flexDirection: "row",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
             >
               <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
                 {personality.map((item) => {
@@ -223,56 +306,82 @@ const EditProfile = ({ navigation }) => {
                   );
                 })}
               </View>
-              <View style={{ marginTop: 8 }}>
-                <TouchableOpacity
-                  activeOpacity={0.6}
-                  style={{
-                    paddingVertical: verticalScale(6),
-                    paddingHorizontal: scale(20),
-                    borderRadius: moderateScale(15),
-                    borderStyle: "dashed",
-                    borderColor: colors.primary,
-                    borderWidth: 1,
-                    flexDirection: "row",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    marginLeft: scale(5),
+              <View style={{ marginTop: verticalScale(15) }}>
+                <AddMoreContainer
+                  onAddMore={() => {
+                    setPersonalityModal(true);
                   }}
-                  onPress={() => setPersonalityModal(true)}
-                >
-                  <CustomText color={colors.primary} fontFamily={"bold"}>
-                    Add More
-                  </CustomText>
-                  <Spacer width={5} />
-                  <View
-                    style={{
-                      backgroundColor: colors.primary,
-                      height: 20,
-                      width: 20,
-                      borderRadius: 10,
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <FontAwesomeIcon name="plus" color={colors.white} />
-                  </View>
-                </TouchableOpacity>
+                />
               </View>
             </View>
 
             {/* Modal For Add More */}
-            <PersonalityModal 
-            setPersonalityModal={setPersonalityModal}
-            personalityModal={personalityModal}
+            <PersonalityModal
+              setModelVisible={setPersonalityModal}
+              modalVisible={personalityModal}
+              setValue={setAddMore}
+              value={addMore}
+              onChange={(add) => {
+                setAddMore(add);
+                setSubmitError({ ...submitError, addPersonalityError: "" });
+              }}
+              error={submitError.addPersonalityError}
+              onSaveData={() => {
+                onSavePersonality();
+              }}
+            />
+            {/* Characteristics */}
+
+            <CustomText
+              label="Characteristics"
+              color={colors.darkOrange}
+              marginTop={verticalScale(10)}
             />
 
-          
+            <View
+              style={{
+                width: "100%",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+                {characteristics.map((item) => {
+                  return (
+                    <TagsField
+                      label={item.characteristics}
+                      //  addItems.={addItems}
+                    />
+                  );
+                })}
+              </View>
+              <View style={{ marginTop: verticalScale(15) }}>
+                <AddMoreContainer
+                  onAddMore={() => {
+                    setCharacterModal(true);
+                  }}
+                />
+              </View>
+            </View>
+
+            {/* Modal For Add More */}
+            <PersonalityModal
+              setModelVisible={setCharacterModal}
+              modalVisible={characterModal}
+              setValue={setAddMore}
+              value={addMore}
+              onChange={(add) => {
+                setAddMore(add);
+                setSubmitError({ ...submitError, characterError: "" });
+              }}
+              error={submitError.characterError}
+              onSaveData={() => {
+                onSaveCharacter();
+              }}
+            />
 
             <Spacer height={20} />
-            {/* Characteristics */}
-            <TagsField title={"Characteristics"} />
 
-            <Spacer height={20} />
             {/* Birthday */}
             <BirthdayField
               birthday={birthday}
@@ -560,6 +669,7 @@ const EditProfile = ({ navigation }) => {
       <View style={{ marginBottom: verticalScale(10) }}>
         <CustomButton
           title="Save"
+          loading={loading}
           onPress={() => {
             onHandleSubmit();
           }}
@@ -593,6 +703,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+  },
+
+  imageView: {
+    width: "100%",
+    flexDirection: "row",
+    // marginBottom: '50@vs',
+    flexWrap: "wrap",
+    justifyContent: "space-evenly",
   },
 });
 

@@ -8,6 +8,8 @@ import { verticalScale, moderateScale } from "react-native-size-matters";
 import CustomText from "../../../components/CustomText";
 import ConditionPassCon from "./molecules/ConditionPassCon";
 import CustomButton from "../../../components/CustomButton";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 import { colors } from "../../../utils/Colors";
 import {
   validateEmail,
@@ -89,26 +91,29 @@ const Signup = ({ navigation }) => {
     );
 
     if (response) {
+      console.log("ok")
       setLoading(true);
 
-      // try {
-      //   const res = await SignupEmailPassword(email, password);
-      //   if (res.user.uid) {
-      //     setLoading(false);
+      try {
+        const res = await SignupEmailPassword(email, password);
+        if (res.user.uid) {
+         AsyncStorage.setItem("userAuth", res.user.uid);
 
-      //     navigation.reset({
-      //       index: 0,
-      //       routes: [{ name: "MainStack" }],
-      //     });
-      //   }
-      // } catch (error) {
-      //   console.log("onSubmitRegister error", error);
-      //   setSubmitError({
-      //     ...submitError,
-      //     emailError: "The email address is already in use by another account",
-      //   });
-      //   setLoading(false);
-      // }
+          setLoading(false);
+
+          navigation.reset({
+            index: 0,
+            routes: [{ name: "MainStack" }],
+          });
+        }
+      } catch (error) {
+        console.log("onSubmitRegister error", error);
+        setSubmitError({
+          ...submitError,
+          emailError: "The email address is already in use by another account",
+        });
+        setLoading(false);
+      }
     }
   };
   return (

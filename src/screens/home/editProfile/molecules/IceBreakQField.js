@@ -11,9 +11,22 @@ import CustomButton from "../../../../components/CustomButton";
 
 const IceBreakQField = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const questions = [1, 2, 3];
+  // const questions = [1, 2, 3];
+
+  const [iceBreakerQ, setIceBreakerQ]= useState([
+    1, 2, 3
+  ]);
+
+  const [iceBreakerA, setIceBreakerA]= useState([
+    1, 2, 3
+  ]);
+
+  const [addIceBreakerQ, setAddIceBreakerQ] = useState("")
+  const [addIceBreakerA, setAddIceBreakerA] = useState("")
+
   return (
     <>
+    
       <View>
         <CustomText
           label={"Ice Breaker Question"}
@@ -25,8 +38,8 @@ const IceBreakQField = () => {
         <Spacer height={15} />
 
         <View>
-          {questions.map((q) => (
-            <>
+          {iceBreakerQ.map((q , index) => (
+            <View key={index}>
               <TouchableOpacity
                 activeOpacity={0.6}
                 style={{
@@ -41,11 +54,11 @@ const IceBreakQField = () => {
                 onPress={() => setModalVisible(true)}
               >
                 <View style={{ width: "80%" }}>
-                  <CustomText fontSize={12}>
-                    The Last Time I Cried Was!
+                  <CustomText fontSize={12} label={q.iceBreakerQ}>
+                  {/* The last time I cried was */}
                   </CustomText>
-                  <CustomText color={colors.gray}>
-                    The Last Time I Cried My Heat Out!
+                  <CustomText color={colors.gray} label={q.iceBreakerA}>
+                    {/* The Last Time I Cried My Heat Out! */}
                   </CustomText>
                 </View>
                 <View
@@ -66,8 +79,14 @@ const IceBreakQField = () => {
              <TwoInputModal
              setModalVisible={setModalVisible}
              modalVisible={modalVisible}
+             addIceBreakerQ={addIceBreakerQ}
+             setAddIceBreakerQ={setAddIceBreakerQ}
+             iceBreakerQ={iceBreakerQ}
+             iceBreakerA={iceBreakerA}
+             addIceBreakerA={addIceBreakerA}
+             setAddIceBreakerA={setAddIceBreakerA}
              />
-            </>
+            </View>
           ))}
         </View>
       </View>

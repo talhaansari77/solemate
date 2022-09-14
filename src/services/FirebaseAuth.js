@@ -1,4 +1,5 @@
 import { auth,firestore, storage } from "../utils/firebase-config";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const SignupEmailPassword = async (email, password) => {
     try {
@@ -24,3 +25,32 @@ export const SignupEmailPassword = async (email, password) => {
       throw error;
     }
   };
+  export const saveUser = async (authId, data) => {
+    try {
+      const response = await firestore
+        .collection("users")
+        .doc(authId)
+        .set(data, { merge: true });
+  
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  };
+  export const uploadImage = async (uri) => {
+    try {
+      const response = await fetch(uri);
+      const blob = await response.blob();
+  
+      const filename = uri.substring(uri.lastIndexOf("/") + 1);
+      const ref = storage.ref().child(filename).put(blob);
+  
+      const link = await (await ref).ref.getDownloadURL();
+      return link;
+    } catch (error) {
+      // console.log("upload error", error);
+    }
+  };
+
+  export const getAuthId = async () => await AsyncStorage.getItem("userAuth");
+
