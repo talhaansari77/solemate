@@ -4,7 +4,7 @@ import {
   checkNum,
 } from "../../../utils/Email_Password_Validation";
 
-export const ValidateInput = (email, password, submitError, setSubmitError) => {
+export const ValidateInput = (email, password,confirmPass, submitError,  setSubmitError) => {
   if (!email) {
     return setSubmitError({ ...submitError, emailError: "Email is Required" });
   }
@@ -18,6 +18,9 @@ export const ValidateInput = (email, password, submitError, setSubmitError) => {
     });
   }
 
+
+  // confPasswordError
+
   if (!checkCharPassword(password)) {
     // setSubmitError({...submitError,passwordError:"Password is eight"})
   }
@@ -26,6 +29,12 @@ export const ValidateInput = (email, password, submitError, setSubmitError) => {
   }
   if (!checkNum(password)) {
     // setSubmitError({...submitError,passwordError:"must one symbol"})
+  }
+  if (!confirmPass) {
+    return setSubmitError({
+      ...submitError,
+      confPasswordError: "Confirm Password is Required",
+    });
   }
   return true;
 };

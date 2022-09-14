@@ -26,11 +26,14 @@ const Signup = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [confirmPass, setConfirmPass] = useState("")
   const [submitError, setSubmitError] = useState({
     emailError: "",
     passwordError: "",
+    confPasswordError:""
   });
   // password.search(/[!/><"#$%&()¥|?>|=']/)==-1
+  console.log("conPas",password)
   const passData = [
     {
       id: 1,
@@ -80,6 +83,7 @@ const Signup = ({ navigation }) => {
     const response = ValidateInput(
       email,
       password,
+      confirmPass,
       submitError,
       setSubmitError
     );
@@ -87,24 +91,24 @@ const Signup = ({ navigation }) => {
     if (response) {
       setLoading(true);
 
-      try {
-        const res = await SignupEmailPassword(email, password);
-        if (res.user.uid) {
-          setLoading(false);
+      // try {
+      //   const res = await SignupEmailPassword(email, password);
+      //   if (res.user.uid) {
+      //     setLoading(false);
 
-          navigation.reset({
-            index: 0,
-            routes: [{ name: "MainStack" }],
-          });
-        }
-      } catch (error) {
-        console.log("onSubmitRegister error", error);
-        setSubmitError({
-          ...submitError,
-          emailError: "The email address is already in use by another account",
-        });
-        setLoading(false);
-      }
+      //     navigation.reset({
+      //       index: 0,
+      //       routes: [{ name: "MainStack" }],
+      //     });
+      //   }
+      // } catch (error) {
+      //   console.log("onSubmitRegister error", error);
+      //   setSubmitError({
+      //     ...submitError,
+      //     emailError: "The email address is already in use by another account",
+      //   });
+      //   setLoading(false);
+      // }
     }
   };
   return (
@@ -116,7 +120,7 @@ const Signup = ({ navigation }) => {
         },
       ]}
     >
-      <Spacer height={verticalScale(30)} />
+      <Spacer height={verticalScale(20)} />
       <CustomText
         label="Sign up"
         fontFamily="bold"
@@ -136,7 +140,7 @@ const Signup = ({ navigation }) => {
           setSubmitError({ ...submitError, emailError: "" });
         }}
       />
-      <Spacer height={verticalScale(20)} />
+      <Spacer height={verticalScale(15)} />
       <CustomTextInput
         withLabel="Password"
         value={password}
@@ -150,6 +154,21 @@ const Signup = ({ navigation }) => {
         eyeClick={eyeClick}
         setEyeClick={setEyeClick}
         placeholder={"password"}
+      />
+          <Spacer height={verticalScale(15)} />
+      <CustomTextInput
+        withLabel="Confirm Password"
+        value={confirmPass}
+        error={submitError.confPasswordError}
+        onChangeText={(conpass) => {
+          setConfirmPass(conpass);
+          setSubmitError({ ...submitError, confPasswordError: "" });
+        }}
+        password
+        secureTextEntry={eyeClick}
+        eyeClick={eyeClick}
+        setEyeClick={setEyeClick}
+        placeholder={"Confirm password"}
       />
       <Spacer height={verticalScale(20)} />
       <View
