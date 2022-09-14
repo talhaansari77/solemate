@@ -1,11 +1,12 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import React, { useState } from "react";
-import { ScaledSheet, verticalScale } from "react-native-size-matters";
+import { scale, ScaledSheet, verticalScale } from "react-native-size-matters";
 import CustomText from "../../../../components/CustomText";
 import { colors } from "../../../../utils/Colors";
+import icons from "../../../../../assets/icons";
+import { Spacer } from "../../../../components/Spacer";
 
-const GenderContainer = ({ index, txt }) => {
-  const [isSelect, setIsSelect] = useState(-1);
+const GenderContainer = ({ index, txt, isSelect, setIsSelect }) => {
   return (
     <TouchableOpacity
       activeOpacity={0.6}
@@ -15,19 +16,34 @@ const GenderContainer = ({ index, txt }) => {
       style={[
         styles.mainContainer,
         {
-          // backgroundColor:  isSelect ==index ? colors.primary : colors.white,
+          borderColor: isSelect == index ? colors.darkOrange : colors.black,
           borderRadius: 50,
-          borderColor:  isSelect == index  ? colors.orange : colors.black,
+          // borderColor: color,
           borderWidth: 1,
+          flexDirection: "row",
         },
       ]}
     >
-      <CustomText
-        label={txt}
-        color={ isSelect ==  index  ? colors.orange : colors.black}
-        fontFamily="bold"
-        fontSize={verticalScale(10)}
-      />
+      <View style={{ flex: 7, alignItems: "center" }}>
+        <CustomText
+          label={txt}
+          color={isSelect == index ? colors.darkOrange : colors.black}
+          fontFamily="bold"
+          fontSize={verticalScale(10)}
+          marginLeft={scale(30)}
+        />
+      </View>
+      {isSelect == index ? (
+        <View style={{ flex: 3, alignItems: "center" }}>
+          <Image
+            source={icons.orangeCircleIcon}
+            style={{ height: verticalScale(20), width: scale(20) }}
+            resizeMode={"contain"}
+          />
+        </View>
+      ) : (
+        <></>
+      )}
     </TouchableOpacity>
   );
 };

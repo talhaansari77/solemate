@@ -62,7 +62,7 @@ const MainStack = () => {
         activeBackgroundColor: "#fff",
         showIcon: true,
       }}
-      initialRouteName="Chat"
+      initialRouteName="EditProfile"
     >
       <Tab.Screen name="Profile" component={Profile} />
       <Tab.Screen
