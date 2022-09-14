@@ -67,7 +67,9 @@ const EditProfile = ({ navigation }) => {
             <InputField label={"Last Name"} arrow={false} />
             <Spacer height={10} />
             {/* About Me */}
+
             <TextArea label={"About Me"} />
+
             <Spacer height={10} />
             {/* Ice Breaker Question */}
             <IceBreakQField />

@@ -4,24 +4,28 @@ import CustomText from '../../../../components/CustomText'
 import { colors } from '../../../../utils/Colors'
 import { ScaledSheet, verticalScale } from 'react-native-size-matters'
 
-const ConditionPassCon = ({txt1,txt2}) => {
+const ConditionPassCon = ({txt1,txt2,color,color2,onGetPassword}) => {
   return (
     <View style={styles.mainContainer}>
         <View style={styles.childContainer}>
         <CustomText
         label={txt1}
         fontFamily="regular"
-        color={colors.gray}
+        color={color}
         fontSize={verticalScale(10)}
       />
 
         </View>
-        <View style={{alignSelf:"center",width:"40%"}}>
+        <View style={{alignSelf:"center",width:"45%"}}>
+        
         <CustomText
         label={txt2}
+        onPress={txt2=="* get our password"?onGetPassword:null}
         alignSelf="flex-start"
+        textDecorationLine={txt2=="* get our password"?true:false}
+        
         fontFamily="regular"
-        color={colors.gray}
+        color={color2}
         fontSize={verticalScale(10)}
       />
 
@@ -44,7 +48,7 @@ const styles = ScaledSheet.create({
 
     },
     childContainer:{
-        alignSelf:"center",width:"40%",
+        alignSelf:"center",width:"45%",
         marginLeft:"30@s"
     }
 })

@@ -13,6 +13,7 @@ import CustomText from "../../../components/CustomText";
 import { verticalScale, moderateScale } from "react-native-size-matters";
 import { Spacer } from "../../../components/Spacer";
 import { colors } from "../../../utils/Colors";
+import HeaderConatiner from "./request/Molecules/HeaderConatiner";
 import {
   Feather,
   MaterialCommunityIcons,
@@ -21,14 +22,28 @@ import {
 } from "@expo/vector-icons";
 import { Divider } from "react-native-elements";
 import { ChatBody } from "../../../components/ChatBody";
+import CustomModal from "../../../components/CustomModal";
+import SettingModal from "./Molecules/SettingModal";
+import CustomButton from "../../../components/CustomButton";
 
-const Chat = () => {
+const Chat = ({ navigation }) => {
   const [textMessage, setTextMessage] = useState("");
+  const [settingModal, setSettingModal] = useState(false);
   return (
     <SafeAreaView style={commonStyles.commonMain}>
       <View style={styles.mainContainer}>
+        <HeaderConatiner
+          label="Samer"
+          back={() => {
+            navigation.goBack();
+          }}
+          setting={() => {
+            setSettingModal(!settingModal);
+          }}
+        />
+
         <View style={styles.Padding}>
-          <ProfileNav
+          {/* <ProfileNav
             RightSide={() => (
               <TouchableOpacity
                 activeOpacity={0.6}
@@ -47,7 +62,7 @@ const Chat = () => {
             fontFamily="bold"
             fontSize={verticalScale(15)}
             marginLeft={verticalScale(5)}
-          />
+          /> */}
         </View>
         <Spacer height={verticalScale(8)} />
         <View style={styles.innerMainContainer}>
@@ -107,6 +122,67 @@ const Chat = () => {
             )}
           </View>
         </View>
+        {settingModal ? (
+          <View>
+            <View
+              style={{
+                width: "100%",
+                height: verticalScale(150),
+                backgroundColor: colors.white,
+                top: verticalScale(-78),
+                alignItems: "center",
+              }}
+            >
+              <View
+                style={{
+                  paddingVertical: 30,
+                  width: "100%",
+                  alignItems: "center",
+                }}
+              >
+                <CustomButton
+                  title={"View Samer's Profile"}
+                  fontSize={verticalScale(18)}
+                  borderRadius={25}
+                  backgroundColor={colors.primary}
+
+                  width="90%"
+                  fontFamily="bold"
+                />
+              </View>
+              <View style={{ width: "100%", alignItems: "center" }}>
+                <CustomButton
+                  backgroundColor={colors.darkOrange}
+                  borderRadius={25}
+                  fontSize={verticalScale(18)}
+                  fontFamily="bold"
+                  onPress={()=>{
+                    navigation.navigate("Report")
+                    
+
+                    // Report
+
+                  }}
+                  width="90%"
+                  title={"End Conversation"}
+                />
+              </View>
+            </View>
+            <View
+              style={{
+                // height: "70%",
+                backgroundColor:'rgba(0,0,0,0.7)',
+
+                opacity: 0.5,
+                marginTop: verticalScale(-80),
+              }}
+            ></View>
+          </View>
+        ) : (
+          <></>
+        )}
+
+        {/* <SettingModal  settingModal={settingModal}setSettingModal={setSettingModal}/> */}
       </View>
     </SafeAreaView>
   );

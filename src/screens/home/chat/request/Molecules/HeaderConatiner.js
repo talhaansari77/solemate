@@ -1,25 +1,62 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View,SafeAreaView,TouchableOpacity } from 'react-native'
 import React from 'react'
 import CustomText from '../../../../../components/CustomText'
-import { verticalScale } from 'react-native-size-matters'
+import { scale, ScaledSheet, verticalScale } from 'react-native-size-matters'
 import { colors } from '../../../../../utils/Colors'
+import { MaterialIcons,MaterialCommunityIcons } from '@expo/vector-icons'; 
 
-const HeaderConatiner = () => {
+
+const HeaderConatiner = ({label,back,setting}) => {
   return (
-    <View style={styles.mainContainer}>
+    <SafeAreaView style={[styles.mainContainer,{
+      justifyContent:back && setting? "space-between":"center",
+      paddingHorizontal:back && setting?scale(10):0
+
+
+
+    }]}>
+      {back?(
+         <TouchableOpacity
+           activeOpacity={0.6}
+           onPress={back}
+         >
+         <MaterialIcons name="arrow-back" size={24} color="black" />
+           
+   
+         </TouchableOpacity>
+
+      ):<></>
+    }
+
+    
+     
           <CustomText
-            label="Chandler"
+            label={label}
             fontFamily="bold"
             fontSize={verticalScale(15)}
             // marginLeft={verticalScale(5)}
           />
-    </View>
+          {setting?(
+              <TouchableOpacity
+              // activeOpacity={0.6}
+              onPress={setting}
+              >
+              <MaterialCommunityIcons name="dots-vertical" size={24} color="black" />
+    
+    
+              </TouchableOpacity>
+
+          ):<>
+          </>
+        }
+        
+    </SafeAreaView>
   )
 }
 
 export default HeaderConatiner
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
     mainContainer:{
 
         shadowColor: colors.gray,
@@ -28,9 +65,11 @@ const styles = StyleSheet.create({
         shadowRadius: 3,
         elevation: 5,
         flexDirection:"row",
+        backgroundColor:colors.white,
+        height:"35@vs",
+        width:"100%",
         alignItems:"center",
-        justifyContent:"center",
-        width:"100%"
+        width:"100%",
     }
 
 

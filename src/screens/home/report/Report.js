@@ -32,12 +32,18 @@ const Report = ({ navigation }) => {
           </CustomText>
         </View>
         <View>
-          <CustomImage
+        <CustomImage
+            height={290}
+            width={260}
+            alignSelf={"center"}
+            src={profileImages.reportImage}
+          />
+          {/* <CustomImage
             height={250}
             width={260}
             alignSelf={"center"}
             src={profileImages.reportimage}
-          />
+          /> */}
         </View>
         <View
           style={{
@@ -48,7 +54,7 @@ const Report = ({ navigation }) => {
           }}
         >
           <CustomButton
-            marginTop={60}
+            marginTop={30}
             height={50}
             width={350}
             fontFamily={"extra"}
@@ -64,7 +70,7 @@ const Report = ({ navigation }) => {
 
         <CustomButton
           style={{ shadowColor: "#171717" }}
-          marginTop={60}
+          marginTop={30}
           height={50}
           width={350}
           fontFamily={"extra"}

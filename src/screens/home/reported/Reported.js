@@ -28,7 +28,7 @@ const Reported = () => {
             height={290}
             width={260}
             alignSelf={"center"}
-            src={profileImages.reportimage}
+            src={profileImages.reportImage}
           />
         </View>
 

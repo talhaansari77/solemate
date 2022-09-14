@@ -59,7 +59,7 @@ const expectation = [
   { id: 7, title: "Height", label: "5'6" },
   { id: 8, title: "Language", label: "English" },
 ];
-const Profile = ({ navigation, actions = false, getApp = false }) => {
+const Profile = ({ navigation, actions = true, getApp = false }) => {
   return (
     <View
       style={{
@@ -72,6 +72,7 @@ const Profile = ({ navigation, actions = false, getApp = false }) => {
       <ActionBtn actions={actions} />
 
       {/* Get The App */}
+
       <GetAppBtn getApp={getApp} />
 
       <Header navigation={navigation} />
@@ -79,6 +80,7 @@ const Profile = ({ navigation, actions = false, getApp = false }) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <BlurView intensity={getApp ? 80 : 0}>
           <ProfileImage src={profileImages.reportImage} />
+
           {/* About Me */}
           <AboutMeText />
           <Divider />

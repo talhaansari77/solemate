@@ -12,13 +12,9 @@ import {
   ScaledSheet,
   verticalScale,
 } from "react-native-size-matters";
-// import colors from '../../utils/colors';
 import { colors } from "../utils/Colors";
-// import images from '../assets/icons';
-// import CustomText from 'components/CustomText';
 import CustomText from "./CustomText";
 import { Ionicons } from "@expo/vector-icons";
-
 const CustomTextInput = ({
   eyeClick,
   password,
@@ -39,7 +35,6 @@ const CustomTextInput = ({
           marginBottom={verticalScale(10)}
         />
       ) : null}
-
       <TouchableOpacity
         onPress={props.onPress}
         disabled={!props.onPress}
@@ -48,7 +43,7 @@ const CustomTextInput = ({
             width: props.width || "100%",
             height: props.height || verticalScale(50),
             borderRadius: props.borderRadius || moderateScale(15),
-            backgroundColor: props.backgroundColor || colors.white,
+            backgroundColor: props.backgroundColor,
             marginTop: props.marginTop || verticalScale(0),
             flexDirection: "row",
             borderColor: props.borderColor || colors.primary,
@@ -76,6 +71,7 @@ const CustomTextInput = ({
               height: props.inputHeight || "100%",
               marginLeft: props.inputLeftMargin || 10,
               paddingRight: props.paddingRight || 10,
+              paddingHorizontal: props.paddingHorizontal,
               fontFamily: "bold",
               fontSize: verticalScale(13),
             },
@@ -111,16 +107,15 @@ const CustomTextInput = ({
                 color={colors.primary}
               />
             )}
-
             {/* <Image style={styles.icon} source={eyeClick ? images.eye:images.hiddenEye } /> */}
           </TouchableOpacity>
         ) : null}
       </TouchableOpacity>
       {error ? (
         <CustomText
-          label={error}
-          childern="*"
-          fontSize={verticalScale(10)}
+          label="* "
+          children={error}
+          fontSize={verticalScale(8)}
           color={colors.red}
           fontWeight="600"
           marginTop={verticalScale(5)}
@@ -130,7 +125,6 @@ const CustomTextInput = ({
   );
 };
 export default CustomTextInput;
-
 const styles = ScaledSheet.create({
   icon: {
     width: "20@s",

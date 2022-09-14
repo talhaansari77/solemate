@@ -4,7 +4,7 @@ import { colors } from "../../../../utils/Colors";
 import { scale, verticalScale } from "react-native-size-matters";
 import CustomButton from "../../../../components/CustomButton";
 
-const GetAppBtn = ({getApp}) => {
+const GetAppBtn = ({ getApp }) => {
   return (
     <>
       {/* Get The App */}
@@ -24,6 +24,7 @@ const GetAppBtn = ({getApp}) => {
           <CustomButton
             title={"Get the Solemate App"}
             fontFamily={"bold"}
+            backgroundColor={colors.primary}
             borderRadius={100}
           />
         </View>

@@ -15,11 +15,12 @@ const MessagingStack = () => {
       screenOptions={{ headerShown: false }}
       // initialRouteName={"Report"}
     >
-      {/* <Stack.Screen name="Request" component={Request} /> */}
+      <Stack.Screen name="Request" component={Request} />
       <Stack.Screen name="Chat" component={Chat} />
-      {/* <Stack.Screen name="Report" component={Report} />
+      <Stack.Screen name="Report" component={Report} />
       <Stack.Screen name="ReportReason" component={ReportReason} />
-      <Stack.Screen name="Reported" component={Reported} /> */}
+      <Stack.Screen name="Reported" component={Reported} />
+  
     </Stack.Navigator>
   );
 };

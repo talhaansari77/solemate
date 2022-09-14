@@ -43,6 +43,7 @@ const Welcome = ({navigation}) => {
             fontFamily="bold"
             width="90%"
             marginTop={verticalScale(10)}
+            backgroundColor={colors.primary}
             height={verticalScale(45)}
             borderRadius={moderateScale(10)}
             onPress={() => {navigation.navigate("Login")}}
@@ -51,6 +52,8 @@ const Welcome = ({navigation}) => {
             label="Sign up"
             fontFamily="bold"
             color={colors.white}
+            backgroundColor={colors.primary}
+
             onPress={()=>{
               navigation.navigate("Signup")
 

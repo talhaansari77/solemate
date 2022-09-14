@@ -61,8 +61,8 @@ function CustomButton({
             style={[
               {
                 color: color || colors.white,
-                fontSize: verticalScale(fontSize),
-                fontFamily: fontFamily,
+                fontSize: fontSize||  verticalScale(15),
+                fontFamily: fontFamily 
                 // textAlign: textAlign
               },
             ]}
