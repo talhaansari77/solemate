@@ -11,7 +11,7 @@ const InputField = ({ label, arrow = true, onChangeText, value, error }) => {
     <>
       <View>
         <CustomText
-          color={colors.darkOrange}
+          color={colors.primary}
           fontFamily={"medium"}
           fontSize={11}
         >

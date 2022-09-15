@@ -21,6 +21,7 @@ import CustomButton from "../../../components/CustomButton";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import { EditValidate } from "./UseEditProfile";
 import CustomTextInput from "../../../components/CustomTextInput";
+import CustomGradientButton from "../../../components/CustomGradientButton";
 
 const genders = [
   { id: 1, name: "Male" },
@@ -212,7 +213,7 @@ const EditProfile = ({ navigation }) => {
               fontFamily={"medium"}
               fontSize={11}
             /> */}
-          <CustomText label="personality" color={colors.darkOrange} />
+          <CustomText label="personality" color={colors.primary} />
           <View style={{width: "100%",flexDirection: "row", flexWrap: 'wrap'}}>
 
           <View style={{flexDirection: "row", flexWrap: 'wrap'}} >
@@ -332,7 +333,7 @@ const EditProfile = ({ navigation }) => {
             <View>
               <CustomText
                 label={" Demographics"}
-                color={colors.darkOrange}
+                color={colors.primary}
                 fontFamily={"medium"}
                 fontSize={12}
               />
@@ -450,7 +451,7 @@ const EditProfile = ({ navigation }) => {
             <View>
               <CustomText
                 label={"Education and Career"}
-                color={colors.darkOrange}
+                color={colors.primary}
                 fontFamily={"medium"}
                 fontSize={12}
               />
@@ -486,7 +487,7 @@ const EditProfile = ({ navigation }) => {
             <View>
               <CustomText
                 label={"Religiousness"}
-                color={colors.darkOrange}
+                color={colors.primary}
                 fontFamily={"medium"}
                 fontSize={12}
               />
@@ -546,7 +547,7 @@ const EditProfile = ({ navigation }) => {
             <View>
               <CustomText
                 label={"Partner Expectation"}
-                color={colors.darkOrange}
+                color={colors.primary}
                 fontFamily={"medium"}
                 fontSize={12}
               />
@@ -603,12 +604,13 @@ const EditProfile = ({ navigation }) => {
         </View>
       </ScrollView>
       <View style={{ marginBottom: verticalScale(10) }}>
-        <CustomButton
+        <CustomGradientButton
           title="Save"
+          marginTop={20}
           onPress={() => {
             onHandleSubmit();
           }}
-          backgroundColor={colors.darkOrange}
+          // backgroundColor={colors.primary}
         />
       </View>
     </Container>

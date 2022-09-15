@@ -30,7 +30,7 @@ const IceBreakQField = () => {
       <View>
         <CustomText
           label={"Ice Breaker Question"}
-          color={colors.darkOrange}
+          color={colors.primary}
           fontFamily={"medium"}
           fontSize={11}
         />
@@ -54,10 +54,10 @@ const IceBreakQField = () => {
                 onPress={() => setModalVisible(true)}
               >
                 <View style={{ width: "80%" }}>
-                  <CustomText fontSize={12} label={q.iceBreakerQ}>
+                  <CustomText fontSize={12} label={q.iceBreakerQ} color={colors.primary}>
                   {/* The last time I cried was */}
                   </CustomText>
-                  <CustomText color={colors.gray} label={q.iceBreakerA}>
+                  <CustomText color={colors.gray} label={q.iceBreakerA} >
                     {/* The Last Time I Cried My Heat Out! */}
                   </CustomText>
                 </View>

@@ -14,6 +14,7 @@ import profileImages from "../../../../assets/Profile_images";
 import CustomImage from "../../../components/CustomImage";
 import { color } from "react-native-elements/dist/helpers";
 import CustomButton from "../../../components/CustomButton";
+import CustomGradientButton from "../../../components/CustomGradientButton";
 
 const Report = ({ navigation }) => {
   return (
@@ -53,10 +54,10 @@ const Report = ({ navigation }) => {
             shadowRadius: 3,
           }}
         >
-          <CustomButton
+          <CustomGradientButton
             marginTop={30}
             height={50}
-            width={350}
+            width={390}
             fontFamily={"extra"}
             fontSize={20}
             title={"Yes, I am sure!"}
@@ -70,6 +71,7 @@ const Report = ({ navigation }) => {
 
         <CustomButton
           style={{ shadowColor: "#171717" }}
+          backgroundColor={'none'}
           marginTop={30}
           height={50}
           width={350}

@@ -11,7 +11,7 @@ const TextArea = ({label,height, lines = 5 , onChangeText, value, error}) => {
       <View>
         <CustomText
           label={label}
-          color={colors.darkOrange}
+          color={colors.primary}
           fontFamily={"medium"}
           fontSize={11}
         />

@@ -17,7 +17,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 // import { ActivityIndicator } from "react-native-paper";
 import { colors } from "../utils/Colors";
-function CustomButton({
+function CustomGradientButton({
   loading,
   title,
   onPress,
@@ -46,8 +46,10 @@ function CustomButton({
       activeOpacity={0.6}
       style={[
         {
-          backgroundColor: backgroundColor || colors.primary,
-          // backgroundGradient: <LinearGradient colors={["#8E59E2", "#f3f3f3"]} />,
+    //       backgroundColor: backgroundColor || <LinearGradient 
+    //       colors={["#8E59E2", "#f3f3f3"]}
+    //   ></LinearGradient>,
+        // backgroundColor: <LinearGradient colors={["#8E59E2", "#f3f3f3"]} />,
           width: width || "100%",
           height: height || verticalScale(40),
           borderColor: borderColor,
@@ -65,26 +67,36 @@ function CustomButton({
       ]}
       onPress={onPress}
     >
+        
       {loading ? (
         <ActivityIndicator color={colors.white} size={moderateScale(26)} />
       ) : (
         <View style={{ flexDirection: "row" }}>
+            <View style={{width: "90%",  justifyContent: 'center', alignSelf: "center"}}>
+            <LinearGradient 
+                colors={["#8E59E2", "#C9A9FD"]}
+                style={{height: "100%", alignItems:"center", borderRadius: borderRadius || 10, justifyContent: 'center'}}
+            >
           <Text
             style={[
               {
                 color: color || colors.white,
                 fontSize: fontSize || verticalScale(15),
                 fontFamily: fontFamily || "bold",
+                alignSelf: alignSelf|| "center",
+                // marginTop: marginTop 
                 // textAlign: textAlign
               },
             ]}
           >
             {title}
           </Text>
+          </LinearGradient>
+          </View>
         </View>
       )}
     </TouchableOpacity>
   );
 }
 
-export default CustomButton;
+export default CustomGradientButton;
