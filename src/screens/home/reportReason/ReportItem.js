@@ -9,6 +9,7 @@ const ReportItem = ({name, setCount, count, index, hideColor}) => {
     <View>
        <CustomButton
               marginTop={12}
+              backgroundColor={'none'}
               fontFamily={"regular"}
               height={45}
               fontSize={12}

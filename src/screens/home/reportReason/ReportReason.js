@@ -7,6 +7,7 @@ import { colors } from "../../../utils/Colors";
 import CustomButton from "../../../components/CustomButton";
 import ReportItem from "./ReportItem";
 import CustomTextInput from "../../../components/CustomTextInput";
+import CustomGradientButton from "../../../components/CustomGradientButton";
 
 const ReportReason = ({navigation}) => {
   const [count, setCount] = useState(-1);
@@ -65,7 +66,7 @@ const ReportReason = ({navigation}) => {
             Let Samer know your reason for ending the conversation?
           </CustomText>
         </View>
-        <View style={{ marginTop: 40 }}>
+        <View style={{ marginTop: 40,  }}>
           {ReportListArray.map((reportlist, index) => (
             <ReportItem
             name={reportlist.name}
@@ -97,14 +98,14 @@ const ReportReason = ({navigation}) => {
             shadowRadius: 3,
           }}
         >
-          <CustomButton
+          <CustomGradientButton
             marginTop={40}
             height={50}
             width={350}
             fontFamily={"extra"}
             fontSize={20}
             title={"Send"}
-            backgroundColor={colors.darkOrange}
+            // backgroundColor={colors.darkOrange}
             borderRadius={50}
             onPress={() => {
               navigation.navigate("Reported");

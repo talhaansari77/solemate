@@ -7,13 +7,14 @@ import commonStyles from "../../../utils/CommonStyles";
 import { Spacer } from "../../../components/Spacer";
 import { verticalScale, moderateScale } from "react-native-size-matters";
 import { colors } from "../../../utils/Colors";
+import CustomGradientButton from "../../../components/CustomGradientButton";
 
 const Welcome = ({navigation}) => {
   return (
     <View style={commonStyles.commonMain}>
       <ImageBackground
         ImageBackground
-        source={welcomeImages.welcome}
+        source={welcomeImages.welcomeImageGirl}
         style={[
           commonStyles.img,
           {
@@ -25,20 +26,22 @@ const Welcome = ({navigation}) => {
           <Spacer height={verticalScale(100)} />
 
           <CustomText
-            label="SOLE MATE"
-            fontFamily="extra"
-            fontWeight="700"
+            label="SoleMate"
+            fontFamily="regular"
+            color={colors.white}
+            marginTop={20}
+            // fontWeight="700"
             fontSize={verticalScale(35)}
           />
           <CustomText
-            label="Refer. Understand.'$' Connect."
+            label="Refer. Understand.& Connect."
             fontFamily="regular"
             color={colors.white}
             marginTop={verticalScale(15)}
             fontSize={verticalScale(12)}
           />
           <View style={{ height: "45%" }}></View>
-          <CustomButton
+          <CustomGradientButton
             title="Login"
             fontFamily="bold"
             width="90%"

@@ -60,6 +60,7 @@ const icons = {
     location:require('./metro-location.png'),
     resizeHeight:require('./open-resize-height.png'),
     langWhite:require('./langWhite.png'),
+    tickPurple:require('./tickPurple.png'),
 
 }
 

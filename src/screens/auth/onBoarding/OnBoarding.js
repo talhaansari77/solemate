@@ -9,6 +9,7 @@ import { verticalScale } from "react-native-size-matters";
 import CustomText from "../../../components/CustomText";
 import { Spacer } from "../../../components/Spacer";
 import CustomButton from "../../../components/CustomButton";
+import CustomGradientButton from "../../../components/CustomGradientButton";
 const OnBoardingData = [
   {
     id: 0,
@@ -18,7 +19,8 @@ const OnBoardingData = [
     regarding: "policy regarding",
     text2: " before registering.",
 
-    image: welcomeImages.friends,
+
+    image: welcomeImages.friendspurple,
     // backgroundColor: "#59b2ab",
   },
   {
@@ -29,7 +31,7 @@ const OnBoardingData = [
     regarding: "policy regarding",
     text2: " before registering.",
 
-    image: welcomeImages.couple,
+    image: welcomeImages.couplePurple,
     // backgroundColor: "#59b2ab",
   },
   {
@@ -40,7 +42,7 @@ const OnBoardingData = [
     regarding: "policy regarding",
     text2: " before registering.",
 
-    image: welcomeImages.eminem,
+    image: welcomeImages.eminemPurple,
     // backgroundColor: "#59b2ab",
   },
 ];
@@ -154,7 +156,7 @@ const OnBoarding = ({ navigation }) => {
                   // backgroundColor:"red"
                 }}
               >
-                <CustomButton
+                {/* <CustomButton
                   title="Next"
                   fontFamily="bold"
                   width="90%"
@@ -169,7 +171,21 @@ const OnBoarding = ({ navigation }) => {
                       moveForward();
                     }
                   }}
-                />
+                /> */}
+
+        <CustomGradientButton 
+          title="Next"
+          fontFamily="bold"
+          marginTop={verticalScale(12)}
+          height={verticalScale(45)}
+          onPress={() => {
+            if (page == 2) {
+              navigation.navigate("Welcome");
+            } else {
+              moveForward();
+            }
+          }}
+          />
                 <TouchableOpacity
                 activeOpacity={0.6}
                 style={{marginTop:10}}

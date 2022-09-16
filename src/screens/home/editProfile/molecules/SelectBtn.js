@@ -64,8 +64,8 @@ const SelectBtn = ({ label, txt1, txt2, index,onValue }) => {
             {isSelect == index && status ? (
               <View style={{ flex: 3, alignItems: "center" }}>
                 <Image
-                  source={icons.circleTickOrange}
-                  style={{ height: verticalScale(30), width: scale(30) }}
+                  source={icons.tickPurple}
+                  style={{ height: verticalScale(20), width: scale(20) }}
                   resizeMode={"contain"}
                 />
               </View>
@@ -113,8 +113,8 @@ const SelectBtn = ({ label, txt1, txt2, index,onValue }) => {
             {isSelect == index && !status ? (
               <View style={{ flex: 3, alignItems: "center" }}>
                 <Image
-                  source={icons.circleTickOrange}
-                  style={{ height: verticalScale(30), width: scale(30) }}
+                  source={icons.tickPurple}
+                  style={{ height: verticalScale(20), width: scale(20) }}
                   resizeMode={"contain"}
                 />
               </View>

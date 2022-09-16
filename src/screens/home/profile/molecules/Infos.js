@@ -39,7 +39,7 @@ const Infos = ({title, infoList=[]}) => {
             >
               <View style={{ flexDirection: "row",alignItems:"center" }}>
                 <Image source={info.icon} resizeMode={'contain'}/>
-                <CustomText color={colors.orange} marginLeft={3}>{info.title}</CustomText>
+                <CustomText color={colors.primary} marginLeft={3} >{info.title}</CustomText>
               </View>
               <CustomText marginTop={5} marginLeft={15}>
                 {info.label}

@@ -60,7 +60,6 @@ const PhotoContainer = ({ setImages, images, index, width, height, item,label })
         <Entypo name="plus" size={moderateScale(20)} color={colors.black} />
         // <Image source={{ uri: images ?.[0]}} style={styles.img} />
       )}
-
       <Text
         style={{
           position: "absolute",

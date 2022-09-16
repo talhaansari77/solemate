@@ -3,6 +3,7 @@ import React from "react";
 import { colors } from "../../../../utils/Colors";
 import { scale, verticalScale } from "react-native-size-matters";
 import CustomButton from "../../../../components/CustomButton";
+import CustomGradientButton from "../../../../components/CustomGradientButton";
 
 const GetAppBtn = ({ getApp }) => {
   return (
@@ -21,12 +22,14 @@ const GetAppBtn = ({ getApp }) => {
             zIndex: 2,
           }}
         >
-          <CustomButton
+          
+         
+          <CustomGradientButton
             title={"Get the Solemate App"}
-            fontFamily={"bold"}
-            backgroundColor={colors.primary}
+            fontFamily={"extra"}
             borderRadius={100}
           />
+          
         </View>
       ) : (
         <></>
