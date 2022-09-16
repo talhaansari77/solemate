@@ -22,41 +22,37 @@ const Settings = () => {
       icon: icons.profileIcon,
     },
     {
-      id: 3,
+      id: 2,
       name: "Language",
       icon: icons.langWhite,
     },
     {
-      id: 5,
+      id: 3,
+      name: "Stickers",
+      icon: icons.smileIcon,
+    },
+    {
+      id: 4,
       name: "Notification",
       icon: icons.notificationIcon,
     },
     {
-      id: 6,
+      id: 5,
       name: "Privacy policy",
       icon: icons.noteIcon,
     },
     {
-      id: 7,
+      id: 6,
       name: "Generate link",
       icon: icons.qrIcon,
     },
+   
     {
-      id: 8,
-      name: "Favorites",
-      icon: icons.starIcon,
-    },
-    {
-      id: 9,
+      id: 7,
       name: "Video settings",
       icon: icons.camIcon,
-      comingSoon: "CommingSoon",
-    },
-    {
-      id: 10,
-      name: "Clear cache",
-      icon: icons.trashIcon,
-    },
+      comingSoon: " - CommingSoon",
+    }
   ];
   return (
     <Container>
