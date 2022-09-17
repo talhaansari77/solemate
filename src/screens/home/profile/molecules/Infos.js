@@ -6,7 +6,7 @@ import { colors } from "../../../../utils/Colors";
 import { Spacer } from "../../../../components/Spacer";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-const Infos = ({title, infoList=[]}) => {
+const Infos = ({title, icon,label,name,icon1,label1,name1}) => {
   return (
     <>
       {/* BasicINFO */}
@@ -30,7 +30,6 @@ const Infos = ({title, infoList=[]}) => {
             justifyContent: "space-between",
           }}
         >
-          {infoList.map((info) => (
             <View
               style={{
                 // alignItems: "center",
@@ -38,15 +37,30 @@ const Infos = ({title, infoList=[]}) => {
               }}
             >
               <View style={{ flexDirection: "row",alignItems:"center" }}>
-                <Image source={info.icon} resizeMode={'contain'}/>
-                <CustomText color={colors.primary} marginLeft={3} >{info.title}</CustomText>
+                <Image source={icon} resizeMode={'contain'}/>
+                <CustomText color={colors.primary} marginLeft={3} >{label}</CustomText>
               </View>
               <CustomText marginTop={5} marginLeft={15}>
-                {info.label}
+                {name}
               </CustomText>
               <Spacer height={20} />
             </View>
-          ))}
+
+            <View
+              style={{
+                // alignItems: "center",
+                width: Dimensions.get("window").width / 2.5,
+              }}
+            >
+              <View style={{ flexDirection: "row",alignItems:"center" }}>
+                <Image source={icon1} resizeMode={'contain'}/>
+                <CustomText color={colors.primary} marginLeft={3} >{label1}</CustomText>
+              </View>
+              <CustomText marginTop={5} marginLeft={15}>
+                {name1}
+              </CustomText>
+              <Spacer height={20} />
+            </View>
         </View>
       </View>
     </>

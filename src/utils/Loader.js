@@ -14,6 +14,7 @@ const Loader = ({ loading, file }) => {
         width: "100%",
       }}
     >
+      
       <LottieView
         style={{ height: 150 }}
         source={file}

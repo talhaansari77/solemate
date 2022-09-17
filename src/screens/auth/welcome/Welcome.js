@@ -1,5 +1,5 @@
 import { View, Text, Image, ImageBackground, SafeAreaView } from "react-native";
-import React from "react";
+import React,{useState,useEffect} from "react";
 import CustomText from "../../../components/CustomText";
 import CustomButton from "../../../components/CustomButton";
 import welcomeImages from "../../../../assets/welocme_images";
@@ -10,6 +10,7 @@ import { colors } from "../../../utils/Colors";
 import CustomGradientButton from "../../../components/CustomGradientButton";
 
 const Welcome = ({navigation}) => {
+
   return (
     <View style={commonStyles.commonMain}>
       <ImageBackground
@@ -67,6 +68,7 @@ const Welcome = ({navigation}) => {
         </View>
       </ImageBackground>
     </View>
+   
   );
 };
 

@@ -1,9 +1,10 @@
 import { View, ScrollView, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BlurView } from "expo-blur";
 import { colors } from "../../../utils/Colors";
 import styled from "react-native-styled-components";
 import { moderateScale, scale, verticalScale } from "react-native-size-matters";
+import moment from "moment";
 
 import profileImages from "../../../../assets/Profile_images";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
@@ -20,7 +21,8 @@ import FavFoodText from "./molecules/FavFoodText";
 import ActionBtn from "./molecules/ActionBtn";
 import GetAppBtn from "./molecules/GetAppBtn";
 import icons from "../../../../assets/icons";
-
+import { getAuthId, getSpecificeUser } from "../../../services/FirebaseAuth";
+import Loader from "../../../utils/Loader";
 const traits = [
   { id: 1, trait: "Gamer" },
   { id: 2, trait: "Lover" },
@@ -70,63 +72,118 @@ const expectation = [
   { id: 7, title: "Drinking", label: "5'6", icon: icons.drink },
   { id: 8, title: "Smoking", label: "English", icon: icons.smoking },
 ];
-const Profile = ({ navigation, actions = true, getApp = true }) => {
+const Profile = ({ navigation, actions = false, getApp = false }) => {
+  const [authID, setAuthID] = useState("");
+  const [authData, setAuthData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  console.log("authData", authData?.images?.[0]);
+
+  var a = moment();
+  var b = moment(authData.dob, "YYYY");
+  var age = a.diff(b, "years");
+
+  useEffect(() => {
+    getAuthData();
+  }, []);
+
+  const getAuthData = async () => {
+    setLoading(true);
+    await getAuthId().then((id) => {
+      setAuthID(id);
+
+      getSpecificeUser(id).then((data) => {
+        setAuthData(data);
+        setLoading(false);
+      });
+    });
+  };
   return (
-    <View
-      style={{
-        paddingVertical: verticalScale(25),
-        paddingBottom: 0,
-        flex: 1,
-      }}
-    >
-      {/* Actions */}
-      <ActionBtn actions={actions} />
+    <View style={{ flex: 1 }}>
+      <View
+        style={{
+          paddingVertical: verticalScale(25),
+          paddingBottom: 0,
+          flex: 1,
+        }}
+      >
+        {/* Actions */}
+        <ActionBtn actions={actions} />
 
-      {/* Get The App */}
+        {/* Get The App */}
 
-      <GetAppBtn getApp={getApp} />
+        <GetAppBtn getApp={getApp} />
 
-      <Header navigation={navigation} />
+        <Header navigation={navigation} />
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <BlurView intensity={getApp ? 80 : 0}>
-          <ProfileImage src={profileImages.reportImage} />
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <BlurView intensity={getApp ? 80 : 0}>
+            <ProfileImage
+              showName
+              name={authData?.firstName}
+              age={age}
+              location={authData?.location}
+              src={{ uri: authData?.images?.[0] }}
+              loading={loading}
+            />
 
-          {/* About Me */}
-          <AboutMeText />
-          <Divider />
-          {/* Ice Break Question*/}
-          <IceBreakQ />
-          <Divider />
-          <ProfileImage src={profileImages.prettyFace} showName={false} />
-          {/* Tags */}
-          <ProfileTags title={"Personality"} tagsList={traits} />
-          <Divider />
-          {/* info */}
-          <Infos title={"Basic Info"} infoList={basicInfo} />
-          {/*ProfileImage*/}
-          <ProfileImage src={profileImages.prettyFace} showName={false} />
-          {/* favorite food */}
-          <FavFoodText />
-          <Divider />
-          {/* Education and Career */}
-          <Infos title={"Education and Career"} infoList={education} />
+            {/* About Me */}
+            <AboutMeText aboutMe={authData?.aboutMe} />
+            <Divider />
+            {/* Ice Break Question*/}
+            <IceBreakQ />
+            <Divider />
+            <ProfileImage
+              src={{ uri: authData?.images?.[2] }}
+              loading={loading}
+            />
+            {/* Tags */}
+            <ProfileTags title={"Personality"} data={authData?.personality} />
+            <Divider />
+            {/* info */}
+            <Infos
+              title={"Basic Info"}
+              icon={icons.location}
+              icon1={icons.location}
 
-          {/* ProfileImage */}
-          <ProfileImage src={profileImages.prettyFace} showName={false} />
+              label={"Current Location"}
+              label1={"Family Origin"}
 
-          {/* Religiousness */}
-          <Infos title={"Religiousness"} infoList={religiousness} />
+              name={authData?.location}
+              name1={authData?.location}
 
-          <Divider />
-          {/* Characteristics */}
-          <ProfileTags title={"Characteristics"} tagsList={traits} />
-          <Divider />
-          {/* Partner Expectation */}
-          <Infos title={"Partner Expectation "} infoList={expectation} />
-        </BlurView>
-        {/* End */}
-      </ScrollView>
+              infoList={basicInfo}
+            />
+            {/*ProfileImage*/}
+            <ProfileImage src={profileImages.prettyFace} showName={false} />
+            {/* favorite food */}
+            <FavFoodText />
+            <Divider />
+            {/* Education and Career */}
+            <Infos title={"Education and Career"} infoList={education} />
+
+            {/* ProfileImage */}
+            <ProfileImage src={profileImages.prettyFace} showName={false} />
+
+            {/* Religiousness */}
+            <Infos title={"Religiousness"} infoList={religiousness} />
+
+            <Divider />
+            {/* Characteristics */}
+            <ProfileTags title={"Characteristics"} tagsList={traits} />
+            <Divider />
+            {/* Partner Expectation */}
+            <Infos title={"Partner Expectation "} infoList={expectation} />
+          </BlurView>
+          {/* End */}
+        </ScrollView>
+      </View>
+
+      {/* loading={loading}
+        file={require("../../../../assets/loaders/loader1.json")} */}
+      {/* <Loader 
+    loading={loading}
+    file={require( "../../../../assets/loader/heartLoading.json")}/> */}
     </View>
   );
 };

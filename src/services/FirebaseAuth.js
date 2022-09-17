@@ -51,6 +51,35 @@ export const SignupEmailPassword = async (email, password) => {
       // console.log("upload error", error);
     }
   };
+  export const getSpecificeUser = async (userId) => {
+    try {
+      const user = await firestore.collection("users").doc(userId).get();
+      return user.data();
+    } catch (error) {
+      // console.log('getUser line 51', error);
+      throw error;
+    }
+  };
+
+  // export const getUser = (setAuthData, authId,) => {
+  //   try {
+  //     return firestore.collection("users").onSnapshot((querySnap) => {
+  //       const announcements = [];
+  //       querySnap.forEach((announcement) => {
+  //         let temp = announcement.data();
+  //         console.log("tempData",temp)
+  //         if (temp.id != authId) {
+  //           setAuthData(announcements);
+
+         
+  //         }
+  
+  //       });
+  //     });
+  //   } catch (error) {
+  //     console.log("user error", error);
+  //   }
+  // };
 
   export const getAuthId = async () => await AsyncStorage.getItem("userAuth");
 

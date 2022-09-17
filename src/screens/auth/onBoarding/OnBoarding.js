@@ -1,5 +1,12 @@
-import { StyleSheet, Text, View, SafeAreaView, Image,TouchableOpacity } from "react-native";
-import React, { useRef, useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  Image,
+  TouchableOpacity,
+} from "react-native";
+import React, { useRef, useState, useEffect } from "react";
 import OnBoardContainer from "./OnBoardContainer";
 import AppIntroSlider from "react-native-app-intro-slider";
 import welcomeImages from "../../../../assets/welocme_images";
@@ -10,6 +17,8 @@ import CustomText from "../../../components/CustomText";
 import { Spacer } from "../../../components/Spacer";
 import CustomButton from "../../../components/CustomButton";
 import CustomGradientButton from "../../../components/CustomGradientButton";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 const OnBoardingData = [
   {
     id: 0,
@@ -18,7 +27,6 @@ const OnBoardingData = [
     privacy: "privacy policy",
     regarding: "policy regarding",
     text2: " before registering.",
-
 
     image: welcomeImages.friendspurple,
     // backgroundColor: "#59b2ab",
@@ -51,6 +59,19 @@ const OnBoarding = ({ navigation }) => {
   const [page, setPage] = useState(0);
 
   const ref = useRef(null);
+  const [isAuth, setIsAuth] = useState(true);
+  useEffect(() => {
+    (async function () {
+      const user = await AsyncStorage.getItem("userAuth");
+      if (user) {
+        navigation.reset({
+          index: 0,
+          routes: [{ name: "MainStack" }],
+        });
+      }
+      setIsAuth(true);
+    })();
+  }, []);
 
   const moveForward = () => {
     if (page + 1 <= 2) {
@@ -61,7 +82,7 @@ const OnBoarding = ({ navigation }) => {
     }
   };
 
-  return (
+  return isAuth ? (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
       {/* <OnBoardContainer/> */}
       <AppIntroSlider
@@ -173,43 +194,43 @@ const OnBoarding = ({ navigation }) => {
                   }}
                 /> */}
 
-        <CustomGradientButton 
-          title="Next"
-          fontFamily="bold"
-          marginTop={verticalScale(12)}
-          height={verticalScale(45)}
-          onPress={() => {
-            if (page == 2) {
-              navigation.navigate("Welcome");
-            } else {
-              moveForward();
-            }
-          }}
-          />
-                <TouchableOpacity
-                activeOpacity={0.6}
-                style={{marginTop:10}}
-                onPress={()=>{
-                  navigation.navigate("Signup")
-
-                }}
-                >
-                <CustomText
-                  label="Skip"
+                <CustomGradientButton
+                  title="Next"
                   fontFamily="bold"
-                  color={colors.primary}
-                  // marginTop={20}
-                  fontSize={verticalScale(12)}
+                  marginTop={verticalScale(12)}
+                  height={verticalScale(45)}
+                  onPress={() => {
+                    if (page == 2) {
+                      navigation.navigate("Welcome");
+                    } else {
+                      moveForward();
+                    }
+                  }}
                 />
-
+                <TouchableOpacity
+                  activeOpacity={0.6}
+                  style={{ marginTop: 10 }}
+                  onPress={() => {
+                    navigation.navigate("Signup");
+                  }}
+                >
+                  <CustomText
+                    label="Skip"
+                    fontFamily="bold"
+                    color={colors.primary}
+                    // marginTop={20}
+                    fontSize={verticalScale(12)}
+                  />
                 </TouchableOpacity>
-               
               </View>
             </View>
           </>
         )}
       />
     </SafeAreaView>
+  ) : (
+    <></>
+    // <View style={{ flex: 1, backgroundColor: "#fff" }} />
   );
 };
 
